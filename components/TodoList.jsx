@@ -26,7 +26,12 @@ const TodoList = () => {
                 <button type="button" className={`btn btn-outline-primary ${filter === 'todo' ? 'active' : ''}`} onClick={() => handleFilterChange('todo')}>A faire</button>
                 <button type="button" className={`btn btn-outline-primary ${filter === 'done' ? 'active' : ''}`} onClick={() => handleFilterChange('done')}>Faites</button>
             </div>
-            <ul className="list-group list-group-custom">
+            <ul className="list-group list-group-custom" style={{ 
+                '--bs-list-group-bg': '#395886', 
+                '--bs-list-group-border-width': '2px', 
+                '--bs-list-group-border-color': '#8AAEE0', 
+                '--bs-list-group-color': '#fff' 
+            }}>
                 {todos.map(todo => (
                     <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
                 ))}
