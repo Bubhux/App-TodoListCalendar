@@ -86,6 +86,18 @@ h1.text-center {
     border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
 }
 
+.btn-outline-primary {
+    --bs-btn-color: #8AAEE0;
+    --bs-btn-border-color: #8AAEE0;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #395886;
+    --bs-btn-hover-border-color: #032030;
+}
+
+.btn-group-custom {
+    border-radius: var(--bs-border-radius);
+}
+
 .container {
     text-align: left;
 }

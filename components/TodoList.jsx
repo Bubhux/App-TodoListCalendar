@@ -19,14 +19,26 @@ const TodoList = () => {
         <div className="container pt-5" id="todolist">
             <form onSubmit={handleSubmit} className="d-flex pb-4">
                 <input required className="form-control" type="text" placeholder="Créer une note ..." name="title" />
-                <button className="btn btn-primary ms-2 btn-custom">Ajouter</button>
+                <button className="btn btn-primary ms-2 btn-custom" style={{
+                    '--bs-btn-hover-bg': '#032030',
+                    '--bs-btn-bg': '#395886',
+                    '--bs-btn-border-color': '#8AAEE0',}}>Ajouter</button>
             </form>
-            <div className="btn-group mb-4" role="group">
-                <button type="button" className={`btn btn-outline-primary ${filter === 'all' ? 'active' : ''}`} onClick={() => handleFilterChange('all')}>Toutes</button>
-                <button type="button" className={`btn btn-outline-primary ${filter === 'todo' ? 'active' : ''}`} onClick={() => handleFilterChange('todo')}>A faire</button>
-                <button type="button" className={`btn btn-outline-primary ${filter === 'done' ? 'active' : ''}`} onClick={() => handleFilterChange('done')}>Faites</button>
+            <div className="btn-group mb-4 gap-1" role="group">
+                <button type="button" className={`btn btn-outline-primary ${filter === 'all' ? 'active' : ''}`} onClick={() => handleFilterChange('all')} style={{
+                    '--bs-btn-active-bg': '#395886',
+                    '--bs-btn-active-border-color': '#8AAEE0',
+                    'border-radius': 'var(--bs-border-radius)'}}>Toutes</button>
+                <button type="button" className={`btn btn-outline-primary ${filter === 'todo' ? 'active' : ''}`} onClick={() => handleFilterChange('todo')} style={{
+                    '--bs-btn-active-bg': '#395886',
+                    '--bs-btn-active-border-color': '#8AAEE0',
+                    'border-radius': 'var(--bs-border-radius)'}}>À faire</button>
+                <button type="button" className={`btn btn-outline-primary ${filter === 'done' ? 'active' : ''}`} onClick={() => handleFilterChange('done')} style={{
+                    '--bs-btn-active-bg': '#395886',
+                    '--bs-btn-active-border-color': '#8AAEE0',
+                    'border-radius': 'var(--bs-border-radius)'}}>Faites</button>
             </div>
-            <ul className="list-group list-group-custom" style={{ 
+            <ul className="list-group list-group-custom"style={{ 
                 '--bs-list-group-bg': '#395886', 
                 '--bs-list-group-border-width': '2px', 
                 '--bs-list-group-border-color': '#8AAEE0', 
