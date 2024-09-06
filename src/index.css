@@ -1,12 +1,104 @@
+
+
+/*:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #535bf2;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+button:hover {
+    border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}*/
+
+:root {
+    /* Button variables */
+    --bs-btn-bg: #395886;
+    --bs-btn-hover-bg: #395886;
+    --bs-btn-border-color: #8AAEE0;
+    --bs-btn-hover-border-color: #395886;
+    --bs-btn-hover-border-color: #395886;
+
+    /* List group variables */
+    --bs-list-group-bg: #395886;
+    --bs-list-group-border-width: 2px;
+    --bs-list-group-border-color: #8AAEE0;
+    --bs-list-group-color: #fff;
+
+    /* Outline primary button variables */
+    --bs-btn-color: #8AAEE0;
+    --bs-btn-hover-color: #fff;
+    --bs-border-radius: 4px;
+
+    /* Active button variables */
+    --bs-btn-active-bg: #395886;
+    --bs-btn-active-border-color: #395886;
+
+    /* General colors */
+    --main-heading-color: #8AAEE0;
+    --body-bg-start: rgba(3, 32, 48, 1);
+    --body-bg-middle: rgba(2, 43, 66, 1);
+    --body-bg-end: rgba(0, 53, 84, 1);
+}
+
+
 /* Background gradient for the body */
 body {
     background: rgb(3, 32, 48);
-    background: linear-gradient(90deg, rgba(3, 32, 48, 1) 0%, rgba(2, 43, 66, 1) 40%, rgba(0, 53, 84, 1) 80%);
+    background: linear-gradient(90deg, var(--body-bg-start) 0%, var(--body-bg-middle) 40%, var(--body-bg-end) 80%);
 }
 
 /* Styles for the main heading */
 h1.text-center {
-    color: #8AAEE0;
+    color: var(--main-heading-color);
     margin-top: 20px;
 }
 
@@ -16,26 +108,25 @@ h1.text-center {
     display: none !important;
 }
 
+.btn-primary {
+    --bs-btn-bg: rgba(57, 88, 134, 0);
+}
+
 /* Custom button styles */
 .btn-custom {
     --bs-btn-hover-bg: #395886;
-    --bs-btn-bg: ##395886;
-    --bs-btn-border-color: #8AAEE0;
     --bs-btn-hover-border-color: #395886;
-    background-color: var(--bs-btn-bg);
-    border-color: var(--bs-btn-border-color);
+    border-color: var(--bs-btn-hover-border-color);
+    border-radius: var(--bs-border-radius);
 }
 
 .btn-custom:hover {
     background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
 }
 
 /* Custom styles for list group */
 .list-group-custom {
-    --bs-list-group-bg: #395886;
-    --bs-list-group-border-width: 2px;
-    --bs-list-group-border-color: #8AAEE0;
-    --bs-list-group-color: #fff;
     background-color: var(--bs-list-group-bg);
     border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
     color: var(--bs-list-group-color);
@@ -43,19 +134,23 @@ h1.text-center {
 
 /* Custom styles for outline primary button */
 .btn-outline-primary {
-    --bs-btn-color: #8AAEE0;
-    --bs-btn-border-color: #8AAEE0;
-    --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: #395886;
     --bs-btn-hover-border-color: #395886;
-    border-radius: var(--bs-border-radius, 4px);
-    color: var(--bs-btn-color);
-    border-color: var(--bs-btn-border-color);
+    border-color: var(--bs-btn-hover-border-color);
+    border-radius: var(--bs-border-radius);
+    color: var(--bs-list-group-color);
 }
 
+.btn-outline-primary:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
+}
+
+/* Active button styles */
 .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
-    background-color: #395886;
-    border-color: #395886;
+    --bs-btn-active-bg: #395886;
+    --bs-btn-active-border-color: #395886;
 }
 
 /* Left-align the container */
