@@ -1,20 +1,11 @@
+// hooks/useTodos.js
 import { useState, useEffect } from 'react';
+import useLocalStorage from './useLocalStorage.js';
 
 
 const useTodos = () => {
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useLocalStorage('todos', []);
     const [filter, setFilter] = useState('all');
-
-    useEffect(() => {
-        const storedTodos = localStorage.getItem('todos');
-        if (storedTodos) {
-            setTodos(JSON.parse(storedTodos));
-        }
-    }, []);
-
-    useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify(todos));
-    }, [todos]);
 
     const addTodo = (title) => {
         const newTodo = { id: Date.now(), title, completed: false };
@@ -22,9 +13,11 @@ const useTodos = () => {
     };
 
     const toggleTodo = (id) => {
-        setTodos(todos.map(todo =>
-            todo.id === id ? { ...todo, completed: !todo.completed } : todo
-        ));
+        setTodos(
+            todos.map(todo =>
+                todo.id === id ? { ...todo, completed: !todo.completed } : todo
+            )
+        );
     };
 
     const deleteTodo = (id) => {
