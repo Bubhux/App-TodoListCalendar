@@ -1,4 +1,4 @@
-// src/components/TodoItem.jsx
+// components/TodoItem.jsx
 import React from 'react';
 
 

@@ -59,16 +59,16 @@ button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }*/
 
+/*// src/index.css */
 :root {
     /* Button variables */
     --bs-btn-bg: #395886;
     --bs-btn-hover-bg: #395886;
     --bs-btn-border-color: #8AAEE0;
     --bs-btn-hover-border-color: #395886;
-    --bs-btn-hover-border-color: #395886;
 
     /* List group variables */
-    --bs-list-group-bg: #395886;
+    --bs-list-group-bg: #8AAEE0;
     --bs-list-group-border-width: 2px;
     --bs-list-group-border-color: #8AAEE0;
     --bs-list-group-color: #fff;
@@ -127,6 +127,7 @@ h1.text-center {
 
 /* Custom styles for list group */
 .list-group-custom {
+    --bs-list-group-bg: #8AAEE0;
     background-color: var(--bs-list-group-bg);
     border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
     color: var(--bs-list-group-color);
