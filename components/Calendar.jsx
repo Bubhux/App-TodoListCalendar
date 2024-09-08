@@ -13,7 +13,9 @@ const Calendar = () => {
         generateCalendarDays,
         showMonthList,
         toggleMonthList,
-        handleMonthSelect
+        handleMonthSelect,
+        monthNames,
+        setCurrentYear
     } = useCalendar();
 
     const [dateTimeFormatClass, setDateTimeFormatClass] = useState('showtime');
@@ -29,13 +31,11 @@ const Calendar = () => {
 
     useEffect(() => {
         if (showMonthList) {
-            // When month-list is visible
             setDateTimeFormatClass('hideTime');
             setDayTextFormatClass('hideTime');
             setTimeFormatClass('hideTime');
             setDateFormatClass('hideTime');
         } else {
-            // When month-list is hidden
             setDateTimeFormatClass('showtime');
             setDayTextFormatClass('showtime');
             setTimeFormatClass('showtime');
@@ -45,7 +45,13 @@ const Calendar = () => {
 
     return (
         <div className="calendar">
-            <CalendarHeader onMonthPickerClick={handleMonthPickerClick} />
+            <CalendarHeader
+                onMonthPickerClick={handleMonthPickerClick}
+                currentMonth={currentMonth}
+                currentYear={currentYear}
+                monthNames={monthNames}
+                setCurrentYear={setCurrentYear}
+            />
             <CalendarBody days={days} />
             <DateTimeFormat
                 dateTimeFormatClass={dateTimeFormatClass}
@@ -53,9 +59,8 @@ const Calendar = () => {
                 dateFormatClass={dateFormatClass}
                 dayTextFormatClass={dayTextFormatClass}
             />
-
             <div className={`month-list ${showMonthList ? 'show' : 'hide'}`}>
-                {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map((month, index) => (
+                {monthNames.map((month, index) => (
                     <div key={index} onClick={() => handleMonthSelect(index)}>
                         {month}
                     </div>

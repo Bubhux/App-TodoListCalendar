@@ -366,7 +366,7 @@ html, body {
 .month-list > div {
     display: grid;
     place-content: center;
-    margin: 5px 10px;
+    margin: 5px 5px;
     transition: all 0.2s ease-in-out;
     /*max-width: 70px; /* Définir une largeur maximale pour les colonnes */
     padding: 5px; /* Ajuster le padding pour mieux contenir le texte */
