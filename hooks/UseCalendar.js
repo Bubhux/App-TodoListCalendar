@@ -2,9 +2,13 @@
 import { useState, useEffect } from 'react';
 
 
-const isLeapYear = (year) => (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0));
+const isLeapYear = (year) => {
+    return (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0));
+};
 
-const getFebDays = (year) => isLeapYear(year) ? 29 : 28;
+const getFebDays = (year) => {
+    return isLeapYear(year) ? 29 : 28;
+};
 
 const useCalendar = () => {
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
@@ -16,11 +20,13 @@ const useCalendar = () => {
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
 
-    const toggleMonthList = () => setShowMonthList(prev => !prev);
+    const toggleMonthList = () => {
+        setShowMonthList(prevState => !prevState);
+    };
 
     const handleMonthSelect = (month) => {
         setCurrentMonth(month);
-        setShowMonthList(false); // Fermer la liste des mois
+        setShowMonthList(false); // Ferme la liste des mois après la sélection
     };
 
     const generateCalendarDays = (month, year) => {
@@ -50,10 +56,6 @@ const useCalendar = () => {
 
         return days;
     };
-
-    useEffect(() => {
-        generateCalendarDays(currentMonth, currentYear);
-    }, [currentMonth, currentYear]);
 
     return {
         currentMonth,

@@ -1,11 +1,8 @@
 // components/CalendarHeader.jsx
 import React from 'react';
-import useCalendar from '../hooks/UseCalendar.js';
 
 
-const CalendarHeader = ({ onMonthPickerClick }) => {
-    const { currentMonth, currentYear, setCurrentYear, monthNames } = useCalendar();
-
+const CalendarHeader = ({ onMonthPickerClick, currentMonth, currentYear, monthNames, setCurrentYear }) => {
     return (
         <div className="calendar-header">
             <span
