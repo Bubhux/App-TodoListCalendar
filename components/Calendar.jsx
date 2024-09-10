@@ -6,6 +6,13 @@ import DateTimeFormat from './DateTimeFormat.jsx';
 import useCalendar from '../hooks/UseCalendar.js';
 
 
+/**
+ * Composant principal du calendrier.
+ * Affiche l'en-tête du calendrier, le corps du calendrier avec les jours, 
+ * le format de la date et de l'heure, et la liste des mois.
+ * 
+ * @component
+ */
 const Calendar = () => {
     const {
         currentMonth,
@@ -16,32 +23,35 @@ const Calendar = () => {
         handleMonthSelect,
         monthNames,
         setCurrentYear
-    } = useCalendar();
+    } = useCalendar()
 
-    const [dateTimeFormatClass, setDateTimeFormatClass] = useState('showtime');
-    const [dayTextFormatClass, setDayTextFormatClass] = useState('showtime');
-    const [timeFormatClass, setTimeFormatClass] = useState('showtime');
-    const [dateFormatClass, setDateFormatClass] = useState('showtime');
+    const [dateTimeFormatClass, setDateTimeFormatClass] = useState('showtime')
+    const [dayTextFormatClass, setDayTextFormatClass] = useState('showtime')
+    const [timeFormatClass, setTimeFormatClass] = useState('showtime')
+    const [dateFormatClass, setDateFormatClass] = useState('showtime')
 
-    const days = generateCalendarDays(currentMonth, currentYear);
+    // Génère les jours du calendrier pour le mois et l'année courants
+    const days = generateCalendarDays(currentMonth, currentYear)
 
+    // Gère le clic sur le sélecteur de mois
     const handleMonthPickerClick = () => {
-        toggleMonthList();
-    };
+        toggleMonthList()
+    }
 
+    // Effet pour gérer l'affichage et le masquage de la liste des mois
     useEffect(() => {
         if (showMonthList) {
-            setDateTimeFormatClass('hideTime');
-            setDayTextFormatClass('hideTime');
-            setTimeFormatClass('hideTime');
-            setDateFormatClass('hideTime');
+            setDateTimeFormatClass('hideTime')
+            setDayTextFormatClass('hideTime')
+            setTimeFormatClass('hideTime')
+            setDateFormatClass('hideTime')
         } else {
-            setDateTimeFormatClass('showtime');
-            setDayTextFormatClass('showtime');
-            setTimeFormatClass('showtime');
-            setDateFormatClass('showtime');
+            setDateTimeFormatClass('showtime')
+            setDayTextFormatClass('showtime')
+            setTimeFormatClass('showtime')
+            setDateFormatClass('showtime')
         }
-    }, [showMonthList]);
+    }, [showMonthList])
 
     return (
         <div className="calendar">
@@ -61,13 +71,17 @@ const Calendar = () => {
             />
             <div className={`month-list ${showMonthList ? 'show' : 'hide'}`}>
                 {monthNames.map((month, index) => (
-                    <div key={index} onClick={() => handleMonthSelect(index)}>
+                    <div
+                        key={index}
+                        className={index === currentMonth ? 'active' : ''}
+                        onClick={() => handleMonthSelect(index)}
+                    >
                         {month}
                     </div>
                 ))}
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default Calendar;
