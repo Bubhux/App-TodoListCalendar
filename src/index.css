@@ -404,6 +404,13 @@ html, body {
     pointer-events: none;
 }
 
+.month-list div.active {
+    font-weight: bold;
+    background-color: #886ade;
+    border-radius: 10px;
+    color: var(--light-hover);
+}
+
 .date-time-formate {
     border-radius: 15px;
     border: .2rem solid #9796f0;

@@ -2,41 +2,60 @@
 import { useState, useEffect } from 'react';
 
 
+/**
+ * Hook personnalisé pour gérer et formater la date et l'heure actuelles.
+ *
+ * @returns {Object} Objet contenant les propriétés suivantes :
+ * - `currentDateFormatted` : Date actuelle formatée sous forme de chaîne.
+ * - `timeFormatted` : Heure actuelle formatée sous forme de chaîne.
+ */
 const useDateTime = () => {
-    const [currentDateFormatted, setCurrentDateFormatted] = useState('');
-    const [timeFormatted, setTimeFormatted] = useState('');
+    // État pour stocker la date formatée actuelle
+    const [currentDateFormatted, setCurrentDateFormatted] = useState('')
+    // État pour stocker l'heure formatée actuelle
+    const [timeFormatted, setTimeFormatted] = useState('')
 
     useEffect(() => {
+        /**
+         * Met à jour la date et l'heure formatées.
+         */
         const updateDateTime = () => {
-            const now = new Date();
+            const now = new Date()
             
+            // Options pour le formatage de la date
             const dateOptions = {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
                 weekday: 'long'
-            };
+            }
 
+            // Options pour le formatage de l'heure
             const timeOptions = {
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit'
-            };
+            }
 
-            setCurrentDateFormatted(now.toLocaleDateString('en-US', dateOptions));
-            setTimeFormatted(now.toLocaleTimeString('en-US', timeOptions));
-        };
+            // Mise à jour de la date formatée
+            setCurrentDateFormatted(now.toLocaleDateString('en-US', dateOptions))
+            // Mise à jour de l'heure formatée
+            setTimeFormatted(now.toLocaleTimeString('en-US', timeOptions))
+        }
 
-        updateDateTime(); // Initial call to set the values immediately
-        const intervalId = setInterval(updateDateTime, 1000); // Update every second
+        // Appel initial pour définir les valeurs immédiatement
+        updateDateTime();
+        // Mise à jour chaque seconde
+        const intervalId = setInterval(updateDateTime, 1000)
 
-        return () => clearInterval(intervalId); // Cleanup on component unmount
-    }, []);
+        // Nettoyage : suppression de l'intervalle lorsque le composant est démonté
+        return () => clearInterval(intervalId)
+    }, []) // Le tableau de dépendances est vide pour exécuter l'effet uniquement au montage
 
     return {
         currentDateFormatted,
         timeFormatted
-    };
-};
+    }
+}
 
 export default useDateTime;
