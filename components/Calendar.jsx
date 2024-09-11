@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import CalendarHeader from './CalendarHeader.jsx';
 import CalendarBody from './CalendarBody.jsx';
 import DateTimeFormat from './DateTimeFormat.jsx';
-import useCalendar from '../hooks/UseCalendar.js';
+import useCalendar from '../hooks/useCalendar.js';
 
 
 /**
