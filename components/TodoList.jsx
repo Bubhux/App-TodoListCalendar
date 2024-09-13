@@ -29,7 +29,7 @@ const TodoList = () => {
     };
 
     return (
-        <div className="container pt-5" id="todolist">
+        <div className="todo-container pt-5" id="todolist">
             <form onSubmit={handleSubmit} className="d-flex pb-4">
                 <input required className="form-control" type="text" placeholder="Créer une note ..." name="title" />
                 <button className="btn btn-primary ms-2 btn-custom">Ajouter</button>
