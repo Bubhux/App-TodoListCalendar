@@ -101,30 +101,30 @@ button:focus-visible {
     --font-family: consolas;
 }
 
-
-/* Background gradient for the body */
+/* Dégradé de fond pour le corps */
 body {
     background: rgb(3, 32, 48);
     background: linear-gradient(90deg, var(--body-bg-start) 0%, var(--body-bg-middle) 40%, var(--body-bg-end) 80%);
 }
 
-/* Styles for the main heading */
+/* Styles pour le titre principal */
 h1.text-center {
     color: var(--main-heading-color);
     margin-top: 20px;
 }
 
-/* Hide completed or todo items based on filter */
+/* Cacher les éléments terminés ou à faire en fonction du filtre */
 .hide-completed .is-completed,
 .hide-todo .todo:not(.is-completed) {
     display: none !important;
 }
 
+/* Style de base pour le bouton primaire */
 .btn-primary {
     --bs-btn-bg: rgba(57, 88, 134, 0);
 }
 
-/* Custom button styles */
+/* Styles personnalisés pour les boutons */
 .btn-custom {
     --bs-btn-hover-bg: #395886;
     --bs-btn-hover-border-color: #395886;
@@ -137,7 +137,7 @@ h1.text-center {
     border-color: var(--bs-btn-hover-border-color);
 }
 
-/* Custom styles for list group */
+/* Styles personnalisés pour le groupe de liste */
 .list-group-custom {
     --bs-list-group-bg: #8AAEE0;
     background-color: var(--bs-list-group-bg);
@@ -145,7 +145,7 @@ h1.text-center {
     color: var(--bs-list-group-color);
 }
 
-/* Custom styles for outline primary button */
+/* Styles personnalisés pour les boutons outline primary */
 .btn-outline-primary {
     --bs-btn-hover-bg: #395886;
     --bs-btn-hover-border-color: #395886;
@@ -160,18 +160,18 @@ h1.text-center {
     border-color: var(--bs-btn-hover-border-color);
 }
 
-/* Active button styles */
+/* Styles pour les boutons actifs */
 .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
     --bs-btn-active-bg: #395886;
     --bs-btn-active-border-color: #395886;
 }
 
-/* Left-align the container */
+/* Alignement à gauche du conteneur */
 .container {
     text-align: left;
 }
 
-/* Light mode styles */
+/* Styles pour le mode clair */
 @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
@@ -186,6 +186,7 @@ h1.text-center {
         background-color: #f9f9f9;
     }
 }
+
 
 
 
@@ -208,18 +209,26 @@ html, body {
     height: 100%;
 }
 
-.container {
-    width: max-content;
-    height: max-content;
-    position: relative;
-    /*display: flex;
-    padding: 2% 0px 0px 0px; /* Anciennes propriétés de padding */
-    justify-content: center;
-    /* padding-top: 5%; */
-    padding-bottom: 5%;
-    right: 0%;
-    width: 100%;
+.app-container {
+    padding: 20px;
 }
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Distribue l'espace libre entre les items */
+    align-items: flex-start; /* Aligne les items au début de la ligne */
+}
+
+.todo-container {
+    flex: 1; /* Prend plus d'espace */
+    margin-right: 20px; /* Espace entre les deux containers */
+}
+
+.calendar-container {
+    flex: 1; /* Prend moins d'espace */
+    max-width: 0%; /* Ajuste la largeur si nécessaire */
+}
+
 
 .calendar {
     width: 400px;
