@@ -188,8 +188,6 @@ h1.text-center {
 }
 
 
-
-
 /* Style Calendar */
 * {
     padding: 0;
@@ -476,6 +474,45 @@ html, body {
 .date-time-value.showtime,
 .date-time-formate.showtime {
     animation: showtime 1s forwards;
+}
+
+.reveal-loaded .reveal [class*="reveal-"] {
+    opacity: 0 !important;
+    transform: translateY(-30px);
+    transition: 0s !important;
+}
+
+.reveal-loaded [class*="reveal-"] {
+    transition: 1s cubic-bezier(.5, 0, 0, 1);
+}
+
+.reveal-loaded .reveal-1 {
+    transition-delay: .1s;
+}
+
+.reveal-loaded .reveal-2 {
+    transition-delay: .2s;
+}
+
+.reveal-loaded .reveal-3 {
+    transition-delay: .3s;
+}
+
+.reveal-loaded .reveal-4 {
+    transition-delay: .4s;
+    /*display: inline-block;*/
+    /*margin-left: 0px;*/
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal [class*="reveal-"] {
+        opacity: 1 !important;
+        transform: translateY(0px) !important;
+    }
+    [class*="reveal-"] {
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
 }
 
 @keyframes to-top {

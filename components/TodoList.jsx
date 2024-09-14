@@ -30,11 +30,11 @@ const TodoList = () => {
 
     return (
         <div className="todo-container pt-5" id="todolist">
-            <form onSubmit={handleSubmit} className="d-flex pb-4">
+            <form onSubmit={handleSubmit} className="d-flex pb-4 reveal-2">
                 <input required className="form-control" type="text" placeholder="Créer une note ..." name="title" />
                 <button className="btn btn-primary ms-2 btn-custom">Ajouter</button>
             </form>
-            <div className="btn-group mb-4 gap-1" role="group">
+            <div className="btn-group mb-4 gap-1 reveal-3" role="group">
                 <button 
                     type="button" 
                     className={`btn btn-outline-primary ${filter === 'all' ? 'active' : ''}`} 
@@ -54,7 +54,7 @@ const TodoList = () => {
                     Faites
                 </button>
             </div>
-            <ul className="list-group list-group-custom">
+            <ul className="list-group list-group-custom reveal-4">
                 {todos.map(todo => (
                     <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
                 ))}
