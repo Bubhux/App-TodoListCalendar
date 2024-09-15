@@ -10,7 +10,9 @@ const App = () => {
     return (
         <div className="app-container reveal">
             <ScrollAnimation />
-            <h1 className="text-center reveal-1">To-Do List application</h1>
+            <div className="logo-container">
+                <h1 className="text-center mb-5 reveal-1">To-Do List application</h1>
+            </div>
             <div className="container">
                 <div className="todo-container">
                     <TodoList />
@@ -24,4 +26,3 @@ const App = () => {
 }
 
 export default App;
-

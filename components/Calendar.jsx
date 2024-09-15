@@ -54,7 +54,7 @@ const Calendar = () => {
     }, [showMonthList])
 
     return (
-        <div className="calendar">
+        <div className="calendar reveal-1">
             <CalendarHeader
                 onMonthPickerClick={handleMonthPickerClick}
                 currentMonth={currentMonth}
