@@ -130,6 +130,7 @@ h1.text-center {
     --bs-btn-hover-border-color: #395886;
     border-color: var(--bs-btn-hover-border-color);
     border-radius: var(--bs-border-radius);
+    white-space: nowrap; /* Empêche le bouton de se briser en plusieurs lignes */
 }
 
 .btn-custom:hover {
@@ -207,6 +208,21 @@ html, body {
     height: 100%;
 }
 
+.logo-container {
+    border: .2rem solid #9796f0;
+    display: flex; /* Active Flexbox */
+    justify-content: center; /* Centre horizontalement */
+    align-items: baseline; /* Centre verticalement */
+    /*margin-bottom: 10px; /* Ajoute un espace en bas de chaque bloc */
+    padding: 10px; /* Ajoute du padding à l'intérieur de chaque bloc */
+    border-radius: 25px; /* Ajoute des bords arrondis à chaque bloc */
+    font-size: 2.2rem; /* Taille de la police */
+    max-width: 50%; /* Limite la largeur maximale pour le centrage */
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+    margin: 25px auto 20px; /* Centre l'élément horizontalement et ajoute un espace en bas */
+    height: 110px; /* Spécifie une hauteur pour le centrage vertical */
+}
+
 .app-container {
     padding: 20px;
 }
@@ -214,19 +230,22 @@ html, body {
 .container {
     display: flex;
     justify-content: space-between; /* Distribue l'espace libre entre les items */
-    align-items: flex-start; /* Aligne les items au début de la ligne */
+    /*align-items: flex-start; /* Aligne les items au début de la ligne */
+    border: .2rem solid #9796f0;
+    padding: 20px;
+    border-radius: 25px;
 }
 
 .todo-container {
-    flex: 1; /* Prend plus d'espace */
+    flex: 3; /* Prend plus d'espace */
     margin-right: 20px; /* Espace entre les deux containers */
+    
 }
 
 .calendar-container {
     flex: 1; /* Prend moins d'espace */
-    max-width: 0%; /* Ajuste la largeur si nécessaire */
+    /*max-width: 0%; /* Ajuste la largeur si nécessaire */
 }
-
 
 .calendar {
     width: 400px;
@@ -438,7 +457,7 @@ html, body {
     font-family: Microsoft JhengHei UI;
     font-size: 1.4rem;
     padding-right: 5%;
-    border-right: 3px solid #d7d6e9;
+    border-right: 4px solid #d7d6e9;
     position: absolute;
     left: -1rem;
 }

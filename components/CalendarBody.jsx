@@ -12,16 +12,16 @@ import React from 'react';
  * @returns {JSX.Element} - Le composant affichant le corps du calendrier.
  */
 const CalendarBody = ({ days }) => (
-    <div className="calendar-body">
+    <div className="calendar-body reveal-3">
         {/* Affichage des jours de la semaine */}
         <div className="calendar-week-days">
-            <div>Dim</div> {/* Dimanche */}
-            <div>Lu</div> {/* Lundi */}
-            <div>Ma</div> {/* Mardi */}
-            <div>Me</div> {/* Mercredi */}
-            <div>Je</div> {/* Jeudi */}
-            <div>Ve</div> {/* Vendredi */}
-            <div>Sa</div> {/* Samedi */}
+            <div>Sun</div> {/* Dimanche */}
+            <div>Mon</div> {/* Lundi */}
+            <div>Tue</div> {/* Mardi */}
+            <div>Wed</div> {/* Mercredi */}
+            <div>Thu</div> {/* Jeudi */}
+            <div>Fri</div> {/* Vendredi */}
+            <div>Sat</div> {/* Samedi */}
         </div>
         {/* Affichage des jours du mois */}
         <div className="calendar-days">

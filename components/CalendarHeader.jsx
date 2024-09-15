@@ -16,7 +16,7 @@ import React from 'react';
  */
 const CalendarHeader = ({ onMonthPickerClick, currentMonth, currentYear, monthNames, setCurrentYear }) => {
     return (
-        <div className="calendar-header">
+        <div className="calendar-header reveal-2">
             <span
                 className="month-picker"
                 id="month-picker"
