@@ -11,7 +11,7 @@ const App = () => {
         <div className="app-container reveal">
             <ScrollAnimation />
             <div className="logo-container">
-                <h1 className="text-center mb-5 reveal-1">To-Do List application</h1>
+                <h1 className="text-center mb-5 reveal-4">To-Do List application</h1>
             </div>
             <div className="container">
                 <div className="todo-container">
