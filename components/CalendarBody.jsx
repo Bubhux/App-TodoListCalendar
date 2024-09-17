@@ -35,6 +35,6 @@ const CalendarBody = ({ days }) => (
             ))}
         </div>
     </div>
-);
+)
 
 export default CalendarBody;

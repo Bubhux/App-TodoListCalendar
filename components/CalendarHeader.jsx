@@ -34,7 +34,7 @@ const CalendarHeader = ({ onMonthPickerClick, currentMonth, currentYear, monthNa
                 <span className="year-change" id="next-year" onClick={() => setCurrentYear(prev => prev + 1)}>&gt;</span>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default CalendarHeader;
