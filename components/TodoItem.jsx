@@ -33,8 +33,7 @@ const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
                 <i className="bi-trash"></i>
             </button>
         </li>
-    );
-};
+    )
+}
 
 export default TodoItem;
-

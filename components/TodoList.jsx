@@ -12,7 +12,7 @@ import useTodos from '../hooks/useTodos.js';
  * @returns {JSX.Element} Le composant TodoList.
  */
 const TodoList = () => {
-    const { todos, addTodo, toggleTodo, deleteTodo, filter, handleFilterChange } = useTodos();
+    const { todos, addTodo, toggleTodo, deleteTodo, filter, handleFilterChange } = useTodos()
 
     /**
      * Gestionnaire de soumission du formulaire pour ajouter une nouvelle tâche.
@@ -21,12 +21,12 @@ const TodoList = () => {
      */
     const handleSubmit = (e) => {
         e.preventDefault();
-        const title = e.target.elements.title.value.trim();
+        const title = e.target.elements.title.value.trim()
         if (title) {
-            addTodo(title);
-            e.target.reset();
+            addTodo(title)
+            e.target.reset()
         }
-    };
+    }
 
     return (
         <div className="todo-container pt-5" id="todolist">
@@ -60,7 +60,7 @@ const TodoList = () => {
                 ))}
             </ul>
         </div>
-    );
-};
+    )
+}
 
 export default TodoList;

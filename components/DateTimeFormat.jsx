@@ -19,7 +19,7 @@ import useDateTime from '../hooks/useDateTime.js';
  */
 const DateTimeFormat = ({ dateTimeFormatClass, timeFormatClass, dateFormatClass, dayTextFormatClass }) => {
     // Utilise le hook `useDateTime` pour obtenir la date et l'heure formatées.
-    const { currentDateFormatted, timeFormatted } = useDateTime();
+    const { currentDateFormatted, timeFormatted } = useDateTime()
 
     return (
         <div className={`date-time-formate ${dateTimeFormatClass}`}>
@@ -32,7 +32,7 @@ const DateTimeFormat = ({ dateTimeFormatClass, timeFormatClass, dateFormatClass,
                 <div className={`date-formate ${dateFormatClass}`}>{currentDateFormatted}</div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default DateTimeFormat;

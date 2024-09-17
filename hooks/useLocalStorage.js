@@ -12,18 +12,18 @@ const useLocalStorage = (key, initialValue) => {
     // État pour stocker la valeur, initialisé à partir du localStorage ou de la valeur initiale
     const [storedValue, setStoredValue] = useState(() => {
         // Récupère l'élément dans le localStorage
-        const item = localStorage.getItem(key);
+        const item = localStorage.getItem(key)
         // Parse l'élément JSON ou utilise la valeur initiale
-        return item ? JSON.parse(item) : initialValue;
-    });
+        return item ? JSON.parse(item) : initialValue
+    })
 
     // Effet pour mettre à jour le localStorage chaque fois que la clé ou la valeur stockée change
     useEffect(() => {
-        localStorage.setItem(key, JSON.stringify(storedValue));
-    }, [key, storedValue]);
+        localStorage.setItem(key, JSON.stringify(storedValue))
+    }, [key, storedValue])
 
     // Retourne la valeur stockée et la fonction de mise à jour
-    return [storedValue, setStoredValue];
-};
+    return [storedValue, setStoredValue]
+}
 
 export default useLocalStorage;

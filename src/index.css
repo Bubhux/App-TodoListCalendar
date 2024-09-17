@@ -410,6 +410,7 @@ html, body {
     transform: scale(0.9);
     transition: all 0.2s ease-in-out;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .month-list.show {

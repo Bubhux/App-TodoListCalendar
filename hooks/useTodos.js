@@ -10,10 +10,10 @@ import useLocalStorage from './useLocalStorage.js';
  */
 const useTodos = () => {
     // State pour les tâches, initialisé à partir du localStorage
-    const [todos, setTodos] = useLocalStorage('todos', []);
+    const [todos, setTodos] = useLocalStorage('todos', [])
     
     // State pour le filtre actif (all, todo, done)
-    const [filter, setFilter] = useState('all');
+    const [filter, setFilter] = useState('all')
 
     /**
      * Ajoute une nouvelle tâche.
@@ -21,9 +21,9 @@ const useTodos = () => {
      * @param {string} title - Le titre de la nouvelle tâche.
      */
     const addTodo = (title) => {
-        const newTodo = { id: Date.now(), title, completed: false };
-        setTodos([...todos, newTodo]);
-    };
+        const newTodo = { id: Date.now(), title, completed: false }
+        setTodos([...todos, newTodo])
+    }
 
     /**
      * Bascule l'état de complétion d'une tâche.
@@ -35,8 +35,8 @@ const useTodos = () => {
             todos.map(todo =>
                 todo.id === id ? { ...todo, completed: !todo.completed } : todo
             )
-        );
-    };
+        )
+    }
 
     /**
      * Supprime une tâche.
@@ -44,8 +44,8 @@ const useTodos = () => {
      * @param {number} id - L'identifiant de la tâche à supprimer.
      */
     const deleteTodo = (id) => {
-        setTodos(todos.filter(todo => todo.id !== id));
-    };
+        setTodos(todos.filter(todo => todo.id !== id))
+    }
 
     /**
      * Change le filtre actif.
@@ -53,18 +53,18 @@ const useTodos = () => {
      * @param {string} filter - Le nouveau filtre ('all', 'todo', 'done').
      */
     const handleFilterChange = (filter) => {
-        setFilter(filter);
-    };
+        setFilter(filter)
+    }
 
     // Filtre les tâches en fonction du filtre actif
     const filteredTodos = todos.filter(todo => {
         if (filter === 'todo') {
-            return !todo.completed;
+            return !todo.completed
         } else if (filter === 'done') {
-            return todo.completed;
+            return todo.completed
         }
-        return true;
-    });
+        return true
+    })
 
     return {
         todos: filteredTodos,
@@ -73,7 +73,7 @@ const useTodos = () => {
         deleteTodo,
         filter,
         handleFilterChange
-    };
-};
+    }
+}
 
 export default useTodos;
