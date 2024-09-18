@@ -8,16 +8,16 @@ import './App.css';
 
 const App = () => {
     return (
-        <div className="app-container reveal">
+        <div className="app__container reveal">
             <ScrollAnimation />
-            <div className="logo-container">
+            <div className="logo__container">
                 <h1 className="text-center mb-5 reveal-4">To-Do List application</h1>
             </div>
             <div className="container">
-                <div className="todo-container">
+                <div className="todo__container">
                     <TodoList />
                 </div>
-                <div className="calendar-container">
+                <div className="calendar__container">
                     <Calendar />
                 </div>
             </div>

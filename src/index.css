@@ -1,5 +1,3 @@
-
-
 /*:root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -68,7 +66,7 @@ button:focus-visible {
     --bs-btn-hover-border-color: #395886;
 
     /* List group variables */
-    --bs-list-group-bg: #8AAEE0;
+    --bs-list-group-bg: #9796f0;
     --bs-list-group-border-width: 2px;
     --bs-list-group-border-color: #8AAEE0;
     --bs-list-group-color: #fff;
@@ -119,6 +117,16 @@ h1.text-center {
     display: none !important;
 }
 
+/* Styles personnalisés pour le bouton de suppression de liste */
+.btn-danger {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #395886;
+    --bs-btn-border-color: #395886;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #bb2d3b;
+    --bs-btn-hover-border-color: #b02a37;
+}
+
 /* Style de base pour le bouton primaire */
 .btn-primary {
     --bs-btn-bg: rgba(57, 88, 134, 0);
@@ -130,7 +138,8 @@ h1.text-center {
     --bs-btn-hover-border-color: #395886;
     border-color: var(--bs-btn-hover-border-color);
     border-radius: var(--bs-border-radius);
-    white-space: nowrap; /* Empêche le bouton de se briser en plusieurs lignes */
+    white-space: nowrap;
+    /* Empêche le bouton de se briser en plusieurs lignes */
 }
 
 .btn-custom:hover {
@@ -140,7 +149,7 @@ h1.text-center {
 
 /* Styles personnalisés pour le groupe de liste */
 .list-group-custom {
-    --bs-list-group-bg: #8AAEE0;
+    --bs-list-group-bg: #9796f0;
     background-color: var(--bs-list-group-bg);
     border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
     color: var(--bs-list-group-color);
@@ -162,7 +171,11 @@ h1.text-center {
 }
 
 /* Styles pour les boutons actifs */
-.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
     --bs-btn-active-bg: #395886;
     --bs-btn-active-border-color: #395886;
 }
@@ -201,49 +214,64 @@ hr {
     margin-top: 40px;
 }
 
-html, body {
+html,
+body {
     place-items: center;
     font-family: var(--font-family);
     background: linear-gradient(to right, #9796f0, #fbc7d4);
     height: 100%;
 }
 
-.logo-container {
+.logo__container {
     border: .2rem solid #9796f0;
-    display: flex; /* Active Flexbox */
-    justify-content: center; /* Centre horizontalement */
-    align-items: baseline; /* Centre verticalement */
+    display: flex;
+    /* Active Flexbox */
+    justify-content: center;
+    /* Centre horizontalement */
+    align-items: baseline;
+    /* Centre verticalement */
     /*margin-bottom: 10px; /* Ajoute un espace en bas de chaque bloc */
-    padding: 10px; /* Ajoute du padding à l'intérieur de chaque bloc */
-    border-radius: 25px; /* Ajoute des bords arrondis à chaque bloc */
-    font-size: 2.2rem; /* Taille de la police */
-    max-width: 50%; /* Limite la largeur maximale pour le centrage */
-    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
-    margin: 25px auto 20px; /* Centre l'élément horizontalement et ajoute un espace en bas */
-    height: 110px; /* Spécifie une hauteur pour le centrage vertical */
+    padding: 10px;
+    /* Ajoute du padding à l'intérieur de chaque bloc */
+    border-radius: 25px;
+    /* Ajoute des bords arrondis à chaque bloc */
+    font-size: 2.2rem;
+    /* Taille de la police */
+    max-width: 50%;
+    /* Limite la largeur maximale pour le centrage */
+    box-sizing: border-box;
+    /* Inclut le padding et la bordure dans la largeur totale */
+    margin: 25px auto 20px;
+    /* Centre l'élément horizontalement et ajoute un espace en bas */
+    height: 110px;
+    /* Spécifie une hauteur pour le centrage vertical */
 }
 
-.app-container {
+.app__container {
     padding: 20px;
 }
 
 .container {
     display: flex;
-    justify-content: space-between; /* Distribue l'espace libre entre les items */
+    justify-content: space-between;
+    /* Distribue l'espace libre entre les items */
     /*align-items: flex-start; /* Aligne les items au début de la ligne */
     border: .2rem solid #9796f0;
     padding: 20px;
     border-radius: 25px;
 }
 
-.todo-container {
-    flex: 3; /* Prend plus d'espace */
-    margin-right: 20px; /* Espace entre les deux containers */
-    
+.todo__container {
+    flex: 3;
+    /* Prend plus d'espace */
+    margin-right: 20px;
+    /* Espace entre les deux containers */
+
 }
 
-.calendar-container {
-    flex: 1; /* Prend moins d'espace */
+.calendar__container {
+    flex: 1;
+    /* Prend moins d'espace */
     /*max-width: 0%; /* Ajuste la largeur si nécessaire */
 }
 
@@ -252,12 +280,13 @@ html, body {
     /* background-color: white; */
     border-radius: 25px;
     overflow: hidden;
-    padding: 20px 50px 0px 50px; /* Réduisez la valeur de padding-top */
+    padding: 20px 50px 0px 50px;
+    /* Réduisez la valeur de padding-top */
     box-shadow: var(--shadow);
 }
 
-.calendar-header {
-    background: #9796f0;
+.calendar__header {
+    background: #395886;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -267,11 +296,11 @@ html, body {
     border-radius: 15px;
 }
 
-.calendar-body {
+.calendar__body {
     pad: 10px;
 }
 
-.calendar-week-days {
+.calendar__week-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     font-size: 1.1rem;
@@ -280,27 +309,27 @@ html, body {
     color: rgb(104, 104, 104);
 }
 
-.calendar-week-days div:hover {
+.calendar__week-days div:hover {
     color: black;
     transform: scale(1.2);
     transition: all .2s ease-in-out;
 }
 
-.calendar-week-days div {
+.calendar__week-days div {
     display: grid;
     place-items: center;
     color: var(--bg-second);
     height: 50px;
 }
 
-.calendar-days {
+.calendar__days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 2px;
     color: var(--color-txt);
 }
 
-.calendar-days div {
+.calendar__days div {
     width: 37px;
     height: 33px;
     display: flex;
@@ -312,7 +341,7 @@ html, body {
     animation: to-top 1s forwards;
 }
 
-.month-picker {
+.calendar__month-picker {
     font-family: Microsoft JhengHei UI;
     font-size: 1.4rem;
     padding: 5px 10px;
@@ -320,17 +349,17 @@ html, body {
     cursor: pointer;
 }
 
-.month-picker:hover {
-    background-color: #886ade;
+.calendar__month-picker:hover {
+    background-color: #9796f0;
     color: var(--color-txt);
 }
 
-.year-picker {
+.calendar__year-picker {
     display: flex;
     align-items: center;
 }
 
-.year-change {
+.calendar__year-change {
     height: 30px;
     width: 30px;
     border-radius: 50%;
@@ -340,43 +369,44 @@ html, body {
     cursor: pointer;
 }
 
-.year-change:hover {
-    background-color: #886ade;
-    transition: background-color 0.2s ease-in-out; /* Optionnel : ajoute une transition fluide */
+.calendar__year-change:hover {
+    background-color: #9796f0;
+    transition: background-color 0.2s ease-in-out;
+    /* Optionnel : ajoute une transition fluide */
     transform: scale(1.12);
 }
 
-.calendar-footer {
+.calendar__footer {
     padding: 10px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-#year:hover {
+.calendar__year:hover {
     cursor: pointer;
     transform: scale(1.2);
     transition: all 0.2s ease-in-out;
 }
 
-.calendar-days div span {
+.calendar__days div span {
     position: absolute;
 }
 
-.calendar-days div:hover {
+.calendar__days div:hover {
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-    background-color: #fbc7d4;
-    border-radius: 20%;
-    color: var(--dark-text);
-}
-
-.calendar-days div.current-date {
-    color: var(--dark-text);
     background-color: var(--light-btn);
     border-radius: 20%;
+    color: var(--dark-text);
 }
 
-.month-list {
+.calendar__days .calendar__day--current-date {
+    color: var(--dark-text);
+    background-color: #395886;
+    border-radius: 20%;
+}
+
+.calendar__month-list {
     position: relative;
     left: 0;
     top: -20px;
@@ -389,23 +419,24 @@ html, body {
     box-shadow: var(--shadow);
 }
 
-.month-list > div {
+.calendar__month-list>div {
     display: grid;
     place-content: center;
     margin: 5px 5px;
     transition: all 0.2s ease-in-out;
     /*max-width: 70px; /* Définir une largeur maximale pour les colonnes */
-    padding: 5px; /* Ajuster le padding pour mieux contenir le texte */
+    padding: 5px;
+    /* Ajuster le padding pour mieux contenir le texte */
 }
 
-.month-list > div > div {
+.calendar__month-list>div>div {
     border-radius: 15px;
     padding: 10px;
     cursor: pointer;
 }
 
-.month-list div:hover {
-    background-color: #886ade;
+.calendar__month-list div:hover {
+    background-color: #395886;
     color: var(--light-hover);
     transform: scale(0.9);
     transition: all 0.2s ease-in-out;
@@ -413,7 +444,7 @@ html, body {
     cursor: pointer;
 }
 
-.month-list.show {
+.calendar__month-list--show {
     margin-top: -5px;
     visibility: visible;
     pointer-events: visible;
@@ -421,38 +452,39 @@ html, body {
     animation: to-left .71s forwards;
 }
 
-.month-list.hideonce {
+.calendar__month-list--hideonce {
     visibility: hidden;
 }
 
-.month-list.hide {
+.calendar__month-list--hide {
     animation: to-right 1s forwards;
     visibility: none;
     pointer-events: none;
 }
 
-.month-list div.active {
+.calendar__month-item--active {
     font-weight: bold;
-    background-color: #886ade;
+    background-color: #395886;
     border-radius: 10px;
     color: var(--light-hover);
 }
 
-.date-time-formate {
+.calendar__date-time-format {
     border-radius: 15px;
     border: .2rem solid #9796f0;
-    width: max-content;
+    /*width: max-content;*/
     height: max-content;
     font-family: Dubai Light, Century Gothic;
     position: relative;
     /*display: inline;*/
-    top: 50px; /* Ajustez cette valeur pour réduire la position verticale */
+    top: 50px;
+    /* Ajustez cette valeur pour réduire la position verticale */
     justify-content: center;
-    padding: 50px 60px 50px 50px;
+    padding: 30px 60px 30px 50px;
     margin-bottom: -110px;
 }
 
-.day-text-formate {
+.calendar__day-text-format {
     display: block;
     padding: 25px 25px;
     font-family: Microsoft JhengHei UI;
@@ -463,62 +495,62 @@ html, body {
     left: -1rem;
 }
 
-.date-time-value {
-    padding: 10px;
+.calendar__date-time-value {
+    /*padding: 10px;*/
     border-radius: 15px;
     border: .2rem solid #9796f0;
     display: block;
     height: max-content;
-    width: max-content;
+    /*width: max-content;*/
     position: relative;
-    left: 25%;
-    /*top: -18px;*/
+    left: 27%;
+    top: -3px;
     text-align: center;
 }
 
-.time-formate {
+.calendar__time-format {
     font-size: 1.5rem;
 }
 
-.day-text-formate.hidetime,
-.time-formate.hideTime,
-.date-formate.hideTime,
-.date-time-value.hideTime,
-.date-time-formate.hideTime {
+.calendar__day-text-format--hidetime,
+.calendar__time-format--hideTime,
+.calendar__date-format--hideTime,
+.calendar__date-time-value--hideTime,
+.calendar__date-time-format--hideTime {
     animation: hidetime 1.5s forwards;
 }
 
-.day-text-formate.showtime,
-.time-formate.showtime,
-.date-formate.showtime,
-.date-time-value.showtime,
-.date-time-formate.showtime {
+.calendar__day-text-format--showtime,
+.calendar__time-format--showtime,
+.calendar__date-format--showtime,
+.calendar__date-time-value--showtime,
+.calendar__date-time-format--showtime {
     animation: showtime 1s forwards;
 }
 
-.reveal-loaded .reveal [class*="reveal-"] {
+.reveal__loaded .reveal [class*="reveal-"] {
     opacity: 0 !important;
     transform: translateY(-30px);
     transition: 0s !important;
 }
 
-.reveal-loaded [class*="reveal-"] {
+.reveal__loaded [class*="reveal-"] {
     transition: 1s cubic-bezier(.5, 0, 0, 1);
 }
 
-.reveal-loaded .reveal-1 {
+.reveal__loaded .reveal-1 {
     transition-delay: .1s;
 }
 
-.reveal-loaded .reveal-2 {
+.reveal__loaded .reveal-2 {
     transition-delay: .2s;
 }
 
-.reveal-loaded .reveal-3 {
+.reveal__loaded .reveal-3 {
     transition-delay: .3s;
 }
 
-.reveal-loaded .reveal-4 {
+.reveal__loaded .reveal-4 {
     transition-delay: .4s;
     /*display: inline-block;*/
     /*margin-left: 0px;*/
@@ -529,6 +561,7 @@ html, body {
         opacity: 1 !important;
         transform: translateY(0px) !important;
     }
+
     [class*="reveal-"] {
         transition-duration: 0s !important;
         transition-delay: 0s !important;
@@ -540,6 +573,7 @@ html, body {
         transform: translateY(0);
         opacity: 0;
     }
+
     100% {
         transform: translateY(100%);
         opacity: 1;
@@ -551,6 +585,7 @@ html, body {
         transform: translatex(230%);
         opacity: 1;
     }
+
     100% {
         transform: translatex(0);
         opacity: 1;
@@ -562,6 +597,7 @@ html, body {
         transform: translatex(0);
         opacity: 1;
     }
+
     100% {
         transform: translatex(-150%);
         opacity: 1;
@@ -573,6 +609,7 @@ html, body {
         transform: translatex(250%);
         opacity: 1;
     }
+
     100% {
         transform: translatex(0%);
         opacity: 1;
@@ -584,6 +621,7 @@ html, body {
         transform: translatex(0%);
         opacity: 1;
     }
+
     100% {
         transform: translatex(-370%);
         opacity: 1;
@@ -591,7 +629,7 @@ html, body {
 }
 
 @media (max-width: 375px) {
-    .month-list > div {
+    .month-list>div {
         margin: 5px 0px;
     }
 }
