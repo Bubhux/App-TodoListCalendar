@@ -25,10 +25,10 @@ const Calendar = () => {
         setCurrentYear
     } = useCalendar()
 
-    const [dateTimeFormatClass, setDateTimeFormatClass] = useState('showtime')
-    const [dayTextFormatClass, setDayTextFormatClass] = useState('showtime')
-    const [timeFormatClass, setTimeFormatClass] = useState('showtime')
-    const [dateFormatClass, setDateFormatClass] = useState('showtime')
+    const [dateTimeFormatClass, setDateTimeFormatClass] = useState('calendar__date-time-format--showtime')
+    const [dayTextFormatClass, setDayTextFormatClass] = useState('calendar__day-text-format--showtime')
+    const [timeFormatClass, setTimeFormatClass] = useState('calendar__time-format--showtime')
+    const [dateFormatClass, setDateFormatClass] = useState('calendar__date-format--showtime')
 
     // Génère les jours du calendrier pour le mois et l'année courants
     const days = generateCalendarDays(currentMonth, currentYear)
@@ -41,15 +41,15 @@ const Calendar = () => {
     // Effet pour gérer l'affichage et le masquage de la liste des mois
     useEffect(() => {
         if (showMonthList) {
-            setDateTimeFormatClass('hideTime')
-            setDayTextFormatClass('hideTime')
-            setTimeFormatClass('hideTime')
-            setDateFormatClass('hideTime')
+            setDateTimeFormatClass('calendar__date-time-format--hideTime')
+            setDayTextFormatClass('calendar__day-text-format--hideTime')
+            setTimeFormatClass('calendar__time-format--hideTime')
+            setDateFormatClass('calendar__date-format--hideTime')
         } else {
-            setDateTimeFormatClass('showtime')
-            setDayTextFormatClass('showtime')
-            setTimeFormatClass('showtime')
-            setDateFormatClass('showtime')
+            setDateTimeFormatClass('calendar__date-time-format--showtime')
+            setDayTextFormatClass('calendar__day-text-format--showtime')
+            setTimeFormatClass('calendar__time-format--showtime')
+            setDateFormatClass('calendar__date-format--showtime')
         }
     }, [showMonthList])
 
@@ -69,11 +69,11 @@ const Calendar = () => {
                 dateFormatClass={dateFormatClass}
                 dayTextFormatClass={dayTextFormatClass}
             />
-            <div className={`month-list ${showMonthList ? 'show' : 'hide'}`}>
+            <div className={`calendar__month-list ${showMonthList ? 'calendar__month-list--show' : 'calendar__month-list--hide'}`}>
                 {monthNames.map((month, index) => (
                     <div
                         key={index}
-                        className={index === currentMonth ? 'active' : ''}
+                        className={`calendar__month-item ${index === currentMonth ? 'calendar__month-item--active' : ''}`}
                         onClick={() => handleMonthSelect(index)}
                     >
                         {month}

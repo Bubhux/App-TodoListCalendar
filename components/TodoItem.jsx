@@ -26,8 +26,8 @@ const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
                 onChange={() => toggleTodo(todo.id)} // Appelle la fonction pour changer le statut de la tâche
             />
             <label className="ms-2 form-check-label">{todo.title}</label>
-            <button 
-                className="ms-auto btn btn-danger btn-sm" 
+            <button
+                className="ms-auto btn btn-danger btn-sm"
                 onClick={() => deleteTodo(todo.id)} // Appelle la fonction pour supprimer la tâche
             >
                 <i className="bi-trash"></i>

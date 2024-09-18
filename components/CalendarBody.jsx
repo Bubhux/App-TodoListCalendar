@@ -12,9 +12,9 @@ import React from 'react';
  * @returns {JSX.Element} - Le composant affichant le corps du calendrier.
  */
 const CalendarBody = ({ days }) => (
-    <div className="calendar-body reveal-3">
+    <div className="calendar__body reveal-3">
         {/* Affichage des jours de la semaine */}
-        <div className="calendar-week-days">
+        <div className="calendar__week-days">
             <div>Sun</div> {/* Dimanche */}
             <div>Mon</div> {/* Lundi */}
             <div>Tue</div> {/* Mardi */}
@@ -24,11 +24,11 @@ const CalendarBody = ({ days }) => (
             <div>Sat</div> {/* Samedi */}
         </div>
         {/* Affichage des jours du mois */}
-        <div className="calendar-days">
+        <div className="calendar__days">
             {days.map((dayObj, index) => (
                 <div
                     key={index}
-                    className={dayObj.isCurrentDate ? 'current-date' : ''}
+                    className={`calendar__day ${dayObj.isCurrentDate ? 'calendar__day--current-date' : ''}`}
                 >
                     {dayObj.day}
                 </div>

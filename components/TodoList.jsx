@@ -29,27 +29,27 @@ const TodoList = () => {
     }
 
     return (
-        <div className="todo-container pt-5" id="todolist">
+        <div className="todo__container pt-5" id="todolist">
             <form onSubmit={handleSubmit} className="d-flex pb-4 align-items-center">
                 <input required className="form-control reveal-3" type="text" placeholder="Create a note ..." name="title" />
                 <button className="btn btn-primary ms-2 btn-custom reveal-4">Add a note</button>
             </form>
             <div className="btn-group mb-4 gap-1 reveal-2" role="group">
-                <button 
-                    type="button" 
-                    className={`btn btn-outline-primary ${filter === 'all' ? 'active' : ''}`} 
+                <button
+                    type="button"
+                    className={`btn btn-outline-primary ${filter === 'all' ? 'active' : ''}`}
                     onClick={() => handleFilterChange('all')}>
                     All
                 </button>
-                <button 
-                    type="button" 
-                    className={`btn btn-outline-primary ${filter === 'todo' ? 'active' : ''}`} 
+                <button
+                    type="button"
+                    className={`btn btn-outline-primary ${filter === 'todo' ? 'active' : ''}`}
                     onClick={() => handleFilterChange('todo')}>
                     To do
                 </button>
-                <button 
-                    type="button" 
-                    className={`btn btn-outline-primary ${filter === 'done' ? 'active' : ''}`} 
+                <button
+                    type="button"
+                    className={`btn btn-outline-primary ${filter === 'done' ? 'active' : ''}`}
                     onClick={() => handleFilterChange('done')}>
                     Completed
                 </button>

@@ -16,22 +16,22 @@ import React from 'react';
  */
 const CalendarHeader = ({ onMonthPickerClick, currentMonth, currentYear, monthNames, setCurrentYear }) => {
     return (
-        <div className="calendar-header reveal-2">
+        <div className="calendar__header">
             <span
-                className="month-picker"
+                className="calendar__month-picker"
                 id="month-picker"
                 onClick={onMonthPickerClick}
             >
                 {/* Affiche le nom du mois actuel */}
                 {monthNames[currentMonth]}
             </span>
-            <div className="year-picker" id="year-picker">
+            <div className="calendar__year-picker" id="year-picker">
                 {/* Permet de diminuer l'année actuelle */}
-                <span className="year-change" id="pre-year" onClick={() => setCurrentYear(prev => prev - 1)}>&lt;</span>
+                <span className="calendar__year-change calendar__year-change--previous" id="pre-year" onClick={() => setCurrentYear(prev => prev - 1)}>&lt;</span>
                 {/* Affiche l'année actuelle */}
-                <span id="year">{currentYear}</span>
+                <span id="year" className="calendar__year">{currentYear}</span>
                 {/* Permet d'augmenter l'année actuelle */}
-                <span className="year-change" id="next-year" onClick={() => setCurrentYear(prev => prev + 1)}>&gt;</span>
+                <span className="calendar__year-change calendar__year-change--next" id="next-year" onClick={() => setCurrentYear(prev => prev + 1)}>&gt;</span>
             </div>
         </div>
     )

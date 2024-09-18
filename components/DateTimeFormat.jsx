@@ -22,14 +22,14 @@ const DateTimeFormat = ({ dateTimeFormatClass, timeFormatClass, dateFormatClass,
     const { currentDateFormatted, timeFormatted } = useDateTime()
 
     return (
-        <div className={`date-time-formate ${dateTimeFormatClass}`}>
+        <div className={`calendar__date-time-format ${dateTimeFormatClass}`}>
             {/* Affiche le texte du jour avec le style approprié. */}
-            <div className={`day-text-formate ${dayTextFormatClass}`}>Today</div>
-            <div className={`date-time-value ${dateTimeFormatClass}`}>
+            <div className={`calendar__day-text-format ${dayTextFormatClass}`}>Today</div>
+            <div className={`calendar__date-time-value ${dateTimeFormatClass}`}>
                 {/* Affiche l'heure formatée avec le style approprié. */}
-                <div className={`time-formate ${timeFormatClass}`}>{timeFormatted}</div>
+                <div className={`calendar__time-format ${timeFormatClass}`}>{timeFormatted}</div>
                 {/* Affiche la date formatée avec le style approprié. */}
-                <div className={`date-formate ${dateFormatClass}`}>{currentDateFormatted}</div>
+                <div className={`calendar__date-format ${dateFormatClass}`}>{currentDateFormatted}</div>
             </div>
         </div>
     )
