@@ -1,0 +1,48 @@
+// sass/components/_buttons.scss
+@import '../utils/mixins';
+
+
+.btn {
+    &-danger {
+        background-color: var(--btn-bg);
+        border-color: var(--btn-bg);
+        color: var(--text-light);
+    }
+
+    &-primary {
+        --btn-bg: rgba(57, 88, 134, 0);
+    }
+
+    &-custom {
+        background-color: transparent;
+        border-color: var(--btn-hover-border-color);
+        white-space: nowrap;
+        @include border-radius(var(--border-radius));
+
+        &:hover {
+            background-color: var(--btn-hover-bg);
+            border-color: var(--btn-hover-border-color);
+        }
+    }
+
+    &-outline-primary {
+        border-color: var(--btn-hover-border-color);
+        color: var(--text-light);
+        @include border-radius(var(--border-radius));
+
+        &:hover {
+            color: var(--btn-hover-color);
+            background-color: var(--btn-hover-bg);
+            border-color: var(--btn-hover-border-color);
+        }
+    }
+
+    &-check:checked + &,
+    &.active,
+    &.show,
+    &:first-child:active,
+    &:not(.btn-check) + & {
+        background-color: var(--btn-active-bg);
+        border-color: var(--btn-active-border-color);
+    }
+}

@@ -1,0 +1,46 @@
+// sass/components/_reveal.scss
+.reveal__loaded {
+    .reveal {
+        [class*="reveal-"] {
+            opacity: 0 !important;
+            transform: translateY(-30px);
+            transition: 0s !important;
+
+            &.reveal-1 {
+                transition-delay: .1s;
+            }
+
+            &.reveal-2 {
+                transition-delay: .2s;
+            }
+
+            &.reveal-3 {
+                transition-delay: .3s;
+            }
+
+            &.reveal-4 {
+                transition-delay: .4s;
+                /*display: inline-block;*/
+                /*margin-left: 0px;*/
+            }
+        }
+    }
+
+    [class*="reveal-"] {
+        transition: 1s cubic-bezier(.5, 0, 0, 1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        [class*="reveal-"] {
+            opacity: 1 !important;
+            transform: translateY(0px) !important;
+        }
+    }
+
+    [class*="reveal-"] {
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
