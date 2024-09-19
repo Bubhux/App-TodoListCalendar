@@ -1,0 +1,23 @@
+// sass/base/_base.scss
+html, body {
+    place-items: center;
+    font-family: var(--font-family);
+    background: linear-gradient(to right, var(--background-body-start), var(--background-body-middle), var(--background-body-end));
+    height: 100%;
+
+    h1.text-center {
+        color: var(--primary-color);
+        margin-top: 20px;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    hr {
+        border: .1rem solid var(--tertiary-color);
+        margin-top: 40px;
+    }
+}

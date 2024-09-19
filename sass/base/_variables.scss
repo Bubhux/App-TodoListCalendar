@@ -1,0 +1,37 @@
+// sass/base/_variables.scss
+:root {
+    --primary-color: #395886;
+    --secondary-color: #8AAEE0;
+    --tertiary-color: #9796f0;
+    --danger-color: #bb2d3b;
+    --danger-border-color: #b02a37;
+
+    --text-light: #f8fbff;
+    --text-dark: #151426;
+    --text-secondary: #c3c2c8;
+    --text-muted: #f0f0f0;
+    --text-hover: #f3f8fe;
+
+    --background-body-start: rgba(3, 32, 48, 1);
+    --background-body-middle: rgba(2, 43, 66, 1);
+    --background-body-end: rgba(0, 53, 84, 1);
+    --background-calendar-header: var(--primary-color);
+    --background-calendar-weekdays: rgb(104, 104, 104);
+    --background-calendar-days-hover: var(--tertiary-color);
+    --background-month-list: var(--tertiary-color);
+    --background-month-list-hover: var(--primary-color);
+
+    --btn-bg: var(--primary-color);
+    --btn-hover-bg: var(--primary-color);
+    --btn-border-color: var(--secondary-color);
+    --btn-hover-border-color: var(--primary-color);
+    --btn-color: var(--secondary-color);
+    --btn-hover-color: var(--text-light);
+    --btn-active-bg: var(--primary-color);
+    --btn-active-border-color: var(--primary-color);
+
+    --border-radius: 4px;
+    --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+    --font-family: consolas;
+}
+

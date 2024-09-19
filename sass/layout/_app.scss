@@ -1,0 +1,13 @@
+// sass/layout/_app.scss
+.app__container {
+    padding: 20px;
+
+    .todo__container {
+        flex: 3;
+        margin-right: 20px;
+    }
+
+    .calendar__container {
+        flex: 1;
+    }
+}

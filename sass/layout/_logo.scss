@@ -1,0 +1,13 @@
+// sass/layout/_logo.scss
+.logo__container {
+    border: .2rem solid var(--tertiary-color);
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 10px;
+    font-size: 2.2rem;
+    max-width: 50%;
+    margin: 25px auto 20px;
+    height: 110px;
+    @include border-radius(25px);
+}

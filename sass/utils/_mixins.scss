@@ -1,0 +1,12 @@
+// sass/utils/_mixins.scss
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+
+@mixin transition($property, $duration, $timing) {
+    transition: $property $duration $timing;
+}
+
+@mixin box-shadow($shadow) {
+    box-shadow: $shadow;
+}

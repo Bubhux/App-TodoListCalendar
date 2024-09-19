@@ -1,0 +1,9 @@
+// sass/layout/_container.scss
+.container {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    border: .2rem solid var(--tertiary-color);
+    padding: 20px;
+    @include border-radius(25px);
+}

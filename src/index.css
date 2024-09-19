@@ -59,57 +59,55 @@ button:focus-visible {
 
 /*// src/index.css */
 :root {
-    /* Couleurs principales */
-    --primary-color: #395886;
-    --secondary-color: #8AAEE0;
-    --tertiary-color: #9796f0;
-    --danger-color: #bb2d3b;
-    --danger-border-color: #b02a37;
+    /* Button variables */
+    --bs-btn-bg: #395886;
+    --bs-btn-hover-bg: #395886;
+    --bs-btn-border-color: #8AAEE0;
+    --bs-btn-hover-border-color: #395886;
 
-    /* Couleurs de texte */
-    --text-light: #f8fbff;
-    --text-dark: #151426;
-    --text-secondary: #c3c2c8;
-    --text-muted: #f0f0f0;
-    --text-hover: #f3f8fe;
+    /* List group variables */
+    --bs-list-group-bg: #9796f0;
+    --bs-list-group-border-width: 2px;
+    --bs-list-group-border-color: #8AAEE0;
+    --bs-list-group-color: #fff;
 
-    /* Couleurs de fond */
-    --background-body-start: rgba(3, 32, 48, 1);
-    --background-body-middle: rgba(2, 43, 66, 1);
-    --background-body-end: rgba(0, 53, 84, 1);
-    --background-calendar-header: var(--primary-color);
-    --background-calendar-weekdays: rgb(104, 104, 104);
-    --background-calendar-days-hover: var(--tertiary-color);
-    --background-month-list: var(--tertiary-color);
-    --background-month-list-hover: var(--primary-color);
+    /* Outline primary button variables */
+    --bs-btn-color: #8AAEE0;
+    --bs-btn-hover-color: #fff;
+    --bs-border-radius: 4px;
 
-    /* Couleurs de boutons */
-    --btn-bg: var(--primary-color);
-    --btn-hover-bg: var(--primary-color);
-    --btn-border-color: var(--secondary-color);
-    --btn-hover-border-color: var(--primary-color);
-    --btn-color: var(--secondary-color);
-    --btn-hover-color: var(--text-light);
-    --btn-active-bg: var(--primary-color);
-    --btn-active-border-color: var(--primary-color);
+    /* Active button variables */
+    --bs-btn-active-bg: #395886;
+    --bs-btn-active-border-color: #395886;
 
-    /* Autres */
-    --border-radius: 4px;
+    /* General colors */
+    --main-heading-color: #8AAEE0;
+    --body-bg-start: rgba(3, 32, 48, 1);
+    --body-bg-middle: rgba(2, 43, 66, 1);
+    --body-bg-end: rgba(0, 53, 84, 1);
+
+    --dark-text: #f8fbff;
+    --light-body: #f3f8fe;
+    --light-main: #fdfdfd;
+    --light-second: #c3c2c8;
+    --light-hover: #f0f0f0;
+    --light-text: #151426;
+    --light-btn: #9796f0;
+    --blue: #0000ff;
+    --white: #fff;
     --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
     --font-family: consolas;
 }
 
 /* Dégradé de fond pour le corps */
-html, body {
-    place-items: center;
-    font-family: var(--font-family);
-    background: linear-gradient(to right, var(--tertiary-color), #fbc7d4);
-    height: 100%;
+body {
+    background: rgb(3, 32, 48);
+    background: linear-gradient(90deg, var(--body-bg-start) 0%, var(--body-bg-middle) 40%, var(--body-bg-end) 80%);
 }
 
 /* Styles pour le titre principal */
 h1.text-center {
-    color: var(--primary-color);
+    color: var(--main-heading-color);
     margin-top: 20px;
 }
 
@@ -121,48 +119,55 @@ h1.text-center {
 
 /* Styles personnalisés pour le bouton de suppression de liste */
 .btn-danger {
-    background-color: var(--btn-bg); /* Couleur de fond personnalisée */
-    border-color: var(--btn-bg); /* Couleur de bordure personnalisée */
-    color: var(--text-light); /* Couleur du texte personnalisée */
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #395886;
+    --bs-btn-border-color: #395886;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #bb2d3b;
+    --bs-btn-hover-border-color: #b02a37;
 }
 
 /* Style de base pour le bouton primaire */
 .btn-primary {
-    --btn-bg: rgba(57, 88, 134, 0);
+    --bs-btn-bg: rgba(57, 88, 134, 0);
 }
 
 /* Styles personnalisés pour les boutons */
 .btn-custom {
-    background-color: transparent;
-    border-color: var(--btn-hover-border-color);
-    border-radius: var(--border-radius);
+    --bs-btn-hover-bg: #395886;
+    --bs-btn-hover-border-color: #395886;
+    border-color: var(--bs-btn-hover-border-color);
+    border-radius: var(--bs-border-radius);
     white-space: nowrap;
     /* Empêche le bouton de se briser en plusieurs lignes */
 }
 
 .btn-custom:hover {
-    background-color: var(--btn-hover-bg);
-    border-color: var(--btn-hover-border-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
 }
 
 /* Styles personnalisés pour le groupe de liste */
 .list-group-custom {
-    border: 2px solid var(--btn-border-color);
-    color: var(--text-light);
-    --bs-list-group-bg: var(--tertiary-color);
+    --bs-list-group-bg: #9796f0;
+    background-color: var(--bs-list-group-bg);
+    border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
+    color: var(--bs-list-group-color);
 }
 
 /* Styles personnalisés pour les boutons outline primary */
 .btn-outline-primary {
-    border-color: var(--btn-hover-border-color);
-    border-radius: var(--border-radius);
-    color: var(--text-light);
+    --bs-btn-hover-bg: #395886;
+    --bs-btn-hover-border-color: #395886;
+    border-color: var(--bs-btn-hover-border-color);
+    border-radius: var(--bs-border-radius);
+    color: var(--bs-list-group-color);
 }
 
 .btn-outline-primary:hover {
-    color: var(--btn-hover-color);
-    background-color: var(--btn-hover-bg);
-    border-color: var(--btn-hover-border-color);
+    color: var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: var(--bs-btn-hover-border-color);
 }
 
 /* Styles pour les boutons actifs */
@@ -171,19 +176,31 @@ h1.text-center {
 .btn.show,
 .btn:first-child:active,
 :not(.btn-check)+.btn:active {
-    background-color: var(--btn-active-bg);
-    border-color: var(--btn-active-border-color);
+    --bs-btn-active-bg: #395886;
+    --bs-btn-active-border-color: #395886;
 }
 
 /* Alignement à gauche du conteneur */
 .container {
     text-align: left;
-    display: flex;
-    justify-content: space-between;
-    border: .2rem solid var(--tertiary-color);
-    padding: 20px;
-    border-radius: 25px;
 }
+
+/* Styles pour le mode clair */
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    a:hover {
+        color: #747bff;
+    }
+
+    button {
+        background-color: #f9f9f9;
+    }
+}
+
 
 /* Style Calendar */
 * {
@@ -193,54 +210,94 @@ h1.text-center {
 }
 
 hr {
-    border: .1rem solid var(--tertiary-color);
+    border: .1rem solid #9796f0;
     margin-top: 40px;
 }
 
+html,
+body {
+    place-items: center;
+    font-family: var(--font-family);
+    background: linear-gradient(to right, #9796f0, #fbc7d4);
+    height: 100%;
+}
+
 .logo__container {
-    border: .2rem solid var(--tertiary-color);
+    border: .2rem solid #9796f0;
     display: flex;
+    /* Active Flexbox */
     justify-content: center;
+    /* Centre horizontalement */
     align-items: baseline;
+    /* Centre verticalement */
+    /*margin-bottom: 10px; /* Ajoute un espace en bas de chaque bloc */
     padding: 10px;
+    /* Ajoute du padding à l'intérieur de chaque bloc */
     border-radius: 25px;
+    /* Ajoute des bords arrondis à chaque bloc */
     font-size: 2.2rem;
+    /* Taille de la police */
     max-width: 50%;
+    /* Limite la largeur maximale pour le centrage */
     box-sizing: border-box;
+    /* Inclut le padding et la bordure dans la largeur totale */
     margin: 25px auto 20px;
+    /* Centre l'élément horizontalement et ajoute un espace en bas */
     height: 110px;
+    /* Spécifie une hauteur pour le centrage vertical */
 }
 
 .app__container {
     padding: 20px;
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    /* Distribue l'espace libre entre les items */
+    /*align-items: flex-start; /* Aligne les items au début de la ligne */
+    border: .2rem solid #9796f0;
+    padding: 20px;
+    border-radius: 25px;
+}
+
 .todo__container {
     flex: 3;
+    /* Prend plus d'espace */
     margin-right: 20px;
+    /* Espace entre les deux containers */
+
 }
 
 .calendar__container {
     flex: 1;
+    /* Prend moins d'espace */
+    /*max-width: 0%; /* Ajuste la largeur si nécessaire */
 }
 
 .calendar {
     width: 400px;
+    /* background-color: white; */
     border-radius: 25px;
     overflow: hidden;
     padding: 20px 50px 0px 50px;
+    /* Réduisez la valeur de padding-top */
     box-shadow: var(--shadow);
 }
 
 .calendar__header {
-    background: var(--background-calendar-header);
+    background: #395886;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 700;
-    color: var(--text-light);
+    color: var(--white);
     padding: 10px;
     border-radius: 15px;
+}
+
+.calendar__body {
+    pad: 10px;
 }
 
 .calendar__week-days {
@@ -249,11 +306,11 @@ hr {
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    color: var(--background-calendar-weekdays);
+    color: rgb(104, 104, 104);
 }
 
 .calendar__week-days div:hover {
-    color: var(--text-dark);
+    color: black;
     transform: scale(1.2);
     transition: all .2s ease-in-out;
 }
@@ -261,6 +318,7 @@ hr {
 .calendar__week-days div {
     display: grid;
     place-items: center;
+    color: var(--bg-second);
     height: 50px;
 }
 
@@ -268,7 +326,7 @@ hr {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 2px;
-    color: var(--text-dark);
+    color: var(--color-txt);
 }
 
 .calendar__days div {
@@ -292,8 +350,8 @@ hr {
 }
 
 .calendar__month-picker:hover {
-    background-color: var(--tertiary-color);
-    color: var(--text-light);
+    background-color: #9796f0;
+    color: var(--color-txt);
 }
 
 .calendar__year-picker {
@@ -312,8 +370,9 @@ hr {
 }
 
 .calendar__year-change:hover {
-    background-color: var(--tertiary-color);
+    background-color: #9796f0;
     transition: background-color 0.2s ease-in-out;
+    /* Optionnel : ajoute une transition fluide */
     transform: scale(1.12);
 }
 
@@ -330,50 +389,57 @@ hr {
     transition: all 0.2s ease-in-out;
 }
 
+.calendar__days div span {
+    position: absolute;
+}
+
 .calendar__days div:hover {
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-    background-color: var(--background-calendar-days-hover);
+    background-color: var(--light-btn);
     border-radius: 20%;
-    color: var(--text-dark);
+    color: var(--dark-text);
 }
 
 .calendar__days .calendar__day--current-date {
-    color: var(--text-light);
-    background-color: var(--primary-color);
+    color: var(--dark-text);
+    background-color: #395886;
     border-radius: 20%;
 }
 
 .calendar__month-list {
     position: relative;
     left: 0;
-    top: -10px;
-    /*background-color: var(--background-month-list);*/
-    color: var(--text-dark);
+    top: -20px;
+    background-color: var(--light-btn);
+    color: var(--light-text);
     display: grid;
     grid-template-columns: repeat(3, auto);
+    /*gap: 5px;*/
     border-radius: 20px;
     box-shadow: var(--shadow);
-    border: 2px solid var(--primary-color);
 }
 
-.calendar__month-list > div {
+.calendar__month-list>div {
     display: grid;
     place-content: center;
-    margin: 5px;
+    margin: 5px 5px;
     transition: all 0.2s ease-in-out;
+    /*max-width: 70px; /* Définir une largeur maximale pour les colonnes */
     padding: 5px;
+    /* Ajuster le padding pour mieux contenir le texte */
 }
 
-.calendar__month-list > div > div {
+.calendar__month-list>div>div {
     border-radius: 15px;
     padding: 10px;
     cursor: pointer;
 }
 
 .calendar__month-list div:hover {
-    background-color: var(--background-month-list-hover);
-    color: var(--text-muted);
+    background-color: #395886;
+    color: var(--light-hover);
     transform: scale(0.9);
+    transition: all 0.2s ease-in-out;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -398,18 +464,21 @@ hr {
 
 .calendar__month-item--active {
     font-weight: bold;
-    background-color: var(--primary-color);
+    background-color: #395886;
     border-radius: 10px;
-    color: var(--text-muted);
+    color: var(--light-hover);
 }
 
 .calendar__date-time-format {
     border-radius: 15px;
-    border: .2rem solid var(--tertiary-color);
+    border: .2rem solid #9796f0;
+    /*width: max-content;*/
     height: max-content;
     font-family: Dubai Light, Century Gothic;
     position: relative;
+    /*display: inline;*/
     top: 50px;
+    /* Ajustez cette valeur pour réduire la position verticale */
     justify-content: center;
     padding: 30px 60px 30px 50px;
     margin-bottom: -110px;
@@ -417,7 +486,7 @@ hr {
 
 .calendar__day-text-format {
     display: block;
-    padding: 25px;
+    padding: 25px 25px;
     font-family: Microsoft JhengHei UI;
     font-size: 1.4rem;
     padding-right: 5%;
@@ -427,10 +496,12 @@ hr {
 }
 
 .calendar__date-time-value {
+    /*padding: 10px;*/
     border-radius: 15px;
-    border: .2rem solid var(--tertiary-color);
+    border: .2rem solid #9796f0;
     display: block;
     height: max-content;
+    /*width: max-content;*/
     position: relative;
     left: 27%;
     top: -3px;
@@ -497,47 +568,68 @@ hr {
     }
 }
 
-/* Animations */
 @keyframes to-top {
-    0% { transform: translateY(0); opacity: 0; }
-    100% { transform: translateY(100%); opacity: 1; }
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 1;
+    }
 }
 
 @keyframes to-left {
-    0% { transform: translatex(230%); opacity: 1; }
-    100% { transform: translatex(0); opacity: 1; }
+    0% {
+        transform: translatex(230%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translatex(0);
+        opacity: 1;
+    }
 }
 
 @keyframes to-right {
-    10% { transform: translatex(0); opacity: 1; }
-    100% { transform: translatex(-150%); opacity: 1; }
+    10% {
+        transform: translatex(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translatex(-150%);
+        opacity: 1;
+    }
 }
 
 @keyframes showtime {
-    0% { transform: translatex(250%); opacity: 1; }
-    100% { transform: translatex(0%); opacity: 1; }
+    0% {
+        transform: translatex(250%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translatex(0%);
+        opacity: 1;
+    }
 }
 
 @keyframes hidetime {
-    0% { transform: translatex(0%); opacity: 1; }
-    100% { transform: translatex(-370%); opacity: 1; }
-}
-
-/* Media Queries */
-@media (prefers-reduced-motion: reduce) {
-    .reveal [class*="reveal-"] {
-        opacity: 1 !important;
-        transform: translateY(0px) !important;
+    0% {
+        transform: translatex(0%);
+        opacity: 1;
     }
 
-    [class*="reveal-"] {
-        transition-duration: 0s !important;
-        transition-delay: 0s !important;
+    100% {
+        transform: translatex(-370%);
+        opacity: 1;
     }
 }
 
 @media (max-width: 375px) {
-    .calendar__month-list > div {
+    .month-list>div {
         margin: 5px 0px;
     }
 }
