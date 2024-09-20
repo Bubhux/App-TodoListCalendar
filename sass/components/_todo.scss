@@ -2,4 +2,10 @@
 .todo__container {
     flex: 3;
     margin-right: 20px;
+
+    .list-group-custom {
+        border: 2px solid var(--btn-border-color);
+        color: var(--text-light);
+        --bs-list-group-bg: var(--tertiary-color);
+    }
 }

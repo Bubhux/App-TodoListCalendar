@@ -1,0 +1,105 @@
+// sass/components/_calendar-interactions.scss
+@import '../utils/mixins';
+@import '../utils/animations';
+
+
+.calendar {
+
+    &__week-days div {
+        &:hover {
+            color: var(--text-dark);
+            transform: scale(1.2);
+            @include transition(all, 0.2s, ease-in-out);
+        }
+    }
+
+    &__days div {
+        animation: to-top 1s forwards;
+
+        &:hover {
+            color: var(--text-dark);
+            background-color: var(--background-calendar-days-hover);
+            @include border-radius(20%);
+            @include transition(width, 0.2s, ease-in-out);
+            @include transition(height, 0.2s, ease-in-out);
+        }
+
+        &.calendar__day--current-date {
+            color: var(--text-light);
+            background-color: var(--primary-color);
+            @include border-radius(20%);
+        }
+    }
+
+    &__month-picker {
+        &:hover {
+            background-color: var(--tertiary-color);
+            color: var(--text-light);
+        }
+    }
+
+    &__year-change {
+        &:hover {
+            background-color: var(--tertiary-color);
+            transform: scale(1.12);
+            @include transition(background-color, 0.2s, ease-in-out);
+        }
+    }
+
+    &__month-list {
+        &.calendar__month-list--show {
+            display: grid;
+            animation: showtime 1s forwards;
+        }
+    }
+
+    &__time-format {
+        font-size: 1.5rem;
+
+        &--hideTime {
+            animation: hidetime 1.5s forwards;
+        }
+
+        &--showtime {
+            animation: showtime 1s forwards;
+        }
+    }
+
+    &__day-text-format--hidetime,
+    &__date-format--hideTime,
+    &__date-time-value--hideTime,
+    &__date-time-format--hideTime {
+        animation: hidetime 1.5s forwards;
+    }
+
+    &__day-text-format--showtime,
+    &__date-format--showtime,
+    &__date-time-value--showtime,
+    &__date-time-format--showtime {
+        animation: showtime 1s forwards;
+    }
+
+    &--hide {
+        animation: hidetime 1s forwards;
+    }
+
+    &--showtime {
+        animation: showtime 1s forwards;
+    }
+
+    &__month-list--hideonce {
+        visibility: hidden;
+    }
+
+    &__month-list--hide {
+        animation: to-right 1s forwards;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    &__month-item--active {
+        font-weight: bold;
+        background-color: var(--primary-color);
+        color: var(--text-muted);
+    }
+}

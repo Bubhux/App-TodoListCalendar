@@ -1,4 +1,7 @@
 // sass/layout/_container.scss
+@import '../utils/mixins';
+
+
 .container {
     text-align: left;
     display: flex;

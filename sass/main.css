@@ -335,6 +335,7 @@ html hr, body hr {
 .calendar__date-time-format {
   border-radius: 15px;
   border: 0.2rem solid var(--tertiary-color);
+  height: -moz-max-content;
   height: max-content;
   font-family: Dubai Light, Century Gothic;
   position: relative;
@@ -357,6 +358,7 @@ html hr, body hr {
   border-radius: 15px;
   border: 0.2rem solid #9796f0;
   display: block;
+  height: -moz-max-content;
   height: max-content;
   position: relative;
   left: 27%;
@@ -488,6 +490,4 @@ html hr, body hr {
     transform: translatex(-370%);
     opacity: 1;
   }
-}
-
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=main.css.map */

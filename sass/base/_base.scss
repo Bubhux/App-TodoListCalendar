@@ -1,8 +1,11 @@
 // sass/base/_base.scss
+@import '../base/variables';
+
+
 html, body {
     place-items: center;
     font-family: var(--font-family);
-    background: linear-gradient(to right, var(--background-body-start), var(--background-body-middle), var(--background-body-end));
+    background: linear-gradient(to right, #9796f0, #fbc7d4);
     height: 100%;
 
     h1.text-center {
