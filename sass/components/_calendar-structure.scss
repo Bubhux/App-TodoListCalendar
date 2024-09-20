@@ -1,0 +1,143 @@
+// sass/components/_calendar-structure.scss
+@import '../utils/mixins';
+
+
+.calendar {
+    width: 400px;
+    overflow: hidden;
+    padding: 20px 50px 0px 50px;
+    @include box-shadow(var(--shadow));
+    @include border-radius(25px);
+
+    &__header {
+        background: var(--background-calendar-header);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+        color: var(--text-light);
+        padding: 10px;
+        @include border-radius(15px);
+    }
+
+    &__week-days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--background-calendar-weekdays);
+        cursor: pointer;
+
+        div {
+            display: grid;
+            place-items: center;
+            height: 50px;
+        }
+    }
+
+    &__days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 2px;
+        color: var(--text-dark);
+
+        div {
+            width: 37px;
+            height: 33px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            position: relative;
+            cursor: pointer;
+        }
+    }
+
+    &__month-picker {
+        font-family: Microsoft JhengHei UI;
+        font-size: 1.4rem;
+        padding: 5px 10px;
+        cursor: pointer;
+        @include border-radius(10px);
+    }
+
+    &__year-picker {
+        display: flex;
+        align-items: center;
+    }
+
+    &__year-change {
+        height: 30px;
+        width: 30px;
+        display: grid;
+        place-items: center;
+        margin: 0px 10px;
+        cursor: pointer;
+        @include border-radius(50%);
+    }
+
+    &__footer {
+        padding: 10px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__month-list {
+        position: relative;
+        top: -20px;
+        background-color: var(--light-btn);
+        color: var(--text-dark);
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        border: 2px solid var(--primary-color);
+
+        div {
+            display: grid;
+            place-items: center;
+            margin: 5px;
+            cursor: pointer;
+            @include border-radius(12px);
+        }
+    }
+
+    &__date-time-format {
+        border-radius: 15px;
+        border: .2rem solid var(--tertiary-color);
+        height: max-content;
+        font-family: Dubai Light, Century Gothic;
+        position: relative;
+        top: 35px;
+        justify-content: center;
+        padding: 30px 60px 30px 50px;
+        margin-bottom: -80px;
+    }
+
+    &__day-text-format {
+        display: block;
+        padding: 25px 25px;
+        font-family: Microsoft JhengHei UI;
+        font-size: 1.4rem;
+        padding-right: 5%;
+        border-right: 4px solid #d7d6e9;
+        position: absolute;
+        left: -1rem;
+    }
+
+    &__date-time-value {
+        border-radius: 15px;
+        border: .2rem solid #9796f0;
+        display: block;
+        height: max-content;
+        position: relative;
+        left: 27%;
+        top: -3px;
+        text-align: center;
+    }
+
+    span {
+        font-size: 1rem;
+    }
+}

@@ -1,4 +1,7 @@
 // sass/layout/_logo.scss
+@import '../utils/mixins';
+
+
 .logo__container {
     border: .2rem solid var(--tertiary-color);
     display: flex;

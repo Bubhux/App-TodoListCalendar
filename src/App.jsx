@@ -3,7 +3,7 @@ import React from 'react';
 import TodoList from '../components/TodoList.jsx';
 import Calendar from '../components/Calendar.jsx';
 import ScrollAnimation from '../components/ScrollAnimation.jsx';
-import './App.css';
+//import './App.css';
 
 
 const App = () => {
