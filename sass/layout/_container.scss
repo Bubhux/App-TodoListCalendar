@@ -1,5 +1,6 @@
 // sass/layout/_container.scss
 @import '../utils/mixins';
+@import '../base/variables';
 
 
 .container {
@@ -8,5 +9,13 @@
     justify-content: space-between;
     border: .2rem solid var(--tertiary-color);
     padding: 20px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+
     @include border-radius(25px);
+    @include responsive-max(tablet) {
+        display: flex;
+        flex-direction: column;
+    }
 }

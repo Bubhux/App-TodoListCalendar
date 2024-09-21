@@ -6,6 +6,7 @@
     width: 400px;
     overflow: hidden;
     padding: 20px 50px 0px 50px;
+
     @include box-shadow(var(--shadow));
     @include border-radius(25px);
 
@@ -17,6 +18,7 @@
         font-weight: 700;
         color: var(--text-light);
         padding: 10px;
+
         @include border-radius(15px);
     }
 
@@ -58,6 +60,7 @@
         font-size: 1.4rem;
         padding: 5px 10px;
         cursor: pointer;
+
         @include border-radius(10px);
     }
 
@@ -73,6 +76,7 @@
         place-items: center;
         margin: 0px 10px;
         cursor: pointer;
+
         @include border-radius(50%);
     }
 
@@ -99,6 +103,7 @@
             place-items: center;
             margin: 5px;
             cursor: pointer;
+
             @include border-radius(12px);
         }
     }
@@ -113,6 +118,8 @@
         justify-content: center;
         padding: 30px 60px 30px 50px;
         margin-bottom: -80px;
+        backdrop-filter: blur(30px);
+        box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
     }
 
     &__day-text-format {

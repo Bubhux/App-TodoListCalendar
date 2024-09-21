@@ -1,4 +1,10 @@
 // sass/base/_variables.scss
+$breakpoints: (
+        mobile: 600px,
+        tablet: 900px,
+        desktop: 1200px
+    );
+
 :root {
     --primary-color: #395886;
     --secondary-color: #8AAEE0;

@@ -123,6 +123,11 @@ html hr, body hr {
   border-color: var(--btn-bg);
   color: var(--text-light);
 }
+.btn:active {
+  background-color: transparent !important;
+  border-color: inherit !important;
+  color: inherit !important;
+}
 
 @keyframes to-top {
   0% {
@@ -206,6 +211,9 @@ html hr, body hr {
 .calendar__month-list.calendar__month-list--show {
   display: grid;
   animation: showtime 1s forwards;
+  backdrop-filter: blur(30px);
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+  border: 2px solid rgba(255, 255, 255, 0.18);
 }
 .calendar__time-format {
   font-size: 1.5rem;
@@ -238,6 +246,10 @@ html hr, body hr {
 }
 .calendar__month-item--active {
   font-weight: bold;
+  background-color: var(--primary-color);
+  color: var(--text-muted);
+}
+.calendar__month-item:hover {
   background-color: var(--primary-color);
   color: var(--text-muted);
 }
@@ -342,6 +354,8 @@ html hr, body hr {
   justify-content: center;
   padding: 30px 60px 30px 50px;
   margin-bottom: -80px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
 }
 .calendar__day-text-format {
   display: block;
@@ -416,6 +430,45 @@ html hr, body hr {
 .app__container .calendar__container {
   flex: 1;
 }
+@media screen and (max-width: 900px) {
+  .app__container .calendar__container {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+:root {
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: rgb(104, 104, 104);
+  --background-calendar-days-hover: var(--tertiary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --font-family: consolas;
+}
 
 .container {
   text-align: left;
@@ -423,7 +476,48 @@ html hr, body hr {
   justify-content: space-between;
   border: 0.2rem solid var(--tertiary-color);
   padding: 20px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+  border: 2px solid rgba(255, 255, 255, 0.18);
   border-radius: 25px;
+}
+@media screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+:root {
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: rgb(104, 104, 104);
+  --background-calendar-days-hover: var(--tertiary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --font-family: consolas;
 }
 
 .logo__container {
@@ -436,7 +530,16 @@ html hr, body hr {
   max-width: 50%;
   margin: 25px auto 20px;
   height: 110px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+  border: 2px solid rgba(255, 255, 255, 0.18);
   border-radius: 25px;
+}
+@media screen and (max-width: 900px) {
+  .logo__container {
+    padding: 0px;
+    height: 120px;
+  }
 }
 
 @keyframes to-top {

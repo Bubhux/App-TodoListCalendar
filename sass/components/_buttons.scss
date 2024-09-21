@@ -5,6 +5,7 @@
 .btn {
     border-color: var(--btn-bg);
     color: var(--text-light);
+
     @include border-radius(var(--border-radius));
 
     &-danger {
@@ -52,5 +53,11 @@
     &:not(.active) {
         border-color: var(--btn-bg);
         color: var(--text-light);
+    }
+
+    &:active {
+        background-color: transparent !important;
+        border-color: inherit !important;
+        color: inherit !important;
     }
 }
