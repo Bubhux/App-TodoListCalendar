@@ -9,5 +9,12 @@
 
     .calendar__container {
         flex: 1;
+
+        @include responsive-max(tablet) {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
     }
 }

@@ -10,3 +10,9 @@
 @mixin box-shadow($shadow) {
     box-shadow: $shadow;
 }
+
+@mixin responsive-max($breakpoint) {
+    @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
