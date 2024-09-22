@@ -1,7 +1,8 @@
 // components/TodoList.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import TodoItem from './TodoItem.jsx';
 import useTodos from '../hooks/useTodos.js';
+import useCalendar from '../hooks/useCalendar.js';
 
 
 /**
@@ -13,6 +14,8 @@ import useTodos from '../hooks/useTodos.js';
  */
 const TodoList = () => {
     const { todos, addTodo, toggleTodo, deleteTodo, filter, handleFilterChange } = useTodos()
+    const { setHighlightedDate } = useCalendar()
+    const [hoverDate, setHoverDate] = useState(null) // État pour la date survolée
 
     /**
      * Gestionnaire de soumission du formulaire pour ajouter une nouvelle tâche.
@@ -20,12 +23,19 @@ const TodoList = () => {
      * @param {React.FormEvent} e - L'événement de soumission du formulaire.
      */
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         const title = e.target.elements.title.value.trim()
         if (title) {
             addTodo(title)
             e.target.reset()
         }
+    }
+
+    // Gestionnaire de survol des tâches
+    const handleTodoHover = (date) => {
+        //console.log('Hovered Date:', date) // Affiche la date dans la console
+        setHoverDate(date) // Met à jour l'état du survol
+        setHighlightedDate(date) // Met à jour l'état du calendrier avec la date de survol
     }
 
     return (
@@ -56,9 +66,16 @@ const TodoList = () => {
             </div>
             <ul className="list-group list-group-custom reveal-4">
                 {todos.map(todo => (
-                    <TodoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+                    <TodoItem
+                        key={todo.id}
+                        todo={todo}
+                        toggleTodo={toggleTodo}
+                        deleteTodo={deleteTodo}
+                        onHover={handleTodoHover}
+                    />
                 ))}
             </ul>
+            {hoverDate && <div className="hover-info">Date created : {hoverDate}</div>}
         </div>
     )
 }
