@@ -1,7 +1,6 @@
 // components/TodoItem.jsx
 import React from 'react';
 
-
 /**
  * Composant TodoItem.
  * Affiche une tâche individuelle avec des options pour la marquer comme complétée ou la supprimer.
@@ -13,12 +12,28 @@ import React from 'react';
  * @param {boolean} props.todo.completed - Le statut de la tâche (complétée ou non).
  * @param {function} props.toggleTodo - La fonction pour changer le statut de la tâche.
  * @param {function} props.deleteTodo - La fonction pour supprimer la tâche.
+ * @param {function} props.onHover - La fonction pour gérer le survol de la tâche.
  *
  * @returns {JSX.Element} Le composant TodoItem.
  */
-const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
+const TodoItem = ({ todo, toggleTodo, deleteTodo, onHover }) => {
+    const handleMouseEnter = () => {
+        console.log("Todo Object:", todo)
+        console.log("Mouse Entered:", todo.createdDate) // Affiche la date de création
+        onHover(todo.createdDate)
+    }
+
+    const handleMouseLeave = () => {
+        console.log("Mouse Left")
+        onHover(null) // Réinitialiser l'état de survol
+    }
+
     return (
-        <li className={`todo list-group-item d-flex align-items-center ${todo.completed ? 'is-completed' : ''}`}>
+        <li
+            className={`todo list-group-item d-flex align-items-center ${todo.completed ? 'is-completed' : ''}`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
             <input
                 className="form-check-input"
                 type="checkbox"
@@ -33,7 +48,7 @@ const TodoItem = ({ todo, toggleTodo, deleteTodo }) => {
                 <i className="bi-trash"></i>
             </button>
         </li>
-    )
-}
+    );
+};
 
 export default TodoItem;

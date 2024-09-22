@@ -3,6 +3,13 @@
 @import '../utils/animations';
 
 
+.calendar__day--highlighted {
+    background-color: #ffeb3b;
+    border: 2px solid #f57c00;
+    color: #f57c00;
+    border-radius: 50%;
+}
+
 .calendar {
 
     &__week-days div {
@@ -55,13 +62,27 @@
             display: grid;
             animation: showtime 1s forwards;
             backdrop-filter: blur(30px);
-            box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
-            border: 2px solid rgba(255, 255, 255, 0.18);
+            /*box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);*/
+            box-shadow: 0px 0px 30px 0 rgb(0 25 252 / 37%);
+            /*border: 2px solid rgba(255, 255, 255, 0.18);*/
+            border: 2px solid rgb(0 0 0 / 18%);
         }
     }
 
     &__time-format {
         font-size: 1.5rem;
+
+        &--hideTime {
+            animation: hidetime 1.5s forwards;
+        }
+
+        &--showtime {
+            animation: showtime 2s forwards;
+        }
+    }
+
+    &__date-format {
+        font-size: 0.9rem;
 
         &--hideTime {
             animation: hidetime 1.5s forwards;

@@ -1,5 +1,5 @@
 // hooks/useTodos.js
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import useLocalStorage from './useLocalStorage.js';
 
 
@@ -21,8 +21,17 @@ const useTodos = () => {
      * @param {string} title - Le titre de la nouvelle tâche.
      */
     const addTodo = (title) => {
-        const newTodo = { id: Date.now(), title, completed: false }
-        setTodos([...todos, newTodo])
+        const newTodo = {
+            id: Date.now(),
+            title,
+            completed: false,
+            createdDate: new Date().toISOString(), // Ajoute la date de création
+        }
+
+        // Ajoute la nouvelle tâche à la liste existante
+        const updatedTodos = [...todos, newTodo]
+        // Mettre à jour le localStorage
+        setTodos(updatedTodos)
     }
 
     /**

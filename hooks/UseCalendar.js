@@ -1,5 +1,5 @@
 // hooks/useCalendar.js
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 
 /**
@@ -34,6 +34,8 @@ const useCalendar = () => {
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear())
     // État pour afficher ou masquer la liste des mois
     const [showMonthList, setShowMonthList] = useState(false)
+    // État pour la date surlignée
+    const [highlightedDateSate, setHighlightedDateState] = useState(null)
 
     // Noms des mois en anglais
     const monthNames = [
@@ -71,26 +73,41 @@ const useCalendar = () => {
             31, 31, 30, 31, 30, 31
         ]
 
-        const firstDay = new Date(year, month).getDay();
+        const firstDay = new Date(year, month).getDay()
         const days = []
 
         for (let i = 0; i < daysOfMonth[month] + firstDay; i++) {
             if (i >= firstDay) {
-                const dayNumber = i - firstDay + 1;
+                const dayNumber = i - firstDay + 1
                 days.push({
                     day: dayNumber,
                     isCurrentDate: (
                         dayNumber === new Date().getDate() &&
                         year === new Date().getFullYear() &&
                         month === new Date().getMonth()
+                    ),
+                    isHighlighted: (
+                        highlightedDateSate &&
+                        dayNumber === new Date(highlightedDateSate).getDate() &&
+                        year === new Date(highlightedDateSate).getFullYear() &&
+                        month === new Date(highlightedDateSate).getMonth()
                     )
-                })
+                });
             } else {
-                days.push({ day: null, isCurrentDate: false })
+                days.push({ day: null, isCurrentDate: false, isHighlighted: false })
             }
         }
 
         return days
+    }
+
+    /**
+     * Met à jour la date surlignée.
+     * 
+     * @param {Date} date - La date à surligner.
+     */
+    const setHighlightedDate = (date) => {
+        setHighlightedDateState(date)
     }
 
     return {
@@ -101,7 +118,8 @@ const useCalendar = () => {
         showMonthList,
         toggleMonthList,
         handleMonthSelect,
-        setCurrentYear
+        setCurrentYear,
+        setHighlightedDate
     }
 }
 

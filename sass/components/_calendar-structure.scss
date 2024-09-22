@@ -42,6 +42,7 @@
         grid-template-columns: repeat(7, 1fr);
         gap: 2px;
         color: var(--text-dark);
+        margin: 5px;
 
         div {
             width: 37px;
@@ -124,13 +125,21 @@
 
     &__day-text-format {
         display: block;
-        padding: 25px 25px;
+        padding: 12px 25px;
         font-family: Microsoft JhengHei UI;
         font-size: 1.4rem;
         padding-right: 5%;
         border-right: 4px solid #d7d6e9;
         position: absolute;
         left: -1rem;
+
+        &--hideTime {
+            animation: hidetime 1.5s forwards;
+        }
+
+        &--showtime {
+            animation: showtime 2s forwards;
+        }
     }
 
     &__date-time-value {
