@@ -4,6 +4,7 @@ import CalendarHeader from './CalendarHeader.jsx';
 import CalendarBody from './CalendarBody.jsx';
 import DateTimeFormat from './DateTimeFormat.jsx';
 import useCalendar from '../hooks/useCalendar.js';
+import useHoverCalendarDate from '../hooks/useHoverCalendarDate.js';
 
 
 /**
@@ -25,6 +26,7 @@ const Calendar = () => {
         setCurrentYear
     } = useCalendar()
 
+    const { hoveredDate, handleMouseEnter, handleMouseLeave } = useHoverCalendarDate()
     const [dateTimeFormatClass, setDateTimeFormatClass] = useState('calendar__date-time-format--showtime')
     const [dayTextFormatClass, setDayTextFormatClass] = useState('calendar__day-text-format--showtime')
     const [timeFormatClass, setTimeFormatClass] = useState('calendar__time-format--showtime')
@@ -62,7 +64,12 @@ const Calendar = () => {
                 monthNames={monthNames}
                 setCurrentYear={setCurrentYear}
             />
-            <CalendarBody days={days} />
+            <CalendarBody 
+                days={days} 
+                hoveredDate={hoveredDate}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            />
             <DateTimeFormat
                 dateTimeFormatClass={dateTimeFormatClass}
                 timeFormatClass={timeFormatClass}

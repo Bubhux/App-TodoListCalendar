@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import TodoItem from './TodoItem.jsx';
 import useTodos from '../hooks/useTodos.js';
-import useCalendar from '../hooks/useCalendar.js';
+import useHoverCalendarDate from '../hooks/useHoverCalendarDate.js';
 
 
 /**
@@ -14,8 +14,8 @@ import useCalendar from '../hooks/useCalendar.js';
  */
 const TodoList = () => {
     const { todos, addTodo, toggleTodo, deleteTodo, filter, handleFilterChange } = useTodos()
-    const { setHighlightedDate } = useCalendar()
-    const [hoverDate, setHoverDate] = useState(null) // État pour la date survolée
+    const { handleMouseEnter, handleMouseLeave } = useHoverCalendarDate()
+    const [hoverDate, setHoverDate] = useState(null)
 
     /**
      * Gestionnaire de soumission du formulaire pour ajouter une nouvelle tâche.
@@ -34,8 +34,8 @@ const TodoList = () => {
     // Gestionnaire de survol des tâches
     const handleTodoHover = (date) => {
         //console.log('Hovered Date:', date) // Affiche la date dans la console
-        setHoverDate(date) // Met à jour l'état du survol
-        setHighlightedDate(date) // Met à jour l'état du calendrier avec la date de survol
+        setHoverDate(date)
+        handleMouseEnter(date)
     }
 
     return (
@@ -67,12 +67,12 @@ const TodoList = () => {
             <ul className="list-group list-group-custom reveal-4">
                 {todos.map(todo => (
                     <TodoItem
-                        key={todo.id}
-                        todo={todo}
-                        toggleTodo={toggleTodo}
-                        deleteTodo={deleteTodo}
-                        onHover={handleTodoHover}
-                    />
+                    key={todo.id}
+                    todo={todo}
+                    onToggle={() => toggleTodo(todo.id)}
+                    onDelete={() => deleteTodo(todo.id)}
+                    onHover={handleTodoHover}
+                />
                 ))}
             </ul>
             {hoverDate && <div className="hover-info">Date created : {hoverDate}</div>}

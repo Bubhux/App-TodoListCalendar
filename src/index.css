@@ -179,13 +179,6 @@ html hr, body hr {
     opacity: 1;
   }
 }
-.calendar__day--highlighted {
-  background-color: #ffeb3b;
-  border: 2px solid #f57c00;
-  color: #f57c00;
-  border-radius: 50%;
-}
-
 .calendar__week-days div:hover {
   color: var(--text-dark);
   transform: scale(1.2);
@@ -193,6 +186,12 @@ html hr, body hr {
 }
 .calendar__days div {
   animation: to-top 1s forwards;
+}
+.calendar__days div.calendar__day--highlighted {
+  color: red;
+  background-color: red;
+  border-radius: 50%;
+  /*@include transition(background-color, 0.3s, ease-in-out);*/
 }
 .calendar__days div:hover {
   color: var(--text-dark);
@@ -219,10 +218,8 @@ html hr, body hr {
   display: grid;
   animation: showtime 1s forwards;
   backdrop-filter: blur(30px);
-  /*box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);*/
-  box-shadow: 0px 0px 30px 0 rgba(0, 25, 252, 0.37);
-  /*border: 2px solid rgba(255, 255, 255, 0.18);*/
-  border: 2px solid rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+  border: 2px solid rgba(255, 255, 255, 0.18);
 }
 .calendar__time-format {
   font-size: 1.5rem;
@@ -231,15 +228,6 @@ html hr, body hr {
   animation: hidetime 1.5s forwards;
 }
 .calendar__time-format--showtime {
-  animation: showtime 2s forwards;
-}
-.calendar__date-format {
-  font-size: 0.9rem;
-}
-.calendar__date-format--hideTime {
-  animation: hidetime 1.5s forwards;
-}
-.calendar__date-format--showtime {
   animation: showtime 1s forwards;
 }
 .calendar__day-text-format--hidetime, .calendar__date-format--hideTime, .calendar__date-time-value--hideTime, .calendar__date-time-format--hideTime {
@@ -307,7 +295,6 @@ html hr, body hr {
   grid-template-columns: repeat(7, 1fr);
   gap: 2px;
   color: var(--text-dark);
-  margin: 5px;
 }
 .calendar__days div {
   width: 37px;
@@ -378,19 +365,13 @@ html hr, body hr {
 }
 .calendar__day-text-format {
   display: block;
-  padding: 12px 25px;
+  padding: 25px 25px;
   font-family: Microsoft JhengHei UI;
   font-size: 1.4rem;
   padding-right: 5%;
   border-right: 4px solid #d7d6e9;
   position: absolute;
   left: -1rem;
-}
-.calendar__day-text-format--hideTime {
-  animation: hidetime 1.5s forwards;
-}
-.calendar__day-text-format--showtime {
-  animation: showtime 2s forwards;
 }
 .calendar__date-time-value {
   border-radius: 15px;
@@ -443,6 +424,13 @@ html hr, body hr {
   border: 2px solid var(--btn-border-color);
   color: var(--text-light);
   --bs-list-group-bg: var(--tertiary-color);
+}
+.todo__container .hover-info {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  z-index: 10;
 }
 
 .app__container {
