@@ -17,8 +17,8 @@ import useCalendar from './useCalendar.js';
  */
 const useHoverCalendarDate = () => {
     // Hook personnalisé pour accéder aux fonctions du calendrier
-    const { setCurrentYear, generateCalendarDays } = useCalendar()
-    
+    const { setCurrentYear, setCurrentMonth, generateCalendarDays } = useCalendar()
+
     // État pour stocker la date survolée
     const [hoveredDate, setHoveredDate] = useState(null)
 
@@ -31,19 +31,19 @@ const useHoverCalendarDate = () => {
     const handleMouseEnter = (createdDate) => {
         // Crée un objet Date à partir de la chaîne de date
         const date = new Date(createdDate)
-        
-        // Met à jour l'année courante dans le calendrier
-        setCurrentYear(date.getFullYear())
-        
-        // Génère les jours du calendrier pour le mois et l'année de la date
-        const days = generateCalendarDays(date.getMonth(), date.getFullYear())
-        
-        // Trouve le jour correspondant à la date dans le tableau des jours
-        const highlightedDay = days.find(day => day.day === date.getDate())
-        
-        // Met à jour l'état de la date survolée
-        setHoveredDate(highlightedDay)
-    };
+        date.setHours(0, 0, 0, 0)
+
+        // Vérifie si la date est différente avant de mettre à jour
+        if (!hoveredDate || hoveredDate.day !== date.getDate()) {
+            setCurrentYear(date.getFullYear())
+            setCurrentMonth(date.getMonth())
+
+            const days = generateCalendarDays(date.getMonth(), date.getFullYear())
+            const highlightedDay = days.find(day => day.day === date.getDate())
+
+            setHoveredDate(highlightedDay)
+        }
+    }
 
     /**
      * Fonction appelée lorsque la souris quitte un élément.
@@ -51,7 +51,7 @@ const useHoverCalendarDate = () => {
      */
     const handleMouseLeave = () => {
         setHoveredDate(null)
-    };
+    }
 
     return { hoveredDate, handleMouseEnter, handleMouseLeave }
 }

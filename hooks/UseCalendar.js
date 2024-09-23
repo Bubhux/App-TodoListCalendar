@@ -35,7 +35,7 @@ const useCalendar = () => {
     // État pour afficher ou masquer la liste des mois
     const [showMonthList, setShowMonthList] = useState(false)
     // État pour la date surlignée
-    const [highlightedDateSate, setHighlightedDateState] = useState(null)
+    const [highlightedDateState, setHighlightedDateState] = useState(null)
 
     // Noms des mois en anglais
     const monthNames = [
@@ -87,12 +87,12 @@ const useCalendar = () => {
                         month === new Date().getMonth()
                     ),
                     isHighlighted: (
-                        highlightedDateSate &&
-                        dayNumber === new Date(highlightedDateSate).getDate() &&
-                        year === new Date(highlightedDateSate).getFullYear() &&
-                        month === new Date(highlightedDateSate).getMonth()
+                        highlightedDateState &&
+                        dayNumber === new Date(highlightedDateState).getDate() &&
+                        year === new Date(highlightedDateState).getFullYear() &&
+                        month === new Date(highlightedDateState).getMonth()
                     )
-                });
+                })
             } else {
                 days.push({ day: null, isCurrentDate: false, isHighlighted: false })
             }
@@ -107,7 +107,10 @@ const useCalendar = () => {
      * @param {Date} date - La date à surligner.
      */
     const setHighlightedDate = (date) => {
-        setHighlightedDateState(date)
+        // Vérifie si la date est différente avant de mettre à jour
+        if (highlightedDateState !== date) {
+            setHighlightedDateState(date);
+        }
     }
 
     return {
@@ -119,6 +122,7 @@ const useCalendar = () => {
         toggleMonthList,
         handleMonthSelect,
         setCurrentYear,
+        setCurrentMonth,
         setHighlightedDate
     }
 }

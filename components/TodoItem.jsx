@@ -1,6 +1,7 @@
 // components/TodoItem.jsx
 import React from 'react';
 
+
 /**
  * Composant TodoItem.
  * Affiche une tâche individuelle avec des options pour la marquer comme complétée ou la supprimer.
@@ -48,7 +49,7 @@ const TodoItem = ({ todo, toggleTodo, deleteTodo, onHover }) => {
                 <i className="bi-trash"></i>
             </button>
         </li>
-    );
-};
+    )
+}
 
 export default TodoItem;

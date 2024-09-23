@@ -14,8 +14,8 @@ import React from 'react';
  * 
  * @returns {JSX.Element} - Le composant affichant le corps du calendrier.
  */
-const CalendarBody = ({ days, hoveredDate, onMouseEnter, onMouseLeave }) => {
-    const isDateHovered = hoveredDate instanceof Date;
+const CalendarBody = ({ days, hoveredDate, onMouseEnter, onMouseLeave, currentMonth, currentYear }) => {
+    const isDateHovered = hoveredDate instanceof Date
 
     return (
         <div className="calendar__body reveal-3">
@@ -33,10 +33,10 @@ const CalendarBody = ({ days, hoveredDate, onMouseEnter, onMouseLeave }) => {
             <div className="calendar__days">
                 {days.map((dayObj, index) => {
                     const isHovered = isDateHovered && 
-                        hoveredDate.getDate() === dayObj.day &&
-                        hoveredDate.getMonth() === new Date().getMonth() &&
-                        hoveredDate.getFullYear() === new Date().getFullYear();
-                    
+                        hoveredDate.day === dayObj.day &&
+                        hoveredDate.month === currentMonth &&
+                        hoveredDate.year === currentYear
+
                     return (
                         <div
                             key={index}
