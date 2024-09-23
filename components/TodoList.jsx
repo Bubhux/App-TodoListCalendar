@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import TodoItem from './TodoItem.jsx';
 import useTodos from '../hooks/useTodos.js';
 import useHoverCalendarDate from '../hooks/useHoverCalendarDate.js';
+import useSyncTodoWithCalendar from '../hooks/useSyncTodoWithCalendar.js';
 
 
 /**
@@ -16,6 +17,9 @@ const TodoList = () => {
     const { todos, addTodo, toggleTodo, deleteTodo, filter, handleFilterChange } = useTodos()
     const { handleMouseEnter, handleMouseLeave } = useHoverCalendarDate()
     const [hoverDate, setHoverDate] = useState(null)
+
+    // Utilise le hook pour synchroniser la date survolée avec le calendrier
+    useSyncTodoWithCalendar(hoverDate)
 
     /**
      * Gestionnaire de soumission du formulaire pour ajouter une nouvelle tâche.
@@ -36,6 +40,11 @@ const TodoList = () => {
         //console.log('Hovered Date:', date) // Affiche la date dans la console
         setHoverDate(date)
         handleMouseEnter(date)
+    }
+
+    const handleTodoMouseLeave = () => {
+        setHoverDate(null)
+        handleMouseLeave()
     }
 
     return (
@@ -69,9 +78,10 @@ const TodoList = () => {
                     <TodoItem
                     key={todo.id}
                     todo={todo}
-                    onToggle={() => toggleTodo(todo.id)}
-                    onDelete={() => deleteTodo(todo.id)}
+                    toggleTodo={toggleTodo}
+                    deleteTodo={deleteTodo}
                     onHover={handleTodoHover}
+                    onMouseLeave={handleTodoMouseLeave}
                 />
                 ))}
             </ul>
