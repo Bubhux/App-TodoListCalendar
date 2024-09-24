@@ -17,6 +17,7 @@
   --background-calendar-days-hover: var(--tertiary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--primary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);
@@ -69,6 +70,7 @@ html hr, body hr {
   --background-calendar-days-hover: var(--tertiary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--primary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);
@@ -432,6 +434,10 @@ html hr, body hr {
   padding: 5px;
   z-index: 10;
 }
+.todo__container .list-group-item:hover {
+  color: var(--text-light);
+  background-color: var(--background-todo-item-hover);
+}
 
 .app__container {
   padding: 20px;
@@ -470,6 +476,7 @@ html hr, body hr {
   --background-calendar-days-hover: var(--tertiary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--primary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);
@@ -520,6 +527,7 @@ html hr, body hr {
   --background-calendar-days-hover: var(--tertiary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--primary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);
