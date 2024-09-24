@@ -34,14 +34,22 @@ const useHoverCalendarDate = () => {
         date.setHours(0, 0, 0, 0)
 
         // Vérifie si la date est différente avant de mettre à jour
-        if (!hoveredDate || hoveredDate.day !== date.getDate()) {
+        if (!hoveredDate || 
+            hoveredDate.date.getDate() !== date.getDate() || 
+            hoveredDate.date.getMonth() !== date.getMonth() || 
+            hoveredDate.date.getFullYear() !== date.getFullYear()) {
+
             setCurrentYear(date.getFullYear())
             setCurrentMonth(date.getMonth())
 
             const days = generateCalendarDays(date.getMonth(), date.getFullYear())
             const highlightedDay = days.find(day => day.day === date.getDate())
 
-            setHoveredDate(highlightedDay)
+            // Stocke à la fois la date et toute autre information nécessaire
+            setHoveredDate({
+                date: date,
+                dayInfo: highlightedDay
+            })
         }
     }
 

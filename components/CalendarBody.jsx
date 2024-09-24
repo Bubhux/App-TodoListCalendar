@@ -1,5 +1,6 @@
 // components/CalendarBody.jsx
 import React from 'react';
+import useHoverCalendarDate from '../hooks/useHoverCalendarDate.js';
 
 
 /**
@@ -8,14 +9,13 @@ import React from 'react';
  * @param {Object[]} days - Liste des jours à afficher dans le calendrier.
  * @param {number} days[].day - Le numéro du jour du mois.
  * @param {boolean} days[].isCurrentDate - Indique si le jour est la date courante.
- * @param {Object|null} hoveredDate - La date survolée sous forme d'objet, ou null si aucune date n'est survolée.
- * @param {Function} onMouseEnter - Fonction pour gérer le survol des jours du calendrier.
- * @param {Function} onMouseLeave - Fonction pour gérer la sortie du survol des jours du calendrier.
+ * @param {number} currentMonth - Le mois actuellement affiché dans le calendrier.
+ * @param {number} currentYear - L'année actuellement affichée dans le calendrier.
  * 
  * @returns {JSX.Element} - Le composant affichant le corps du calendrier.
  */
-const CalendarBody = ({ days, hoveredDate, onMouseEnter, onMouseLeave, currentMonth, currentYear }) => {
-    const isDateHovered = hoveredDate instanceof Date
+const CalendarBody = ({ days, currentMonth, currentYear, highlightedDate }) => {
+    const { handleMouseEnter, handleMouseLeave } = useHoverCalendarDate()
 
     return (
         <div className="calendar__body reveal-3">
@@ -32,17 +32,27 @@ const CalendarBody = ({ days, hoveredDate, onMouseEnter, onMouseLeave, currentMo
             {/* Affichage des jours du mois */}
             <div className="calendar__days">
                 {days.map((dayObj, index) => {
-                    const isHovered = isDateHovered && 
-                        hoveredDate.day === dayObj.day &&
-                        hoveredDate.month === currentMonth &&
-                        hoveredDate.year === currentYear
+                    if (dayObj.day === null) {
+                        return <div key={index} className="calendar__day"></div>
+                    }
+
+                    const dateToCheck = new Date(currentYear, currentMonth, dayObj.day)
+                    const isValidDate = !isNaN(dateToCheck.getTime())
+                    const isHighlighted = highlightedDate && 
+                        highlightedDate.getDate() === dayObj.day &&
+                        highlightedDate.getMonth() === currentMonth &&
+                        highlightedDate.getFullYear() === currentYear
 
                     return (
                         <div
                             key={index}
-                            className={`calendar__day ${dayObj.isCurrentDate ? 'calendar__day--current-date' : ''} ${isHovered ? 'calendar__day--highlighted' : ''}`}
-                            onMouseEnter={() => onMouseEnter(new Date(new Date().getFullYear(), new Date().getMonth(), dayObj.day))}
-                            onMouseLeave={onMouseLeave}
+                            className={`calendar__day ${dayObj.isCurrentDate ? 'calendar__day--current-date' : ''} ${isHighlighted ? 'calendar__day--highlighted' : ''}`}
+                            onMouseEnter={() => {
+                                if (isValidDate) {
+                                    handleMouseEnter(dateToCheck.toISOString())
+                                }
+                            }}
+                            onMouseLeave={handleMouseLeave}
                         >
                             {dayObj.day}
                         </div>

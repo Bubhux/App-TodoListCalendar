@@ -32,6 +32,8 @@ const useCalendar = () => {
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth())
     // État pour l'année courante
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear())
+    // État pour le jour courant
+    const [currentDay, setCurrentDay] = useState(new Date().getDate())
     // État pour afficher ou masquer la liste des mois
     const [showMonthList, setShowMonthList] = useState(false)
     // État pour la date surlignée
@@ -107,9 +109,10 @@ const useCalendar = () => {
      * @param {Date} date - La date à surligner.
      */
     const setHighlightedDate = (date) => {
-        // Vérifie si la date est différente avant de mettre à jour
-        if (highlightedDateState !== date) {
-            setHighlightedDateState(date);
+        if (date instanceof Date && !isNaN(date.getTime())) {
+            if (!highlightedDateState || date.getTime() !== highlightedDateState.getTime()) {
+                setHighlightedDateState(date)
+            }
         }
     }
 
@@ -123,6 +126,7 @@ const useCalendar = () => {
         handleMonthSelect,
         setCurrentYear,
         setCurrentMonth,
+        setCurrentDay,
         setHighlightedDate
     }
 }

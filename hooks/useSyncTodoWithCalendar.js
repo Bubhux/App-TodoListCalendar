@@ -1,7 +1,6 @@
 // hooks/useSyncTodoWithCalendar.js
 import { useEffect } from 'react';
 import useCalendar from './useCalendar.js';
-import useHoverCalendarDate from './useHoverCalendarDate.js';
 
 
 /**
@@ -10,15 +9,15 @@ import useHoverCalendarDate from './useHoverCalendarDate.js';
  * @param {Object|null} hoverDate - La date de création de la tâche actuellement survolée.
  */
 const useSyncTodoWithCalendar = (hoverDate) => {
-    const { currentYear, setCurrentYear, currentMonth, setCurrentMonth, highlightedDate, setHighlightedDate } = useCalendar()
-    const { handleMouseEnter } = useHoverCalendarDate()
+    const { currentYear, currentMonth, currentDay, setCurrentYear, setCurrentMonth, setCurrentDay, setHighlightedDate } = useCalendar()
 
     useEffect(() => {
         if (hoverDate) {
-            const year = new Date(hoverDate).getFullYear()
-            const month = new Date(hoverDate).getMonth()
+            const date = new Date(hoverDate)
+            const year = date.getFullYear()
+            const month = date.getMonth()
+            const day = date.getDate()
 
-            // Ne pas déclencher de mise à jour si l'année est déjà correcte
             if (currentYear !== year) {
                 setCurrentYear(year)
             }
@@ -27,13 +26,17 @@ const useSyncTodoWithCalendar = (hoverDate) => {
                 setCurrentMonth(month)
             }
 
-            // Ne pas déclencher de mise à jour si la date est déjà correcte
-            if (highlightedDate !== hoverDate) {
-                setHighlightedDate(hoverDate)
-                handleMouseEnter(hoverDate) // Supposant que cette fonction n'est pas source de boucle
+            if (currentDay !== day) {
+                setCurrentDay(day)
             }
+
+            setHighlightedDate(date)
+
+        } else {
+            setHighlightedDate(null)
+            setCurrentDay(null)
         }
-    }, [hoverDate, currentYear, setCurrentYear, currentMonth, setCurrentMonth, , highlightedDate, setHighlightedDate, handleMouseEnter])
+    }, [hoverDate, currentYear, currentMonth, currentDay, setCurrentYear, setCurrentMonth, setCurrentDay, setHighlightedDate])
 }
 
 export default useSyncTodoWithCalendar;
