@@ -189,7 +189,7 @@ html hr, body hr {
 .calendar__days div {
   animation: to-top 1s forwards;
 }
-.calendar__days div.calendar__day--highlighted {
+.calendar__days div.calendar__day--todo-hover-created {
   color: red;
   background-color: red;
   border-radius: 50%;
@@ -428,11 +428,13 @@ html hr, body hr {
   --bs-list-group-bg: var(--tertiary-color);
 }
 .todo__container .hover-info {
+  margin: 5px;
   position: absolute;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #e8e8e8;
+  border: 2px solid var(--btn-border-color);
   padding: 5px;
   z-index: 10;
+  border-radius: 5px;
 }
 .todo__container .list-group-item:hover {
   color: var(--text-light);

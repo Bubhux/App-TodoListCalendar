@@ -17,10 +17,10 @@
     &__days div {
         animation: to-top 1s forwards;
 
-        &.calendar__day--highlighted {
+        &.calendar__day--todo-hover-created {
             color: red;
             background-color: red;
-
+        
             @include border-radius(50%);
             /*@include transition(background-color, 0.3s, ease-in-out);*/
         }

@@ -1,6 +1,6 @@
 // components/CalendarBody.jsx
-import React from 'react';
-import useHoverCalendarDate from '../hooks/useHoverCalendarDate.js';
+import React, { memo } from 'react';
+import { useDateHover } from '../components/DateHoverContext.jsx';
 
 
 /**
@@ -14,11 +14,19 @@ import useHoverCalendarDate from '../hooks/useHoverCalendarDate.js';
  * 
  * @returns {JSX.Element} - Le composant affichant le corps du calendrier.
  */
-const CalendarBody = ({ days, currentMonth, currentYear, highlightedDate }) => {
-    const { handleMouseEnter, handleMouseLeave } = useHoverCalendarDate()
+const CalendarBody = memo(({ days, currentMonth, currentYear }) => {
+    const { hoveredDate, setHoveredDate } = useDateHover()
+
+    const handleMouseEnter = (date) => {
+        setHoveredDate(new Date(date))
+    }
+
+    const handleMouseLeave = () => {
+        setHoveredDate(null)
+    }
 
     return (
-        <div className="calendar__body reveal-3">
+        <div className="calendar__body reveal-3" aria-live="polite">
             {/* Affichage des jours de la semaine */}
             <div className="calendar__week-days">
                 <div>Sun</div> {/* Dimanche */}
@@ -33,20 +41,21 @@ const CalendarBody = ({ days, currentMonth, currentYear, highlightedDate }) => {
             <div className="calendar__days">
                 {days.map((dayObj, index) => {
                     if (dayObj.day === null) {
-                        return <div key={index} className="calendar__day"></div>
+                        return <div key={index} className="calendar__day"></div>;
                     }
 
-                    const dateToCheck = new Date(currentYear, currentMonth, dayObj.day)
-                    const isValidDate = !isNaN(dateToCheck.getTime())
-                    const isHighlighted = highlightedDate && 
-                        highlightedDate.getDate() === dayObj.day &&
-                        highlightedDate.getMonth() === currentMonth &&
-                        highlightedDate.getFullYear() === currentYear
+                    const dateToCheck = new Date(currentYear, currentMonth, dayObj.day);
+                    const isValidDate = !isNaN(dateToCheck.getTime());
+                    const isHighlighted = hoveredDate && 
+                        hoveredDate.getDate() === dayObj.day &&
+                        hoveredDate.getMonth() === currentMonth &&
+                        hoveredDate.getFullYear() === currentYear;
 
                     return (
                         <div
                             key={index}
-                            className={`calendar__day ${dayObj.isCurrentDate ? 'calendar__day--current-date' : ''} ${isHighlighted ? 'calendar__day--highlighted' : ''}`}
+                            className={`calendar__day ${dayObj.isCurrentDate ? 'calendar__day--current-date' : ''} ${isHighlighted ? 'calendar__day--todo-hover-created' : ''}`}
+                            aria-label={`Task created on ${hoveredDate ? hoveredDate.toLocaleDateString() : 'N/A'}`}
                             onMouseEnter={() => {
                                 if (isValidDate) {
                                     handleMouseEnter(dateToCheck.toISOString())
@@ -61,6 +70,6 @@ const CalendarBody = ({ days, currentMonth, currentYear, highlightedDate }) => {
             </div>
         </div>
     )
-}
+})
 
 export default CalendarBody;
