@@ -78,6 +78,10 @@ const useCalendar = () => {
         const firstDay = new Date(year, month).getDay()
         const days = []
 
+        days.forEach(day => {
+            day.ariaLabel = new Date(year, month, day.day).toLocaleDateString()
+        })
+
         for (let i = 0; i < daysOfMonth[month] + firstDay; i++) {
             if (i >= firstDay) {
                 const dayNumber = i - firstDay + 1
