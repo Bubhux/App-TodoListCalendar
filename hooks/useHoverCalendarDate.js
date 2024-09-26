@@ -30,6 +30,7 @@ const useHoverCalendarDate = () => {
      */
     const handleMouseEnter = (createdDate) => {
         // Crée un objet Date à partir de la chaîne de date
+        console.log("handleMouseEnter - Created Date:", createdDate)
         const date = new Date(createdDate)
         date.setHours(0, 0, 0, 0)
 
@@ -58,6 +59,7 @@ const useHoverCalendarDate = () => {
      * Réinitialise l'état de la date survolée à null.
      */
     const handleMouseLeave = () => {
+        console.log("handleMouseLeave - Clearing Hovered Date")
         setHoveredDate(null)
     }
 

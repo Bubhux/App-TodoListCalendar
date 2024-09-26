@@ -18,11 +18,13 @@
         animation: to-top 1s forwards;
 
         &.calendar__day--todo-hover-created {
-            color: red;
-            background-color: red;
+            color: var(--text-light);
+            background-color: var(--background-calendar-days-hover);
+            box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+            border: 2px solid rgba(255, 255, 255, 0.18);
         
-            @include border-radius(50%);
-            /*@include transition(background-color, 0.3s, ease-in-out);*/
+            @include border-radius(20%);
+            @include transition(background-color, 0.3s, ease-in-out);
         }
 
         &:hover {
@@ -63,8 +65,14 @@
             display: grid;
             animation: showtime 1s forwards;
             backdrop-filter: blur(30px);
-            box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+            /*box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);*/
             border: 2px solid rgba(255, 255, 255, 0.18);
+        }
+
+        &:hover {
+            box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+            border: 2px solid var(--primary-color);
+            /*border: 2px solid rgba(255, 255, 255, 0.18);*/
         }
     }
 
@@ -76,7 +84,7 @@
         }
 
         &--showtime {
-            animation: showtime 1s forwards;
+            animation: showtime 2s forwards;
         }
     }
 
@@ -94,12 +102,12 @@
         animation: showtime 1s forwards;
     }
 
-    &--hide {
+    &--hidetime {
         animation: hidetime 1s forwards;
     }
 
     &--showtime {
-        animation: showtime 1s forwards;
+        animation: showtime 3s forwards;
     }
 
     &__month-list--hideonce {

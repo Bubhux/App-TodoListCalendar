@@ -190,10 +190,12 @@ html hr, body hr {
   animation: to-top 1s forwards;
 }
 .calendar__days div.calendar__day--todo-hover-created {
-  color: red;
-  background-color: red;
-  border-radius: 50%;
-  /*@include transition(background-color, 0.3s, ease-in-out);*/
+  color: var(--text-light);
+  background-color: var(--background-calendar-days-hover);
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20%;
+  transition: background-color 0.3s ease-in-out;
 }
 .calendar__days div:hover {
   color: var(--text-dark);
@@ -220,8 +222,13 @@ html hr, body hr {
   display: grid;
   animation: showtime 1s forwards;
   backdrop-filter: blur(30px);
-  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+  /*box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);*/
   border: 2px solid rgba(255, 255, 255, 0.18);
+}
+.calendar__month-list:hover {
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+  border: 2px solid var(--primary-color);
+  /*border: 2px solid rgba(255, 255, 255, 0.18);*/
 }
 .calendar__time-format {
   font-size: 1.5rem;
@@ -230,7 +237,7 @@ html hr, body hr {
   animation: hidetime 1.5s forwards;
 }
 .calendar__time-format--showtime {
-  animation: showtime 1s forwards;
+  animation: showtime 2s forwards;
 }
 .calendar__day-text-format--hidetime, .calendar__date-format--hideTime, .calendar__date-time-value--hideTime, .calendar__date-time-format--hideTime {
   animation: hidetime 1.5s forwards;
@@ -238,11 +245,11 @@ html hr, body hr {
 .calendar__day-text-format--showtime, .calendar__date-format--showtime, .calendar__date-time-value--showtime, .calendar__date-time-format--showtime {
   animation: showtime 1s forwards;
 }
-.calendar--hide {
+.calendar--hidetime {
   animation: hidetime 1s forwards;
 }
 .calendar--showtime {
-  animation: showtime 1s forwards;
+  animation: showtime 3s forwards;
 }
 .calendar__month-list--hideonce {
   visibility: hidden;
@@ -375,6 +382,12 @@ html hr, body hr {
   position: absolute;
   left: -1rem;
 }
+.calendar__day-text-format--hideTime {
+  animation: hidetime 1.5s forwards;
+}
+.calendar__day-text-format--showtime {
+  animation: showtime 2s forwards;
+}
 .calendar__date-time-value {
   border-radius: 15px;
   border: 0.2rem solid #9796f0;
@@ -438,7 +451,8 @@ html hr, body hr {
 }
 .todo__container .list-group-item:hover {
   color: var(--text-light);
-  background-color: var(--background-todo-item-hover);
+  background-color: #5b7fb5;
+  /*background-color: var(--background-todo-item-hover);*/
 }
 
 .app__container {

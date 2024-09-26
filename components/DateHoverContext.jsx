@@ -8,6 +8,7 @@ const DateHoverContext = createContext()
 // Provider pour gérer l'état
 export const DateHoverProvider = ({ children }) => {
     const [hoveredDate, setHoveredDate] = useState(null)
+    console.log("DateHoverContext - Hovered Date:", hoveredDate)
 
     return (
         <DateHoverContext.Provider value={{ hoveredDate, setHoveredDate }}>
