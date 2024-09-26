@@ -1,6 +1,6 @@
 // components/CalendarBody.jsx
 import React, { memo } from 'react';
-import { useDateHover } from '../components/DateHoverContext.jsx';
+import { useDateHover } from './DateHoverContext.jsx';
 
 
 /**
@@ -11,18 +11,21 @@ import { useDateHover } from '../components/DateHoverContext.jsx';
  * @param {boolean} days[].isCurrentDate - Indique si le jour est la date courante.
  * @param {number} currentMonth - Le mois actuellement affiché dans le calendrier.
  * @param {number} currentYear - L'année actuellement affichée dans le calendrier.
+ * @param {number} currentDay - Le jour courant à utiliser pour le marquage spécial.
  * 
  * @returns {JSX.Element} - Le composant affichant le corps du calendrier.
  */
-const CalendarBody = memo(({ days, currentMonth, currentYear }) => {
-    const { hoveredDate, setHoveredDate } = useDateHover()
+const CalendarBody = memo(({ days, currentMonth, currentYear, currentDay }) => {
 
-    const handleMouseEnter = (date) => {
-        setHoveredDate(new Date(date))
-    }
+    const { hoveredDate } = useDateHover()
+    const parsedHoveredDate = hoveredDate instanceof Date ? hoveredDate : new Date(hoveredDate)
 
-    const handleMouseLeave = () => {
-        setHoveredDate(null)
+    const isDateHighlighted = (dayObj) => {
+        const isHighlighted = parsedHoveredDate && 
+                              parsedHoveredDate.getDate() === dayObj.day &&
+                              parsedHoveredDate.getMonth() === currentMonth &&
+                              parsedHoveredDate.getFullYear() === currentYear
+        return isHighlighted
     }
 
     return (
@@ -41,27 +44,20 @@ const CalendarBody = memo(({ days, currentMonth, currentYear }) => {
             <div className="calendar__days">
                 {days.map((dayObj, index) => {
                     if (dayObj.day === null) {
-                        return <div key={index} className="calendar__day"></div>;
+                        return <div key={index} className="calendar__day"></div>
                     }
 
-                    const dateToCheck = new Date(currentYear, currentMonth, dayObj.day);
-                    const isValidDate = !isNaN(dateToCheck.getTime());
-                    const isHighlighted = hoveredDate && 
-                        hoveredDate.getDate() === dayObj.day &&
-                        hoveredDate.getMonth() === currentMonth &&
-                        hoveredDate.getFullYear() === currentYear;
+                    const isHighlighted = isDateHighlighted(dayObj)
+
+                    console.log(`Rendering day: ${dayObj.day}`)
+                    console.log(`Is Current Date: ${dayObj.isCurrentDate}`)
+                    console.log(`Is Highlighted: ${isHighlighted}`)
 
                     return (
                         <div
                             key={index}
                             className={`calendar__day ${dayObj.isCurrentDate ? 'calendar__day--current-date' : ''} ${isHighlighted ? 'calendar__day--todo-hover-created' : ''}`}
-                            aria-label={`Task created on ${hoveredDate ? hoveredDate.toLocaleDateString() : 'N/A'}`}
-                            onMouseEnter={() => {
-                                if (isValidDate) {
-                                    handleMouseEnter(dateToCheck.toISOString())
-                                }
-                            }}
-                            onMouseLeave={handleMouseLeave}
+                            aria-label={`Task created on ${parsedHoveredDate ? parsedHoveredDate.toLocaleDateString() : 'N/A'}`}
                         >
                             {dayObj.day}
                         </div>

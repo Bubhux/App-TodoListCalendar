@@ -1,5 +1,6 @@
 // components/TodoItem.jsx
 import React from 'react';
+import { useDateHover } from './DateHoverContext.jsx';
 
 
 /**
@@ -18,15 +19,19 @@ import React from 'react';
  * @returns {JSX.Element} Le composant TodoItem.
  */
 const TodoItem = ({ todo, toggleTodo, deleteTodo, onHover }) => {
+    const { setHoveredDate } = useDateHover()
+
     const handleMouseEnter = () => {
         console.log("Todo Object:", todo)
         console.log("Mouse Entered:", todo.createdDate) // Affiche la date de création
+        setHoveredDate(todo.createdDate)
         onHover(todo.createdDate)
     }
 
     const handleMouseLeave = () => {
         console.log("Mouse Left")
-        onHover(null) // Réinitialiser l'état de survol
+        setHoveredDate(null) // Réinitialiser l'état de survol
+        onHover(null)
     }
 
     return (

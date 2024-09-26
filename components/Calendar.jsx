@@ -5,6 +5,7 @@ import CalendarBody from './CalendarBody.jsx';
 import DateTimeFormat from './DateTimeFormat.jsx';
 import useCalendar from '../hooks/useCalendar.js';
 import useHoverCalendarDate from '../hooks/useHoverCalendarDate.js';
+import { useDateHover } from './DateHoverContext.jsx';
 
 
 /**
@@ -18,19 +19,32 @@ const Calendar = () => {
     const {
         currentMonth,
         currentYear,
+        currentDay,
         generateCalendarDays,
         showMonthList,
         toggleMonthList,
         handleMonthSelect,
         monthNames,
-        setCurrentYear
+        setCurrentYear,
+        setCurrentMonth,
+        setHighlightedDate
     } = useCalendar()
 
-    const { hoveredDate, handleMouseEnter, handleMouseLeave } = useHoverCalendarDate()
+    const { hoveredDate } = useDateHover()
+    const { handleMouseEnter, handleMouseLeave } = useHoverCalendarDate()
     const [dateTimeFormatClass, setDateTimeFormatClass] = useState('calendar__date-time-format--showtime')
     const [dayTextFormatClass, setDayTextFormatClass] = useState('calendar__day-text-format--showtime')
     const [timeFormatClass, setTimeFormatClass] = useState('calendar__time-format--showtime')
     const [dateFormatClass, setDateFormatClass] = useState('calendar__date-format--showtime')
+
+    useEffect(() => {
+        if (hoveredDate) {
+            const date = new Date(hoveredDate)
+            setCurrentYear(date.getFullYear())
+            setCurrentMonth(date.getMonth())
+            setHighlightedDate(date)
+        }
+    }, [hoveredDate, setCurrentYear, setCurrentMonth, setHighlightedDate])
 
     // Génère les jours du calendrier pour le mois et l'année courants
     const days = generateCalendarDays(currentMonth, currentYear)
@@ -65,7 +79,10 @@ const Calendar = () => {
                 setCurrentYear={setCurrentYear}
             />
             <CalendarBody 
-                days={days} 
+                days={days}
+                currentMonth={currentMonth}
+                currentYear={currentYear}
+                currentDay={currentDay}
                 hoveredDate={hoveredDate}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}

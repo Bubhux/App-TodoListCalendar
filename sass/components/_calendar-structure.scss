@@ -131,6 +131,14 @@
         border-right: 4px solid #d7d6e9;
         position: absolute;
         left: -1rem;
+
+        &--hideTime {
+            animation: hidetime 1.5s forwards;
+        }
+
+        &--showtime {
+            animation: showtime 2s forwards;
+        }
     }
 
     &__date-time-value {

@@ -45,12 +45,14 @@ const useCalendar = () => {
         'July', 'August', 'September', 'October', 'November', 'December'
     ]
 
+
     /**
      * Alterne la visibilité de la liste des mois.
      */
     const toggleMonthList = () => {
         setShowMonthList(prevState => !prevState)
     }
+
 
     /**
      * Gère la sélection d'un mois dans la liste.
@@ -61,6 +63,7 @@ const useCalendar = () => {
         setCurrentMonth(month)
         setShowMonthList(false) // Ferme la liste des mois après la sélection
     }
+
 
     /**
      * Génère les jours du calendrier pour un mois et une année donnés.
@@ -88,9 +91,9 @@ const useCalendar = () => {
                 days.push({
                     day: dayNumber,
                     isCurrentDate: (
-                        dayNumber === new Date().getDate() &&
-                        year === new Date().getFullYear() &&
-                        month === new Date().getMonth()
+                        dayNumber === currentDay &&
+                        year === currentYear &&
+                        month === currentMonth
                     ),
                     isHighlighted: (
                         highlightedDateState &&
@@ -107,6 +110,7 @@ const useCalendar = () => {
         return days
     }
 
+
     /**
      * Met à jour la date surlignée.
      * 
@@ -120,6 +124,16 @@ const useCalendar = () => {
         }
     }
 
+
+    /**
+     * Met à jour le jour courant.
+     * 
+     * @param {number} day - Le jour à mettre à jour.
+     */
+    const updateCurrentDay = (day) => {
+        setCurrentDay(day)
+    }
+
     return {
         currentMonth,
         currentYear,
@@ -131,6 +145,7 @@ const useCalendar = () => {
         setCurrentYear,
         setCurrentMonth,
         setCurrentDay,
+        updateCurrentDay,
         setHighlightedDate
     }
 }
