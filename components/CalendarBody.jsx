@@ -21,11 +21,14 @@ const CalendarBody = memo(({ days, currentMonth, currentYear, currentDay }) => {
     const parsedHoveredDate = hoveredDate instanceof Date ? hoveredDate : new Date(hoveredDate)
 
     const isDateHighlighted = (dayObj) => {
-        const isHighlighted = parsedHoveredDate && 
-                              parsedHoveredDate.getDate() === dayObj.day &&
-                              parsedHoveredDate.getMonth() === currentMonth &&
-                              parsedHoveredDate.getFullYear() === currentYear
-        return isHighlighted
+        return parsedHoveredDate && 
+               parsedHoveredDate.getDate() === dayObj.day &&
+               parsedHoveredDate.getMonth() === currentMonth &&
+               parsedHoveredDate.getFullYear() === currentYear
+    }
+
+    const isCurrentDay = (day) => {
+        return day === currentDay
     }
 
     return (
@@ -48,15 +51,19 @@ const CalendarBody = memo(({ days, currentMonth, currentYear, currentDay }) => {
                     }
 
                     const isHighlighted = isDateHighlighted(dayObj)
+                    const isCurrent = isCurrentDay(dayObj.day)
 
                     console.log(`Rendering day: ${dayObj.day}`)
                     console.log(`Is Current Date: ${dayObj.isCurrentDate}`)
                     console.log(`Is Highlighted: ${isHighlighted}`)
+                    console.log(`Is Current Day: ${isCurrent}`)
 
                     return (
                         <div
                             key={index}
-                            className={`calendar__day ${dayObj.isCurrentDate ? 'calendar__day--current-date' : ''} ${isHighlighted ? 'calendar__day--todo-hover-created' : ''}`}
+                            className={`calendar__day 
+                                        ${dayObj.isCurrentDate ? 'calendar__day--current-date' : ''} 
+                                        ${isHighlighted ? 'calendar__day--todo-hover-created' : ''} `}
                             aria-label={`Task created on ${parsedHoveredDate ? parsedHoveredDate.toLocaleDateString() : 'N/A'}`}
                         >
                             {dayObj.day}

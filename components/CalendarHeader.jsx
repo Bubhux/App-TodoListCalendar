@@ -1,5 +1,5 @@
 // components/CalendarHeader.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 
 
 /**
@@ -15,6 +15,38 @@ import React from 'react';
  * @returns {JSX.Element} Le composant JSX de l'en-tête du calendrier.
  */
 const CalendarHeader = ({ onMonthPickerClick, currentMonth, currentYear, monthNames, setCurrentYear }) => {
+
+    useEffect(() => {
+        const prevYearButton = document.querySelector('.calendar__year-change--previous')
+        const nextYearButton = document.querySelector('.calendar__year-change--next')
+        const monthPicker = document.querySelector('.calendar__month-picker')
+        
+        // Fonction pour désactiver la sélection et le drag sur les éléments
+        const disableSelectionAndDrag = (element) => {
+            if (element) {
+                element.addEventListener('dragstart', (e) => e.preventDefault())
+                element.style.userSelect = 'none'
+            }
+        }
+
+        disableSelectionAndDrag(prevYearButton)
+        disableSelectionAndDrag(nextYearButton)
+        disableSelectionAndDrag(monthPicker)
+
+        // Nettoyage lors de la désactivation du composant
+        return () => {
+            if (prevYearButton) {
+                prevYearButton.removeEventListener('dragstart', (e) => e.preventDefault())
+            }
+            if (nextYearButton) {
+                nextYearButton.removeEventListener('dragstart', (e) => e.preventDefault())
+            }
+            if (monthPicker) {
+                monthPicker.removeEventListener('dragstart', (e) => e.preventDefault())
+            }
+        }
+    }, [])
+
     return (
         <div className="calendar__header">
             <span

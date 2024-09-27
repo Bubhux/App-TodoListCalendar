@@ -18,10 +18,10 @@
         animation: to-top 1s forwards;
 
         &.calendar__day--todo-hover-created {
-            color: var(--text-light);
-            background-color: var(--background-calendar-days-hover);
-            box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
-            border: 2px solid rgba(255, 255, 255, 0.18);
+            color: var(--text-light) !important;
+            background-color: var(--background-calendar-days-hover) !important;
+            box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37) !important;
+            border: 2px solid white !important;
         
             @include border-radius(20%);
             @include transition(background-color, 0.3s, ease-in-out);
