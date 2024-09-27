@@ -30,7 +30,7 @@ const TodoItem = ({ todo, toggleTodo, deleteTodo, onHover }) => {
 
     const handleMouseLeave = () => {
         console.log("Mouse Left")
-        setHoveredDate(null) // Réinitialiser l'état de survol
+        setHoveredDate(null) // Réinitialise l'état de survol
         onHover(null)
     }
 
