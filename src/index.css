@@ -26,6 +26,8 @@
   --btn-hover-color: var(--text-light);
   --btn-active-bg: var(--primary-color);
   --btn-active-border-color: var(--primary-color);
+  --custom-list-group-bg: var(--tertiary-color);
+  --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
   --font-family: consolas;
@@ -79,6 +81,43 @@ html hr, body hr {
   --btn-hover-color: var(--text-light);
   --btn-active-bg: var(--primary-color);
   --btn-active-border-color: var(--primary-color);
+  --custom-list-group-bg: var(--tertiary-color);
+  --custom-border: 1px solid rgb(234, 234, 234);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --font-family: consolas;
+}
+
+:root {
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: rgb(104, 104, 104);
+  --background-calendar-days-hover: var(--tertiary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--primary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-list-group-bg: var(--tertiary-color);
+  --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
   --font-family: consolas;
@@ -181,6 +220,41 @@ html hr, body hr {
     opacity: 1;
   }
 }
+:root {
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: rgb(104, 104, 104);
+  --background-calendar-days-hover: var(--tertiary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--primary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-list-group-bg: var(--tertiary-color);
+  --custom-border: 1px solid rgb(234, 234, 234);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --font-family: consolas;
+}
+
 .calendar__week-days div:hover {
   color: var(--text-dark);
   transform: scale(1.2);
@@ -267,6 +341,41 @@ html hr, body hr {
 .calendar__month-item:hover {
   background-color: var(--primary-color);
   color: var(--text-muted);
+}
+
+:root {
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: rgb(104, 104, 104);
+  --background-calendar-days-hover: var(--tertiary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--primary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-list-group-bg: var(--tertiary-color);
+  --custom-border: 1px solid rgb(234, 234, 234);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --font-family: consolas;
 }
 
 .calendar {
@@ -431,6 +540,41 @@ html hr, body hr {
     transition-delay: 0s !important;
   }
 }
+:root {
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: rgb(104, 104, 104);
+  --background-calendar-days-hover: var(--tertiary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--primary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-list-group-bg: var(--tertiary-color);
+  --custom-border: 1px solid rgb(234, 234, 234);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --font-family: consolas;
+}
+
 .todo__container {
   flex: 3;
   margin-right: 20px;
@@ -443,9 +587,9 @@ html hr, body hr {
 .todo__container .hover-info {
   margin: 5px;
   position: absolute;
-  background-color: #e8e8e8;
-  border: 2px solid var(--btn-border-color);
-  padding: 5px;
+  background-color: transparent;
+  border: var(--custom-border);
+  padding: 10px;
   z-index: 10;
   border-radius: 5px;
 }
@@ -501,6 +645,8 @@ html hr, body hr {
   --btn-hover-color: var(--text-light);
   --btn-active-bg: var(--primary-color);
   --btn-active-border-color: var(--primary-color);
+  --custom-list-group-bg: var(--tertiary-color);
+  --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
   --font-family: consolas;
@@ -552,6 +698,8 @@ html hr, body hr {
   --btn-hover-color: var(--text-light);
   --btn-active-bg: var(--primary-color);
   --btn-active-border-color: var(--primary-color);
+  --custom-list-group-bg: var(--tertiary-color);
+  --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
   --font-family: consolas;

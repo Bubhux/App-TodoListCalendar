@@ -4,7 +4,6 @@ import TodoList from '../components/TodoList.jsx';
 import Calendar from '../components/Calendar.jsx';
 import ScrollAnimation from '../components/ScrollAnimation.jsx';
 import { DateHoverProvider } from '../components/DateHoverContext.jsx';
-//import './App.css';
 
 
 const App = () => {

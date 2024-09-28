@@ -1,4 +1,8 @@
 // sass/components/_todo.scss
+@import '../base/variables';
+@import '../utils/mixins';
+
+
 .todo__container {
     flex: 3;
     margin-right: 20px;
@@ -12,9 +16,9 @@
     .hover-info {
         margin: 5px;
         position: absolute;
-        background-color: #e8e8e8;
-        border: 2px solid var(--btn-border-color);
-        padding: 5px;
+        background-color: transparent;
+        border: var(--custom-border);
+        padding: 10px;
         z-index: 10;
 
         @include border-radius(5px);
