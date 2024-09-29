@@ -37,7 +37,6 @@ const TodoList = () => {
 
     // Gestionnaire de survol des tâches
     const handleTodoHover = (date) => {
-        //console.log('Hovered Date:', date) // Affiche la date dans la console
         setHoverDate(date)
         handleMouseEnter(date)
     }
@@ -45,6 +44,28 @@ const TodoList = () => {
     const handleTodoMouseLeave = () => {
         setHoverDate(null)
         handleMouseLeave()
+    }
+
+    // Fonction pour formater la date en utilisant le format 'en-GB'
+    // Fonction pour formater la date en utilisant le format 'en-GB' sans la virgule
+    const formatHoverDate = (isoString) => {
+        const date = new Date(isoString)
+
+        // Récupère la date et l'heure séparément
+        const datePart = date.toLocaleDateString('en-GB', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        })
+
+        const timePart = date.toLocaleTimeString('en-GB', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        })
+
+        // Combine la date et l'heure sans virgule
+        return `${datePart} ${timePart}`
     }
 
     return (
@@ -76,16 +97,16 @@ const TodoList = () => {
             <ul className="list-group list-group-custom reveal-4">
                 {todos.map(todo => (
                     <TodoItem
-                    key={todo.id}
-                    todo={todo}
-                    toggleTodo={toggleTodo}
-                    deleteTodo={deleteTodo}
-                    onHover={handleTodoHover}
-                    onMouseLeave={handleTodoMouseLeave}
-                />
+                        key={todo.id}
+                        todo={todo}
+                        toggleTodo={toggleTodo}
+                        deleteTodo={deleteTodo}
+                        onHover={handleTodoHover}
+                        onMouseLeave={handleTodoMouseLeave}
+                    />
                 ))}
             </ul>
-            {hoverDate && <div className="hover-info">Date created : {hoverDate}</div>}
+            {hoverDate && <div className="hover-info">Date created : {formatHoverDate(hoverDate)}</div>}
         </div>
     )
 }
