@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 /**
  * Hook personnalisé pour gérer et formater la date et l'heure actuelles.
  *
- * @returns {Object} Objet contenant les propriétés suivantes :
- * - `currentDateFormatted` : Date actuelle formatée sous forme de chaîne.
- * - `timeFormatted` : Heure actuelle formatée sous forme de chaîne.
+ * @returns {Object} Un objet contenant les propriétés suivantes :
+ * - `currentDateFormatted` {string} : La date actuelle formatée sous forme de chaîne.
+ * - `timeFormatted` {string} : L'heure actuelle formatée sous forme de chaîne.
  */
 const useDateTime = () => {
     // État pour stocker la date formatée actuelle
@@ -21,7 +21,7 @@ const useDateTime = () => {
          */
         const updateDateTime = () => {
             const now = new Date()
-            
+
             // Options pour le formatage de la date
             const dateOptions = {
                 year: 'numeric',
@@ -38,13 +38,14 @@ const useDateTime = () => {
             }
 
             // Mise à jour de la date formatée
-            setCurrentDateFormatted(now.toLocaleDateString('en-US', dateOptions))
+            setCurrentDateFormatted(now.toLocaleDateString('eng-US', dateOptions))
             // Mise à jour de l'heure formatée
-            setTimeFormatted(now.toLocaleTimeString('en-US', timeOptions))
+            setTimeFormatted(now.toLocaleTimeString('eng-US', timeOptions))
         }
 
         // Appel initial pour définir les valeurs immédiatement
-        updateDateTime();
+        updateDateTime()
+
         // Mise à jour chaque seconde
         const intervalId = setInterval(updateDateTime, 1000)
 

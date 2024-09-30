@@ -1,5 +1,5 @@
-// hooks/useLocalStorage.js
 import { useState, useEffect } from 'react';
+
 
 /**
  * Hook personnalisé pour gérer un état synchronisé avec le localStorage.
@@ -13,12 +13,13 @@ const useLocalStorage = (key, initialValue) => {
     const [storedValue, setStoredValue] = useState(() => {
         // Récupère l'élément dans le localStorage
         const item = localStorage.getItem(key)
-        // Parse l'élément JSON ou utilise la valeur initiale
+        // Parse l'élément JSON ou utilise la valeur initiale si l'élément est inexistant
         return item ? JSON.parse(item) : initialValue
     })
 
     // Effet pour mettre à jour le localStorage chaque fois que la clé ou la valeur stockée change
     useEffect(() => {
+        // Met à jour le localStorage avec la valeur actuelle
         localStorage.setItem(key, JSON.stringify(storedValue))
     }, [key, storedValue])
 

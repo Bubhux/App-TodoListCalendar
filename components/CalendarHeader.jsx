@@ -3,16 +3,16 @@ import React, { useEffect } from 'react';
 
 
 /**
- * Composant d'en-tête de calendrier qui affiche le mois et l'année actuels.
- * Permet également de changer l'année et de basculer l'affichage de la liste des mois.
+ * Composant d'en-tête de calendrier qui affiche le mois et l'année actuels,
+ * et permet de changer l'année ou d'ouvrir un sélecteur de mois.
  * 
  * @param {Object} props - Les propriétés du composant.
  * @param {function} props.onMonthPickerClick - Fonction appelée lors du clic sur le sélecteur de mois.
- * @param {number} props.currentMonth - Le mois actuellement sélectionné (0-11).
+ * @param {number} props.currentMonth - Le mois actuellement sélectionné (index de 0 à 11).
  * @param {number} props.currentYear - L'année actuellement sélectionnée.
  * @param {Array<string>} props.monthNames - Tableau contenant les noms des mois.
- * @param {function} props.setCurrentYear - Fonction pour définir l'année actuelle.
- * @returns {JSX.Element} Le composant JSX de l'en-tête du calendrier.
+ * @param {function} props.setCurrentYear - Fonction pour mettre à jour l'année actuelle.
+ * @returns {JSX.Element} Le composant JSX représentant l'en-tête du calendrier.
  */
 const CalendarHeader = ({ onMonthPickerClick, currentMonth, currentYear, monthNames, setCurrentYear }) => {
 
@@ -21,7 +21,11 @@ const CalendarHeader = ({ onMonthPickerClick, currentMonth, currentYear, monthNa
         const nextYearButton = document.querySelector('.calendar__year-change--next')
         const monthPicker = document.querySelector('.calendar__month-picker')
         
-        // Fonction pour désactiver la sélection et le drag sur les éléments
+        /**
+         * Désactive la sélection de texte et le drag sur l'élément donné.
+         * 
+         * @param {HTMLElement} element - L'élément sur lequel appliquer ces restrictions.
+         */
         const disableSelectionAndDrag = (element) => {
             if (element) {
                 element.addEventListener('dragstart', (e) => e.preventDefault())
@@ -29,6 +33,7 @@ const CalendarHeader = ({ onMonthPickerClick, currentMonth, currentYear, monthNa
             }
         }
 
+        // Désactivation de la sélection et du drag pour les éléments pertinents
         disableSelectionAndDrag(prevYearButton)
         disableSelectionAndDrag(nextYearButton)
         disableSelectionAndDrag(monthPicker)
@@ -54,16 +59,30 @@ const CalendarHeader = ({ onMonthPickerClick, currentMonth, currentYear, monthNa
                 id="month-picker"
                 onClick={onMonthPickerClick}
             >
-                {/* Affiche le nom du mois actuel */}
+                {/* Affiche le nom du mois actuellement sélectionné */}
                 {monthNames[currentMonth]}
             </span>
             <div className="calendar__year-picker" id="year-picker">
                 {/* Permet de diminuer l'année actuelle */}
-                <span className="calendar__year-change calendar__year-change--previous" id="pre-year" onClick={() => setCurrentYear(prev => prev - 1)}>&lt;</span>
-                {/* Affiche l'année actuelle */}
-                <span id="year" className="calendar__year">{currentYear}</span>
+                <span
+                    className="calendar__year-change calendar__year-change--previous"
+                    id="pre-year"
+                    onClick={() => setCurrentYear(prev => prev - 1)}
+                >
+                    &lt;
+                </span>
+                {/* Affiche l'année actuellement sélectionnée */}
+                <span id="year" className="calendar__year">
+                    {currentYear}
+                </span>
                 {/* Permet d'augmenter l'année actuelle */}
-                <span className="calendar__year-change calendar__year-change--next" id="next-year" onClick={() => setCurrentYear(prev => prev + 1)}>&gt;</span>
+                <span
+                    className="calendar__year-change calendar__year-change--next"
+                    id="next-year"
+                    onClick={() => setCurrentYear(prev => prev + 1)}
+                >
+                    &gt;
+                </span>
             </div>
         </div>
     )

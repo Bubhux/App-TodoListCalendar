@@ -45,7 +45,6 @@ const useCalendar = () => {
         'July', 'August', 'September', 'October', 'November', 'December'
     ]
 
-
     /**
      * Alterne la visibilité de la liste des mois.
      */
@@ -53,22 +52,20 @@ const useCalendar = () => {
         setShowMonthList(prevState => !prevState)
     }
 
-
     /**
      * Gère la sélection d'un mois dans la liste.
      * 
-     * @param {number} month - L'indice du mois sélectionné.
+     * @param {number} month - L'indice du mois sélectionné (0 pour janvier, 11 pour décembre).
      */
     const handleMonthSelect = (month) => {
         setCurrentMonth(month)
         setShowMonthList(false) // Ferme la liste des mois après la sélection
     }
 
-
     /**
      * Génère les jours du calendrier pour un mois et une année donnés.
      * 
-     * @param {number} month - Le mois pour lequel générer les jours.
+     * @param {number} month - Le mois pour lequel générer les jours (0 pour janvier, 11 pour décembre).
      * @param {number} year - L'année pour laquelle générer les jours.
      * @returns {Array<object>} - Un tableau d'objets représentant les jours du mois.
      */
@@ -81,10 +78,7 @@ const useCalendar = () => {
         const firstDay = new Date(year, month).getDay()
         const days = []
 
-        days.forEach(day => {
-            day.ariaLabel = new Date(year, month, day.day).toLocaleDateString()
-        })
-
+        // Remplit les jours du mois avec les informations nécessaires
         for (let i = 0; i < daysOfMonth[month] + firstDay; i++) {
             if (i >= firstDay) {
                 const dayNumber = i - firstDay + 1
@@ -110,7 +104,6 @@ const useCalendar = () => {
         return days
     }
 
-
     /**
      * Met à jour la date surlignée.
      * 
@@ -123,7 +116,6 @@ const useCalendar = () => {
             }
         }
     }
-
 
     /**
      * Met à jour le jour courant.
