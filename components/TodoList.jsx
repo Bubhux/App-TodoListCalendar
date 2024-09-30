@@ -18,7 +18,7 @@ const TodoList = () => {
     const { handleMouseEnter, handleMouseLeave } = useHoverCalendarDate()
     const [hoverDate, setHoverDate] = useState(null)
 
-    // Utilise le hook pour synchroniser la date survolée avec le calendrier
+    // Utilisation du hook pour synchroniser la date survolée avec le calendrier
     useSyncTodoWithCalendar(hoverDate)
 
     /**
@@ -27,7 +27,7 @@ const TodoList = () => {
      * @param {React.FormEvent} e - L'événement de soumission du formulaire.
      */
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const title = e.target.elements.title.value.trim()
         if (title) {
             addTodo(title)
@@ -35,44 +35,67 @@ const TodoList = () => {
         }
     }
 
-    // Gestionnaire de survol des tâches
+    /**
+     * Gestionnaire de survol des tâches.
+     * Met à jour l'état de la date survolée et appelle le gestionnaire de survol du calendrier.
+     * 
+     * @param {string} date - La date à survoler.
+     */
     const handleTodoHover = (date) => {
         setHoverDate(date)
         handleMouseEnter(date)
     }
 
+    /**
+     * Gestionnaire de la fin du survol des tâches.
+     * Réinitialise l'état de la date survolée et appelle le gestionnaire de fin de survol du calendrier.
+     */
     const handleTodoMouseLeave = () => {
         setHoverDate(null)
         handleMouseLeave()
     }
 
-    // Fonction pour formater la date en utilisant le format 'en-GB'
-    // Fonction pour formater la date en utilisant le format 'en-GB' sans la virgule
+    /**
+     * Fonction pour formater la date en utilisant le format 'en-GB'.
+     * 
+     * @param {string} isoString - La date au format ISO.
+     * @returns {string} La date formatée en chaîne de caractères.
+     */
     const formatHoverDate = (isoString) => {
         const date = new Date(isoString)
 
         // Récupère la date et l'heure séparément
-        const datePart = date.toLocaleDateString('en-GB', {
+        const datePart = date.toLocaleDateString('en-US', {
             year: 'numeric',
             month: '2-digit',
             day: '2-digit'
         })
 
-        const timePart = date.toLocaleTimeString('en-GB', {
+        const timePart = date.toLocaleTimeString('en-US', {
             hour: '2-digit',
             minute: '2-digit',
             second: '2-digit'
         })
 
-        // Combine la date et l'heure sans virgule
         return `${datePart} ${timePart}`
     }
 
     return (
         <div className="todo__container pt-5" id="todolist">
             <form onSubmit={handleSubmit} className="d-flex pb-4 align-items-center">
-                <input required className="form-control reveal-3" type="text" placeholder="Create a note ..." name="title" />
-                <button className="btn btn-primary ms-2 btn-custom reveal-4">Add a note</button>
+                <input 
+                    required 
+                    className="form-control reveal-3" 
+                    type="text" 
+                    placeholder="Create a note ..." 
+                    name="title" 
+                />
+                <button 
+                    className="btn btn-primary ms-2 btn-custom reveal-4" 
+                    type="submit"
+                >
+                    Add a note
+                </button>
             </form>
             <div className="btn-group mb-4 gap-1 reveal-2" role="group">
                 <button
@@ -106,7 +129,7 @@ const TodoList = () => {
                     />
                 ))}
             </ul>
-            {hoverDate && <div className="hover-info">Date created : {formatHoverDate(hoverDate)}</div>}
+            {hoverDate && <div className="hover-info">Created task : {formatHoverDate(hoverDate)}</div>}
         </div>
     )
 }
