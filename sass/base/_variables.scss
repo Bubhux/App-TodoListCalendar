@@ -6,9 +6,10 @@ $breakpoints: (
     );
 
 :root {
-    --primary-color: #395886;
-    --secondary-color: #8AAEE0;
-    --tertiary-color: #9796f0;
+    --primary-color: #1A1D29;
+    --secondary-color: #3D3F4A;
+    --tertiary-color: #7D8491;
+    --quaternary-color: #B1B2B5;
     --danger-color: #bb2d3b;
     --danger-border-color: #b02a37;
 
@@ -22,11 +23,11 @@ $breakpoints: (
     --background-body-middle: rgba(2, 43, 66, 1);
     --background-body-end: rgba(0, 53, 84, 1);
     --background-calendar-header: var(--primary-color);
-    --background-calendar-weekdays: rgb(104, 104, 104);
-    --background-calendar-days-hover: var(--tertiary-color);
+    --background-calendar-weekdays: var(--quaternary-color);
+    --background-calendar-days-hover: var(--quaternary-color);
     --background-month-list: var(--tertiary-color);
     --background-month-list-hover: var(--primary-color);
-    --background-todo-item-hover: var(--primary-color);
+    --background-todo-item-hover: var(--quaternary-color);
 
     --btn-bg: var(--primary-color);
     --btn-hover-bg: var(--primary-color);
