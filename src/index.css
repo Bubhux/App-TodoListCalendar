@@ -1,7 +1,8 @@
 :root {
-  --primary-color: #395886;
-  --secondary-color: #8AAEE0;
-  --tertiary-color: #9796f0;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
   --danger-color: #bb2d3b;
   --danger-border-color: #b02a37;
   --text-light: #f8fbff;
@@ -13,11 +14,11 @@
   --background-body-middle: rgba(2, 43, 66, 1);
   --background-body-end: rgba(0, 53, 84, 1);
   --background-calendar-header: var(--primary-color);
-  --background-calendar-weekdays: rgb(104, 104, 104);
-  --background-calendar-days-hover: var(--tertiary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
-  --background-todo-item-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);
@@ -35,7 +36,7 @@
 html, body {
   place-items: center;
   font-family: var(--font-family);
-  background: linear-gradient(to right, #9796f0, #fbc7d4);
+  background: linear-gradient(90deg, rgb(26, 29, 41) 0%, rgb(61, 63, 74) 25%, rgb(125, 132, 145) 75%, rgb(177, 178, 181) 100%);
   height: 100%;
 }
 html h1.text-center, body h1.text-center {
@@ -53,9 +54,10 @@ html hr, body hr {
 }
 
 :root {
-  --primary-color: #395886;
-  --secondary-color: #8AAEE0;
-  --tertiary-color: #9796f0;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
   --danger-color: #bb2d3b;
   --danger-border-color: #b02a37;
   --text-light: #f8fbff;
@@ -67,11 +69,11 @@ html hr, body hr {
   --background-body-middle: rgba(2, 43, 66, 1);
   --background-body-end: rgba(0, 53, 84, 1);
   --background-calendar-header: var(--primary-color);
-  --background-calendar-weekdays: rgb(104, 104, 104);
-  --background-calendar-days-hover: var(--tertiary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
-  --background-todo-item-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);
@@ -87,9 +89,10 @@ html hr, body hr {
 }
 
 :root {
-  --primary-color: #395886;
-  --secondary-color: #8AAEE0;
-  --tertiary-color: #9796f0;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
   --danger-color: #bb2d3b;
   --danger-border-color: #b02a37;
   --text-light: #f8fbff;
@@ -101,11 +104,11 @@ html hr, body hr {
   --background-body-middle: rgba(2, 43, 66, 1);
   --background-body-end: rgba(0, 53, 84, 1);
   --background-calendar-header: var(--primary-color);
-  --background-calendar-weekdays: rgb(104, 104, 104);
-  --background-calendar-days-hover: var(--tertiary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
-  --background-todo-item-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);
@@ -218,9 +221,10 @@ html hr, body hr {
   }
 }
 :root {
-  --primary-color: #395886;
-  --secondary-color: #8AAEE0;
-  --tertiary-color: #9796f0;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
   --danger-color: #bb2d3b;
   --danger-border-color: #b02a37;
   --text-light: #f8fbff;
@@ -232,11 +236,11 @@ html hr, body hr {
   --background-body-middle: rgba(2, 43, 66, 1);
   --background-body-end: rgba(0, 53, 84, 1);
   --background-calendar-header: var(--primary-color);
-  --background-calendar-weekdays: rgb(104, 104, 104);
-  --background-calendar-days-hover: var(--tertiary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
-  --background-todo-item-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);
@@ -263,7 +267,7 @@ html hr, body hr {
   color: var(--text-light) !important;
   background-color: var(--background-calendar-days-hover) !important;
   box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37) !important;
-  border: 2px solid white !important;
+  border: 2px solid var(--quaternary-color) !important;
   border-radius: 20%;
   transition: background-color 0.3s ease-in-out;
 }
@@ -340,9 +344,10 @@ html hr, body hr {
 }
 
 :root {
-  --primary-color: #395886;
-  --secondary-color: #8AAEE0;
-  --tertiary-color: #9796f0;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
   --danger-color: #bb2d3b;
   --danger-border-color: #b02a37;
   --text-light: #f8fbff;
@@ -354,11 +359,11 @@ html hr, body hr {
   --background-body-middle: rgba(2, 43, 66, 1);
   --background-body-end: rgba(0, 53, 84, 1);
   --background-calendar-header: var(--primary-color);
-  --background-calendar-weekdays: rgb(104, 104, 104);
-  --background-calendar-days-hover: var(--tertiary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
-  --background-todo-item-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);
@@ -377,7 +382,8 @@ html hr, body hr {
   width: 400px;
   overflow: hidden;
   padding: 20px 50px 0px 50px;
-  box-shadow: var(--shadow);
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+  border: 2px solid rgba(255, 255, 255, 0.18);
   border-radius: 25px;
 }
 .calendar__header {
@@ -494,7 +500,7 @@ html hr, body hr {
 }
 .calendar__date-time-value {
   border-radius: 15px;
-  border: 0.2rem solid #9796f0;
+  border: 0.2rem solid var(--quaternary-color);
   display: block;
   height: max-content;
   position: relative;
@@ -536,9 +542,10 @@ html hr, body hr {
   }
 }
 :root {
-  --primary-color: #395886;
-  --secondary-color: #8AAEE0;
-  --tertiary-color: #9796f0;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
   --danger-color: #bb2d3b;
   --danger-border-color: #b02a37;
   --text-light: #f8fbff;
@@ -550,11 +557,11 @@ html hr, body hr {
   --background-body-middle: rgba(2, 43, 66, 1);
   --background-body-end: rgba(0, 53, 84, 1);
   --background-calendar-header: var(--primary-color);
-  --background-calendar-weekdays: rgb(104, 104, 104);
-  --background-calendar-days-hover: var(--tertiary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
-  --background-todo-item-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);
@@ -585,12 +592,24 @@ html hr, body hr {
   border: var(--custom-border);
   padding: 10px;
   z-index: 10;
+  color: var(--text-light);
   border-radius: 5px;
 }
+.todo__container .list-group-item {
+  color: var(--primary-color);
+}
 .todo__container .list-group-item:hover {
-  color: var(--text-light);
-  background-color: #5b7fb5;
-  /*background-color: var(--background-todo-item-hover);*/
+  /*color: var(--text-light);*/
+  /*background-color: #5b7fb5;*/
+  background-color: var(--background-todo-item-hover);
+}
+.todo__container .form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.todo__container .form-control:focus {
+  border-color: var(--quaternary-color);
+  box-shadow: 0 0 0 0.15rem var(--quaternary-color);
 }
 
 .app__container {
@@ -612,9 +631,10 @@ html hr, body hr {
 }
 
 :root {
-  --primary-color: #395886;
-  --secondary-color: #8AAEE0;
-  --tertiary-color: #9796f0;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
   --danger-color: #bb2d3b;
   --danger-border-color: #b02a37;
   --text-light: #f8fbff;
@@ -626,11 +646,11 @@ html hr, body hr {
   --background-body-middle: rgba(2, 43, 66, 1);
   --background-body-end: rgba(0, 53, 84, 1);
   --background-calendar-header: var(--primary-color);
-  --background-calendar-weekdays: rgb(104, 104, 104);
-  --background-calendar-days-hover: var(--tertiary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
-  --background-todo-item-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);
@@ -664,9 +684,10 @@ html hr, body hr {
 }
 
 :root {
-  --primary-color: #395886;
-  --secondary-color: #8AAEE0;
-  --tertiary-color: #9796f0;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
   --danger-color: #bb2d3b;
   --danger-border-color: #b02a37;
   --text-light: #f8fbff;
@@ -678,11 +699,11 @@ html hr, body hr {
   --background-body-middle: rgba(2, 43, 66, 1);
   --background-body-end: rgba(0, 53, 84, 1);
   --background-calendar-header: var(--primary-color);
-  --background-calendar-weekdays: rgb(104, 104, 104);
-  --background-calendar-days-hover: var(--tertiary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
   --background-month-list: var(--tertiary-color);
   --background-month-list-hover: var(--primary-color);
-  --background-todo-item-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
   --btn-bg: var(--primary-color);
   --btn-hover-bg: var(--primary-color);
   --btn-border-color: var(--secondary-color);

@@ -20,16 +20,28 @@
         border: var(--custom-border);
         padding: 10px;
         z-index: 10;
+        color: var(--text-light);
 
         @include border-radius(5px);
     }
 
     .list-group-item {
+        color: var(--primary-color);
+    
         &:hover {
-            color: var(--text-light);
-            background-color: #5b7fb5;
-            /*background-color: var(--background-todo-item-hover);*/
+            /*color: var(--text-light);*/
+            /*background-color: #5b7fb5;*/
+            background-color: var(--background-todo-item-hover);
         }
     }
-    
+
+    .form-check-input:checked {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+    .form-control:focus {
+        border-color: var(--quaternary-color);
+        box-shadow: 0 0 0 0.15rem var(--quaternary-color);
+    }
 }

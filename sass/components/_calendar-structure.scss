@@ -7,8 +7,9 @@
     width: 400px;
     overflow: hidden;
     padding: 20px 50px 0px 50px;
+    box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+    border: 2px solid rgba(255, 255, 255, 0.18);
 
-    @include box-shadow(var(--shadow));
     @include border-radius(25px);
 
     &__header {
@@ -144,7 +145,7 @@
 
     &__date-time-value {
         border-radius: 15px;
-        border: .2rem solid #9796f0;
+        border: .2rem solid var(--quaternary-color);
         display: block;
         height: max-content;
         position: relative;
