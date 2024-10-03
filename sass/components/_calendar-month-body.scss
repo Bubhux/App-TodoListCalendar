@@ -1,4 +1,4 @@
-// sass/components/_calendar-interactions.scss
+// sass/components/_calendar-month-body.scss
 @import '../utils/mixins';
 @import '../utils/animations';
 @import '../base/variables';
@@ -23,7 +23,7 @@
             background-color: var(--background-calendar-days-hover) !important;
             box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37) !important;
             border: 2px solid var(--quaternary-color) !important;
-        
+
             @include border-radius(20%);
             @include transition(background-color, 0.3s, ease-in-out);
         }
@@ -45,29 +45,34 @@
         }
     }
 
-    &__month-picker {
-        &:hover {
-            background-color: var(--tertiary-color);
-            color: var(--text-light);
-        }
-    }
-
-    &__year-change {
-        &:hover {
-            background-color: var(--tertiary-color);
-            transform: scale(1.12);
-
-            @include transition(background-color, 0.2s, ease-in-out);
-        }
-    }
-
     &__month-list {
+        position: relative;
+        top: -20px;
+        background-color: var(--light-btn);
+        color: var(--text-dark);
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        border: 2px solid var(--primary-color);
+
+        div {
+            display: grid;
+            place-items: center;
+            margin: 5px;
+            cursor: pointer;
+
+            @include border-radius(12px);
+        }
+
         &.calendar__month-list--show {
             display: grid;
             animation: showtime 1s forwards;
             backdrop-filter: blur(30px);
             /*box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);*/
             border: 2px solid rgba(255, 255, 255, 0.18);
+            padding: 10px;
+            top: -30px;
         }
 
         &:hover {
@@ -75,40 +80,6 @@
             border: 2px solid var(--primary-color);
             /*border: 2px solid rgba(255, 255, 255, 0.18);*/
         }
-    }
-
-    &__time-format {
-        font-size: 1.5rem;
-
-        &--hideTime {
-            animation: hidetime 1.5s forwards;
-        }
-
-        &--showtime {
-            animation: showtime 2s forwards;
-        }
-    }
-
-    &__day-text-format--hidetime,
-    &__date-format--hideTime,
-    &__date-time-value--hideTime,
-    &__date-time-format--hideTime {
-        animation: hidetime 1.5s forwards;
-    }
-
-    &__day-text-format--showtime,
-    &__date-format--showtime,
-    &__date-time-value--showtime,
-    &__date-time-format--showtime {
-        animation: showtime 1s forwards;
-    }
-
-    &--hidetime {
-        animation: hidetime 1s forwards;
-    }
-
-    &--showtime {
-        animation: showtime 3s forwards;
     }
 
     &__month-list--hideonce {

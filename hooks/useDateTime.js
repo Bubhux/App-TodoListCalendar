@@ -47,7 +47,7 @@ const useDateTime = () => {
         updateDateTime()
 
         // Mise à jour chaque seconde
-        const intervalId = setInterval(updateDateTime, 1000)
+        const intervalId = setInterval(updateDateTime, 5000)
 
         // Nettoyage : suppression de l'intervalle lorsque le composant est démonté
         return () => clearInterval(intervalId)

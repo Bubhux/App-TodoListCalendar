@@ -78,6 +78,10 @@ const useCalendar = () => {
         const firstDay = new Date(year, month).getDay()
         const days = []
 
+        days.forEach(day => {
+            day.ariaLabel = new Date(year, month, day.day).toLocaleDateString()
+        })
+
         // Remplit les jours du mois avec les informations nécessaires
         for (let i = 0; i < daysOfMonth[month] + firstDay; i++) {
             if (i >= firstDay) {
@@ -85,9 +89,9 @@ const useCalendar = () => {
                 days.push({
                     day: dayNumber,
                     isCurrentDate: (
-                        dayNumber === currentDay &&
-                        year === currentYear &&
-                        month === currentMonth
+                        dayNumber === new Date().getDate() &&
+                        year === new Date().getFullYear() &&
+                        month === new Date().getMonth()
                     ),
                     isHighlighted: (
                         highlightedDateState &&
