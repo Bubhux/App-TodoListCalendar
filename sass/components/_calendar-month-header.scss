@@ -1,0 +1,101 @@
+// sass/components/_calendar-month-header.scss
+@import '../utils/mixins';
+@import '../base/variables';
+
+
+.calendar {
+    width: 400px;
+    clip-path: inset(0 0 0 0);
+    padding: 20px 50px 0px 50px;
+    box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+
+    @include border-radius(25px);
+
+    &__header {
+        background: var(--background-calendar-header);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 700;
+        color: var(--text-light);
+        padding: 10px;
+
+        @include border-radius(15px);
+    }
+
+    &__week-days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--background-calendar-weekdays);
+        cursor: pointer;
+
+        div {
+            display: grid;
+            place-items: center;
+            height: 50px;
+        }
+    }
+
+    &__days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 2px;
+        color: var(--text-dark);
+
+        div {
+            margin: 1px;
+            width: auto;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            position: relative;
+            cursor: pointer;
+        }
+    }
+
+    &__month-picker {
+        font-family: Microsoft JhengHei UI;
+        font-size: 1.4rem;
+        padding: 5px 10px;
+        cursor: pointer;
+
+        @include border-radius(10px);
+
+        &:hover {
+            background-color: var(--tertiary-color);
+            color: var(--text-light);
+        }
+    }
+
+    &__year-picker {
+        display: flex;
+        align-items: center;
+    }
+
+    &__year-change {
+        height: 30px;
+        width: 30px;
+        display: grid;
+        place-items: center;
+        margin: 0px 10px;
+        cursor: pointer;
+
+        @include border-radius(50%);
+
+        &:hover {
+            background-color: var(--tertiary-color);
+            transform: scale(1.12);
+
+            @include transition(background-color, 0.2s, ease-in-out);
+        }
+    }
+
+    span {
+        font-size: 1rem;
+    }
+}

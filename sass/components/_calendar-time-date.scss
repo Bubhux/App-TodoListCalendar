@@ -1,0 +1,86 @@
+// sass/components/_calendar-time-date.scss
+@import '../utils/animations';
+@import '../base/variables';
+
+
+.calendar {
+
+    &__date-time-format {
+        border-radius: 15px;
+        border: .2rem solid var(--tertiary-color);
+        height: max-content;
+        font-family: Dubai Light, Century Gothic;
+        position: relative;
+        top: 40px;
+        justify-content: center;
+        padding: 30px 60px 30px 50px;
+        margin-bottom: -80px;
+        backdrop-filter: blur(30px);
+        box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+    }
+
+    &__day-text-format {
+        display: block;
+        padding: 35px 25px;
+        font-family: Microsoft JhengHei UI;
+        font-size: 1.4rem;
+        padding-right: 3%;
+        border-right: 4px solid #d7d6e9;
+        position: absolute;
+        left: -1rem;
+
+        &--hideTime {
+            animation: hidetime 1.5s forwards;
+        }
+
+        &--showtime {
+            animation: showtime 2s forwards;
+        }
+    }
+
+    &__date-time-value {
+        border-radius: 15px;
+        border: .2rem solid var(--quaternary-color);
+        display: block;
+        height: max-content;
+        position: relative;
+        left: 27%;
+        top: -3px;
+        text-align: center;
+        padding: 10px 10px;
+    }
+
+    &__time-format {
+        font-size: 1.5rem;
+
+        &--hideTime {
+            animation: hidetime 1.5s forwards;
+        }
+
+        &--showtime {
+            animation: showtime 2s forwards;
+        }
+    }
+
+    &__day-text-format--hidetime,
+    &__date-format--hideTime,
+    &__date-time-value--hideTime,
+    &__date-time-format--hideTime {
+        animation: hidetime 1.5s forwards;
+    }
+
+    &__day-text-format--showtime,
+    &__date-format--showtime,
+    &__date-time-value--showtime,
+    &__date-time-format--showtime {
+        animation: showtime 1s forwards;
+    }
+
+    &--hidetime {
+        animation: hidetime 1s forwards;
+    }
+
+    &--showtime {
+        animation: showtime 3s forwards;
+    }
+}

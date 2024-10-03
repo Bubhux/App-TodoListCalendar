@@ -3,9 +3,9 @@
 @import 'base/variables';
 
 @import 'components/buttons';
-@import 'components/calendar-interactions';
-@import 'components/calendar-structure';
-@import 'components/reveal';
+@import 'components/calendar-month-body';
+@import 'components/calendar-month-header';
+@import 'components/_calendar-time-date.scss';
 @import 'components/todo';
 
 @import 'layout/app';
@@ -14,3 +14,4 @@
 
 @import 'utils/animations';
 @import 'utils/mixins';
+@import 'utils/reveal';
