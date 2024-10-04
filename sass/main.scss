@@ -1,17 +1,17 @@
 // sass/main.scss
-@import 'base/base';
-@import 'base/variables';
+@import 'base/_base.scss';
+@import 'base/_variables.scss';
 
-@import 'components/buttons';
-@import 'components/calendar-month-body';
-@import 'components/calendar-month-header';
+@import 'components/_buttons.scss';
+@import 'components/_calendar-month-body.scss';
+@import 'components/_calendar-month-header.scss';
 @import 'components/_calendar-time-date.scss';
-@import 'components/todo';
+@import 'components/_todo-list-group.scss';
 
-@import 'layout/app';
-@import 'layout/container';
-@import 'layout/logo';
+@import 'layout/_app-container.scss';
+@import 'layout/_logo-container.scss';
+@import 'layout/_todo-calendar-container.scss';
 
-@import 'utils/animations';
-@import 'utils/mixins';
-@import 'utils/reveal';
+@import 'utils/_animations.scss';
+@import 'utils/_mixins.scss';
+@import 'utils/_reveal.scss';
