@@ -1,0 +1,81 @@
+// sass/components/_theme-switcher.scss
+@import '../base/variables';
+
+
+.theme__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    padding: 4px 8px;
+    border-radius: 35px;
+    cursor: pointer;
+    background-color: var(--color-toggle-light);
+
+    &.IsDark {
+        background-color: var(--color-toggle-dark);
+    }
+
+    input {
+        display: none;
+    }
+
+    div {
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        box-shadow: inset 8px -8px 0 0 var(--color-toggle-dark);
+        transform: scale(1) rotate(-2deg);
+        transition: box-shadow 0.5s ease, transform 0.4s ease 0.1s;
+
+        &::before {
+            content: "";
+            width: inherit;
+            height: inherit;
+            border-radius: inherit;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: background 0.3s ease;
+        }
+
+        &::after {
+            content: "";
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            margin: -2px 0 0 -2px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            box-shadow: 0 -13px 0 var(--color-toggle-light),
+                        0 13px 0 var(--color-toggle-light),
+                        13px 0 0 var(--color-toggle-light),
+                        -13px 0 0 var(--color-toggle-light),
+                        9px 9px 0 var(--color-toggle-light),
+                        -9px 9px 0 var(--color-toggle-light),
+                        9px -9px 0 var(--color-toggle-light),
+                        -9px -9px 0 var(--color-toggle-light);
+            transform: scale(0);
+            transition: all 0.3s ease;
+        }
+    }
+
+    input:checked + div {
+        box-shadow: inset 32px -32px 0 0 var(--color-toggle-light);
+        transform: scale(0.5) rotate(0deg);
+        transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease;
+
+        &::before {
+            background: var(--color-toggle-light);
+            transition: background 0.3s ease 0.1s;
+        }
+
+        &::after {
+            transform: scale(1.5);
+            transition: transform 0.5s ease 0.15s;
+        }
+    }
+}
