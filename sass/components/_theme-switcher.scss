@@ -1,17 +1,36 @@
 // sass/components/_theme-switcher.scss
 @import '../base/variables';
+@import '../utils/mixins';
+@import '../utils/animations';
 
+
+.theme__wrapper {
+    padding: 10px 20px;
+    backdrop-filter: blur(30px);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    height: 80px;
+
+    @include border-radius(25px);
+    @include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));
+}
 
 .theme__container {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    padding: 4px 8px;
-    border-radius: 35px;
-    cursor: pointer;
+    width: 50px;
+    padding: 2px 2px;
     background-color: var(--color-toggle-light);
+    animation: showtime 1s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    cursor: pointer;
+    @include border-radius(35px);
 
     &.IsDark {
         background-color: var(--color-toggle-dark);
@@ -22,13 +41,14 @@
     }
 
     div {
-        border-radius: 50%;
         width: 20px;
         height: 20px;
         position: relative;
-        box-shadow: inset 8px -8px 0 0 var(--color-toggle-dark);
         transform: scale(1) rotate(-2deg);
         transition: box-shadow 0.5s ease, transform 0.4s ease 0.1s;
+
+        @include border-radius(50%);
+        @include box-shadow(inset 8px -8px 0 0 var(--color-toggle-dark));
 
         &::before {
             content: "";
@@ -42,31 +62,35 @@
         }
 
         &::after {
-            content: "";
             width: 4px;
             height: 4px;
-            border-radius: 50%;
             margin: -2px 0 0 -2px;
             position: absolute;
             top: 50%;
             left: 50%;
-            box-shadow: 0 -13px 0 var(--color-toggle-light),
-                        0 13px 0 var(--color-toggle-light),
-                        13px 0 0 var(--color-toggle-light),
-                        -13px 0 0 var(--color-toggle-light),
-                        9px 9px 0 var(--color-toggle-light),
-                        -9px 9px 0 var(--color-toggle-light),
-                        9px -9px 0 var(--color-toggle-light),
-                        -9px -9px 0 var(--color-toggle-light);
             transform: scale(0);
             transition: all 0.3s ease;
+
+            content: "";
+            @include border-radius(50%);
+            @include box-shadow(
+                0 -13px 0 var(--color-toggle-light),
+                0 13px 0 var(--color-toggle-light),
+                13px 0 0 var(--color-toggle-light),
+                -13px 0 0 var(--color-toggle-light),
+                9px 9px 0 var(--color-toggle-light),
+                -9px 9px 0 var(--color-toggle-light),
+                9px -9px 0 var(--color-toggle-light),
+                -9px -9px 0 var(--color-toggle-light)
+            );
         }
     }
 
     input:checked + div {
-        box-shadow: inset 32px -32px 0 0 var(--color-toggle-light);
         transform: scale(0.5) rotate(0deg);
         transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease;
+
+        @include box-shadow(inset 32px -32px 0 0 var(--color-toggle-light));
 
         &::before {
             background: var(--color-toggle-light);

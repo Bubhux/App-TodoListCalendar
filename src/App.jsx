@@ -3,16 +3,25 @@ import React from 'react';
 import TodoList from '../components/TodoList.jsx';
 import Calendar from '../components/Calendar.jsx';
 import ScrollAnimation from '../components/ScrollAnimation.jsx';
+import ThemeSwitcher from '../components/ThemeSwitcher.jsx';
 import { DateHoverProvider } from '../components/DateHoverContext.jsx';
 
 
 const App = () => {
+
     return (
         <DateHoverProvider>
             <div className="app__container reveal">
                 <ScrollAnimation />
-                <div className="logo__container">
-                    <h1 className="text-center mb-5 reveal-4">To-Do List application</h1>
+                <div className="header">
+                    <div className="logo__container">
+                        <h1 className="text-center mb-5 reveal-4">To-Do List application</h1>
+                    </div>
+                    <div className="theme__wrapper">
+                        <div className="theme__container">
+                            <ThemeSwitcher />
+                        </div>
+                    </div>
                 </div>
                 <div className="container">
                     <div className="todo__container">

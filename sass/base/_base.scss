@@ -5,12 +5,12 @@
 html, body {
     place-items: center;
     font-family: var(--font-family);
-    background: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+    background: var(--background-body);
     height: 100%;
     overflow-x: hidden;
 
     h1.text-center {
         color: var(--primary-color);
-        margin-top: 20px;
+        margin-top: 5px;
     }
 }

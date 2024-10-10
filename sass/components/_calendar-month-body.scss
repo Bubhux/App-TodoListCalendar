@@ -5,7 +5,6 @@
 
 
 .calendar {
-
     &__week-days div {
         &:hover {
             color: var(--text-dark);
@@ -21,11 +20,12 @@
         &.calendar__day--todo-hover-created {
             color: var(--text-light) !important;
             background-color: var(--background-calendar-days-hover) !important;
-            box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37) !important;
             border: 2px solid var(--quaternary-color) !important;
+            box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37) !important;
 
             @include border-radius(20%);
             @include transition(background-color, 0.3s, ease-in-out);
+            @include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));
         }
 
         &:hover {
@@ -53,15 +53,16 @@
         display: grid;
         grid-template-columns: repeat(3, auto);
         border-radius: 20px;
-        box-shadow: var(--shadow);
         border: 2px solid var(--primary-color);
+
+        @include box-shadow(var(--shadow));
 
         div {
             display: grid;
             place-items: center;
             margin: 5px;
-            cursor: pointer;
 
+            cursor: pointer;
             @include border-radius(12px);
         }
 
@@ -69,16 +70,17 @@
             display: grid;
             animation: showtime 1s forwards;
             backdrop-filter: blur(30px);
-            /*box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);*/
             border: 2px solid rgba(255, 255, 255, 0.18);
             padding: 10px;
             top: -30px;
+
+            @include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));
         }
 
         &:hover {
-            box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
             border: 2px solid var(--primary-color);
-            /*border: 2px solid rgba(255, 255, 255, 0.18);*/
+
+            @include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));
         }
     }
 

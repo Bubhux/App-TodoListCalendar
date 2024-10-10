@@ -7,10 +7,10 @@
     width: 400px;
     clip-path: inset(0 0 0 0);
     padding: 20px 50px 0px 50px;
-    box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
     border: 2px solid rgba(255, 255, 255, 0.18);
 
     @include border-radius(25px);
+    @include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));
 
     &__header {
         background: var(--background-calendar-header);
@@ -62,8 +62,8 @@
         font-family: Microsoft JhengHei UI;
         font-size: 1.4rem;
         padding: 5px 10px;
-        cursor: pointer;
 
+        cursor: pointer;
         @include border-radius(10px);
 
         &:hover {
