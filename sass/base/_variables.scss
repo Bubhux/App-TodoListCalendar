@@ -1,11 +1,59 @@
 // sass/base/_variables.scss
 $breakpoints: (
-        mobile: 600px,
-        tablet: 900px,
-        desktop: 1200px
-    );
+    mobile: 600px,
+    tablet: 900px,
+    desktop: 1200px
+);
 
+// Thème par défaut (light)
 :root {
+    --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+
+    --primary-color: #395886;
+    --secondary-color: #8AAEE0;
+    --tertiary-color: #9796f0;
+    --quaternary-color: #e0e0ee;
+    --danger-color: #bb2d3b;
+    --danger-border-color: #b02a37;
+
+    --text-light: #f8fbff;
+    --text-dark: #151426;
+    --text-secondary: #c3c2c8;
+    --text-muted: #f0f0f0;
+    --text-hover: #f3f8fe;
+
+    --background-body-start: rgba(3, 32, 48, 1);
+    --background-body-middle: rgba(2, 43, 66, 1);
+    --background-body-end: rgba(0, 53, 84, 1);
+    --background-calendar-header: var(--primary-color);
+    --background-calendar-weekdays: var(--quaternary-color);
+    --background-calendar-days-hover: var(--quaternary-color);
+    --background-month-list: var(--tertiary-color);
+    --background-month-list-hover: var(--primary-color);
+    --background-todo-item-hover: var(--quaternary-color);
+
+    --btn-bg: var(--primary-color);
+    --btn-hover-bg: var(--primary-color);
+    --btn-border-color: var(--secondary-color);
+    --btn-hover-border-color: var(--primary-color);
+    --btn-color: var(--secondary-color);
+    --btn-hover-color: var(--text-light);
+    --btn-active-bg: var(--primary-color);
+    --btn-active-border-color: var(--primary-color);
+
+    --custom-border: 1px solid rgb(234, 234, 234);
+    --border-radius: 4px;
+    --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+    --font-family: consolas;
+
+    --color-toggle-light: #fff;
+    --color-toggle-dark: #000;
+}
+
+// Thème sombre (dark)
+body.dark {
+    --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+
     --primary-color: #1A1D29;
     --secondary-color: #3D3F4A;
     --tertiary-color: #7D8491;
@@ -42,4 +90,7 @@ $breakpoints: (
     --border-radius: 4px;
     --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
     --font-family: consolas;
+
+    --color-toggle-light: #eee;
+    --color-toggle-dark: #000;
 }

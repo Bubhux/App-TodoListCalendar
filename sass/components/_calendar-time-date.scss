@@ -1,12 +1,12 @@
 // sass/components/_calendar-time-date.scss
 @import '../utils/animations';
 @import '../base/variables';
+@import '../utils/mixins';
 
 
 .calendar {
 
     &__date-time-format {
-        border-radius: 15px;
         border: .2rem solid var(--tertiary-color);
         height: max-content;
         font-family: Dubai Light, Century Gothic;
@@ -16,7 +16,9 @@
         padding: 30px 60px 30px 50px;
         margin-bottom: -80px;
         backdrop-filter: blur(30px);
-        box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+
+        @include border-radius(15px);
+        @include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));
     }
 
     &__day-text-format {
@@ -39,7 +41,6 @@
     }
 
     &__date-time-value {
-        border-radius: 15px;
         border: .2rem solid var(--quaternary-color);
         display: block;
         height: max-content;
@@ -48,6 +49,9 @@
         top: -3px;
         text-align: center;
         padding: 10px 10px;
+
+        @include border-radius(15px);
+        @include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));
     }
 
     &__time-format {

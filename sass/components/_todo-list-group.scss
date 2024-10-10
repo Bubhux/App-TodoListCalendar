@@ -42,6 +42,7 @@
 
     .form-control:focus {
         border-color: var(--quaternary-color);
-        box-shadow: 0 0 0 0.15rem var(--quaternary-color);
+
+        @include box-shadow(0 0 0 0.15rem var(--quaternary-color));
     }
 }
