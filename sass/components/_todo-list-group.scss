@@ -10,6 +10,7 @@
     .list-group-custom {
         border: 2px solid var(--btn-border-color);
         color: var(--text-light);
+        font-family: var(--font-family-secondary);
         --bs-list-group-bg: var(--tertiary-color);
     }
 
@@ -20,9 +21,11 @@
         border: var(--custom-border);
         padding: 10px;
         z-index: 10;
-        color: var(--text-light);
+        color: var(--text-dark);
+        font-weight: bold;
+        font-family: var(--font-family-primary-extra-bold);
 
-        @include border-radius(5px);
+        @include border-radius(10px);
     }
 
     .list-group-item {

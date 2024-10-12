@@ -53,12 +53,16 @@
 
     &:not(.active) {
         border-color: var(--btn-bg);
-        color: var(--text-light);
+        /*color: var(--text-dark);*/
     }
 
     &:active {
         background-color: transparent !important;
         border-color: inherit !important;
         color: inherit !important;
+    }
+
+    &:hover {
+        color: var(--text-light);
     }
 }

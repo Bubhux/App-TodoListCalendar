@@ -30,12 +30,14 @@
         font-size: 1.1rem;
         font-weight: 600;
         color: var(--background-calendar-weekdays);
+        font-family: var(--font-family-secondary);
         cursor: pointer;
 
         div {
             display: grid;
             place-items: center;
             height: 50px;
+            color: var(--text-dark);
         }
     }
 
@@ -44,6 +46,7 @@
         grid-template-columns: repeat(7, 1fr);
         gap: 2px;
         color: var(--text-dark);
+        font-family: var(--font-family-secondary-black);
 
         div {
             margin: 1px;
@@ -59,7 +62,7 @@
     }
 
     &__month-picker {
-        font-family: Microsoft JhengHei UI;
+        font-family: var(--font-family-primary);
         font-size: 1.4rem;
         padding: 5px 10px;
 

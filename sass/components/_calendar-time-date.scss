@@ -9,13 +9,13 @@
     &__date-time-format {
         border: .2rem solid var(--tertiary-color);
         height: max-content;
-        font-family: Dubai Light, Century Gothic;
+        font-family: var(--font-family-primary-extra-bold);
         position: relative;
         top: 40px;
         justify-content: center;
         padding: 30px 60px 30px 50px;
         margin-bottom: -80px;
-        backdrop-filter: blur(30px);
+        /*backdrop-filter: blur(30px);*/
 
         @include border-radius(15px);
         @include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));
@@ -24,12 +24,14 @@
     &__day-text-format {
         display: block;
         padding: 35px 25px;
-        font-family: Microsoft JhengHei UI;
-        font-size: 1.4rem;
+        font-family: var(--font-family-primary);
+        /*font-weight: bold;*/
+        font-size: 1.5rem;
         padding-right: 3%;
         border-right: 4px solid #d7d6e9;
         position: absolute;
         left: -1rem;
+        color: var(--text-light);
 
         &--hideTime {
             animation: hidetime 1.5s forwards;
@@ -42,6 +44,9 @@
 
     &__date-time-value {
         border: .2rem solid var(--quaternary-color);
+        font-family: var(--font-family-secondary-black);
+        font-size: 1rem;
+        /*font-weight: bold;*/
         display: block;
         height: max-content;
         position: relative;
@@ -49,6 +54,8 @@
         top: -3px;
         text-align: center;
         padding: 10px 10px;
+        backdrop-filter: blur(30px);
+        color: var(--quaternary-color);
 
         @include border-radius(15px);
         @include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));

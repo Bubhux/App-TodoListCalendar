@@ -1,15 +1,17 @@
 // sass/base/_base.scss
 @import '../base/variables';
+@import '../base/fonts';
 
 
 html, body {
     place-items: center;
-    font-family: var(--font-family);
+    font-family: var(--font-family-primary);
     background: var(--background-body);
     height: 100%;
     overflow-x: hidden;
 
     h1.text-center {
+        font-family: var(--font-family-secondary-bold);
         color: var(--primary-color);
         margin-top: 5px;
     }
