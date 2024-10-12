@@ -7,7 +7,18 @@ $breakpoints: (
 
 // Thème par défaut (light)
 :root {
-    --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+    /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+    /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
+
+    --background-body: 
+    linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0)
+    ),
+    url('../../static/img/mountain_light.png') no-repeat center center/cover;
+
+
 
     --primary-color: #395886;
     --secondary-color: #8AAEE0;
@@ -44,15 +55,29 @@ $breakpoints: (
     --custom-border: 1px solid rgb(234, 234, 234);
     --border-radius: 4px;
     --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-    --font-family: consolas;
 
     --color-toggle-light: #fff;
     --color-toggle-dark: #000;
+
+    --font-family-primary: 'Manrope', sans-serif;
+    --font-family-primary-extra-bold: 'Manrope', sans-serif;
+
+    --font-family-secondary: 'Outfit', sans-serif;
+    --font-family-secondary-black: 'Outfit', sans-serif;
 }
 
 // Thème sombre (dark)
 body.dark {
-    --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+    /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+    /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+
+    --background-body: 
+    linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0)
+    ),
+    url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;
 
     --primary-color: #1A1D29;
     --secondary-color: #3D3F4A;
@@ -89,7 +114,6 @@ body.dark {
     --custom-border: 1px solid rgb(234, 234, 234);
     --border-radius: 4px;
     --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-    --font-family: consolas;
 
     --color-toggle-light: #eee;
     --color-toggle-dark: #000;

@@ -1,5 +1,13 @@
 :root {
-  --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -31,13 +39,24 @@
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #fff;
   --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
 }
 
 body.dark {
-  --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_dark_2.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -69,25 +88,81 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #eee;
   --color-toggle-dark: #000;
 }
 
+@font-face {
+  font-family: "Manrope";
+  src: url("../../static/fonts/Manrope/Manrope-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("../../static/fonts/Manrope/Manrope-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("../../static/fonts/Outfit/Outfit-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("../../static/fonts/Outfit/Outfit-Black.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
 html, body {
   place-items: center;
-  font-family: var(--font-family);
+  font-family: var(--font-family-primary);
   background: var(--background-body);
   height: 100%;
   overflow-x: hidden;
 }
 html h1.text-center, body h1.text-center {
+  font-family: var(--font-family-secondary-bold);
   color: var(--primary-color);
   margin-top: 5px;
 }
 
+@font-face {
+  font-family: "Manrope";
+  src: url("../../static/fonts/Manrope/Manrope-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("../../static/fonts/Manrope/Manrope-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("../../static/fonts/Outfit/Outfit-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("../../static/fonts/Outfit/Outfit-Black.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
 :root {
-  --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -119,13 +194,24 @@ html h1.text-center, body h1.text-center {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #fff;
   --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
 }
 
 body.dark {
-  --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_dark_2.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -157,13 +243,20 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #eee;
   --color-toggle-dark: #000;
 }
 
 :root {
-  --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -195,13 +288,24 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #fff;
   --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
 }
 
 body.dark {
-  --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_dark_2.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -233,7 +337,6 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #eee;
   --color-toggle-dark: #000;
 }
@@ -279,12 +382,15 @@ body.dark {
 }
 .btn:not(.active) {
   border-color: var(--btn-bg);
-  color: var(--text-light);
+  /*color: var(--text-dark);*/
 }
 .btn:active {
   background-color: transparent !important;
   border-color: inherit !important;
   color: inherit !important;
+}
+.btn:hover {
+  color: var(--text-light);
 }
 
 @keyframes to-top {
@@ -338,7 +444,15 @@ body.dark {
   }
 }
 :root {
-  --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -370,13 +484,24 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #fff;
   --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
 }
 
 body.dark {
-  --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_dark_2.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -408,7 +533,6 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #eee;
   --color-toggle-dark: #000;
 }
@@ -424,9 +548,9 @@ body.dark {
   animation: to-top 1s forwards;
 }
 .calendar__days div.calendar__day--todo-hover-created {
-  color: var(--text-light) !important;
+  color: var(--text-dark) !important;
   background-color: var(--background-calendar-days-hover) !important;
-  border: 2px solid var(--quaternary-color) !important;
+  border: 1px solid var(--primary-color) !important;
   box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37) !important;
 }
 .calendar__days div.calendar__day--todo-hover-created {
@@ -441,6 +565,7 @@ body.dark {
 .calendar__days div:hover {
   color: var(--text-dark);
   background-color: var(--background-calendar-days-hover);
+  border: 1px solid var(--primary-color);
 }
 .calendar__days div:hover {
   border-radius: 20%;
@@ -475,6 +600,7 @@ body.dark {
   display: grid;
   place-items: center;
   margin: 5px;
+  font-family: var(--font-family-secondary-black);
   cursor: pointer;
 }
 .calendar__month-list div {
@@ -487,6 +613,7 @@ body.dark {
   border: 2px solid rgba(255, 255, 255, 0.18);
   padding: 10px;
   top: -30px;
+  font-family: var(--font-family-primary);
 }
 .calendar__month-list.calendar__month-list--show {
   box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
@@ -506,7 +633,6 @@ body.dark {
   pointer-events: none;
 }
 .calendar__month-item--active {
-  font-weight: bold;
   background-color: var(--primary-color);
   color: var(--text-muted);
 }
@@ -516,7 +642,15 @@ body.dark {
 }
 
 :root {
-  --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -548,13 +682,24 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #fff;
   --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
 }
 
 body.dark {
-  --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_dark_2.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -586,7 +731,6 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #eee;
   --color-toggle-dark: #000;
 }
@@ -621,18 +765,21 @@ body.dark {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--background-calendar-weekdays);
+  font-family: var(--font-family-secondary);
   cursor: pointer;
 }
 .calendar__week-days div {
   display: grid;
   place-items: center;
   height: 50px;
+  color: var(--text-dark);
 }
 .calendar__days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 2px;
   color: var(--text-dark);
+  font-family: var(--font-family-secondary-black);
 }
 .calendar__days div {
   margin: 1px;
@@ -646,7 +793,7 @@ body.dark {
   cursor: pointer;
 }
 .calendar__month-picker {
-  font-family: Microsoft JhengHei UI;
+  font-family: var(--font-family-primary);
   font-size: 1.4rem;
   padding: 5px 10px;
   cursor: pointer;
@@ -735,7 +882,15 @@ body.dark {
   }
 }
 :root {
-  --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -767,13 +922,24 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #fff;
   --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
 }
 
 body.dark {
-  --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_dark_2.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -805,7 +971,6 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #eee;
   --color-toggle-dark: #000;
 }
@@ -813,13 +978,13 @@ body.dark {
 .calendar__date-time-format {
   border: 0.2rem solid var(--tertiary-color);
   height: max-content;
-  font-family: Dubai Light, Century Gothic;
+  font-family: var(--font-family-primary-extra-bold);
   position: relative;
   top: 40px;
   justify-content: center;
   padding: 30px 60px 30px 50px;
   margin-bottom: -80px;
-  backdrop-filter: blur(30px);
+  /*backdrop-filter: blur(30px);*/
 }
 .calendar__date-time-format {
   border-radius: 15px;
@@ -830,12 +995,14 @@ body.dark {
 .calendar__day-text-format {
   display: block;
   padding: 35px 25px;
-  font-family: Microsoft JhengHei UI;
-  font-size: 1.4rem;
+  font-family: var(--font-family-primary);
+  /*font-weight: bold;*/
+  font-size: 1.5rem;
   padding-right: 3%;
   border-right: 4px solid #d7d6e9;
   position: absolute;
   left: -1rem;
+  color: var(--text-light);
 }
 .calendar__day-text-format--hideTime {
   animation: hidetime 1.5s forwards;
@@ -845,6 +1012,9 @@ body.dark {
 }
 .calendar__date-time-value {
   border: 0.2rem solid var(--quaternary-color);
+  font-family: var(--font-family-secondary-black);
+  font-size: 1rem;
+  /*font-weight: bold;*/
   display: block;
   height: max-content;
   position: relative;
@@ -852,6 +1022,8 @@ body.dark {
   top: -3px;
   text-align: center;
   padding: 10px 10px;
+  backdrop-filter: blur(30px);
+  color: var(--quaternary-color);
 }
 .calendar__date-time-value {
   border-radius: 15px;
@@ -882,7 +1054,15 @@ body.dark {
 }
 
 :root {
-  --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -914,13 +1094,24 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #fff;
   --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
 }
 
 body.dark {
-  --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_dark_2.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -952,7 +1143,6 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #eee;
   --color-toggle-dark: #000;
 }
@@ -1010,7 +1200,8 @@ body.dark {
 .theme__wrapper {
   padding: 10px 20px;
   backdrop-filter: blur(30px);
-  border: 2px solid rgba(255, 255, 255, 0.18);
+  /*border: 2px solid rgba(255, 255, 255, 0.18);*/
+  border: 0.2rem solid var(--tertiary-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1102,7 +1293,15 @@ body.dark {
 }
 
 :root {
-  --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -1134,13 +1333,24 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #fff;
   --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
 }
 
 body.dark {
-  --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_dark_2.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -1172,7 +1382,6 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #eee;
   --color-toggle-dark: #000;
 }
@@ -1184,6 +1393,7 @@ body.dark {
 .todo__container .list-group-custom {
   border: 2px solid var(--btn-border-color);
   color: var(--text-light);
+  font-family: var(--font-family-secondary);
   --bs-list-group-bg: var(--tertiary-color);
 }
 .todo__container .hover-info {
@@ -1193,10 +1403,12 @@ body.dark {
   border: var(--custom-border);
   padding: 10px;
   z-index: 10;
-  color: var(--text-light);
+  color: var(--text-dark);
+  font-weight: bold;
+  font-family: var(--font-family-primary-extra-bold);
 }
 .todo__container .hover-info {
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .todo__container .list-group-item {
   color: var(--primary-color);
@@ -1241,7 +1453,15 @@ body.dark {
 }
 
 :root {
-  --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -1273,13 +1493,24 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #fff;
   --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
 }
 
 body.dark {
-  --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_dark_2.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -1311,7 +1542,6 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #eee;
   --color-toggle-dark: #000;
 }
@@ -1321,15 +1551,16 @@ body.dark {
   /*display: flex;*/
   /*justify-content: center;*/
   /*align-items: baseline;*/
-  flex: 1;
+  /*flex: 1;*/
   text-align: center;
-  padding: 10px;
+  padding: 40px;
   font-size: 2.2rem;
   max-width: 50%;
-  margin: 40px 5px 40px 6px;
-  height: 80px;
+  margin: 50px 20px 50px 6px;
+  height: 150px;
   backdrop-filter: blur(30px);
-  border: 2px solid rgba(255, 255, 255, 0.18);
+  /*border: 2px solid var(--primary-color);*/
+  font-family: var(--font-family-secondary-black);
 }
 @media screen and (max-width: 900px) {
   .logo__container {
@@ -1345,7 +1576,15 @@ body.dark {
 }
 
 :root {
-  --background-body: linear-gradient(to right, #9796f0, #fbc7d4);
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -1377,13 +1616,24 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #fff;
   --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
 }
 
 body.dark {
-  --background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url("../../static/img/mountain_dark_2.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -1415,7 +1665,6 @@ body.dark {
   --custom-border: 1px solid rgb(234, 234, 234);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
   --color-toggle-light: #eee;
   --color-toggle-dark: #000;
 }
@@ -1426,8 +1675,8 @@ body.dark {
   justify-content: space-between;
   border: 0.2rem solid var(--tertiary-color);
   padding: 20px;
-  backdrop-filter: blur(30px);
-  border: 2px solid rgba(255, 255, 255, 0.18);
+  /*backdrop-filter: blur(30px);*/
+  border: 0.2rem solid var(--tertiary-color);
 }
 @media screen and (max-width: 900px) {
   .container {

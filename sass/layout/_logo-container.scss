@@ -8,15 +8,16 @@
     /*display: flex;*/
     /*justify-content: center;*/
     /*align-items: baseline;*/
-    flex: 1;
+    /*flex: 1;*/
     text-align: center;
-    padding: 10px;
+    padding: 40px;
     font-size: 2.2rem;
     max-width: 50%;
-    margin: 40px 5px 40px 6px;
-    height: 80px;
+    margin: 50px 20px 50px 6px;
+    height: 150px;
     backdrop-filter: blur(30px);
-    border: 2px solid rgba(255, 255, 255, 0.18);
+    /*border: 2px solid var(--primary-color);*/
+    font-family: var(--font-family-secondary-black);
 
     @include responsive-max(tablet) {
         padding: 0px;
