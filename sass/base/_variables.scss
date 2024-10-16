@@ -16,7 +16,7 @@ $breakpoints: (
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0)
     ),
-    url('../../static/img/mountain_light.png') no-repeat center center/cover;
+    url('../../static/img/mountain_light_resize.png') no-repeat center center/cover;
 
 
 
@@ -77,7 +77,7 @@ body.dark {
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0)
     ),
-    url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;
+    url('../../static/img/mountain_dark_resize.png') no-repeat center center/cover;
 
     --primary-color: #1A1D29;
     --secondary-color: #3D3F4A;
