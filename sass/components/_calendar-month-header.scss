@@ -10,7 +10,7 @@
     border: 2px solid rgba(255, 255, 255, 0.18);
 
     @include border-radius(25px);
-    @include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));
+    /*@include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));*/
 
     &__header {
         background: var(--background-calendar-header);
@@ -20,8 +20,10 @@
         font-weight: 700;
         color: var(--text-light);
         padding: 10px;
+        border: 0.2rem solid var(--tertiary-color);
 
         @include border-radius(15px);
+        /*@include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));*/
     }
 
     &__week-days {

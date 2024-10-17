@@ -5,6 +5,7 @@
 
 
 .calendar {
+
     &__week-days div {
         &:hover {
             color: var(--text-light);
@@ -53,7 +54,7 @@
         position: relative;
         top: -20px;
         background-color: var(--light-btn);
-        color: var(--text-dark);
+        color: var(--tertiary-color);
         display: grid;
         grid-template-columns: repeat(3, auto);
         border-radius: 20px;
@@ -84,7 +85,7 @@
         }
 
         &:hover {
-            border: 2px solid var(--primary-color);
+            border: 2px solid var(--tertiary-color);
 
             @include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));
         }

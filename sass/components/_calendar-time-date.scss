@@ -23,14 +23,15 @@
 
     &__day-text-format {
         display: block;
-        padding: 35px 25px;
+        padding: 25px 25px;
         font-family: var(--font-family-primary);
         /*font-weight: bold;*/
         font-size: 1.5rem;
         padding-right: 3%;
-        border-right: 4px solid #d7d6e9;
+        border-right: 4px solid var(--primary-color);
         position: absolute;
         left: -1rem;
+        top: 2.5rem;
         color: var(--text-light);
 
         &--hideTime {
@@ -38,7 +39,7 @@
         }
 
         &--showtime {
-            animation: showtime 2s forwards;
+            animation: showtime 3s forwards;
         }
     }
 
@@ -54,7 +55,7 @@
         top: -3px;
         text-align: center;
         padding: 10px 10px;
-        backdrop-filter: blur(30px);
+        /*backdrop-filter: blur(30px);*/
         color: var(--quaternary-color);
 
         @include border-radius(15px);
@@ -69,7 +70,7 @@
         }
 
         &--showtime {
-            animation: showtime 2s forwards;
+            animation: showtime 3s forwards;
         }
     }
 
@@ -80,15 +81,19 @@
         animation: hidetime 1.5s forwards;
     }
 
-    &__day-text-format--showtime,
+    &__date-time-format--showtime {
+        animation: showtime 2.5s forwards;
+    }
+
     &__date-format--showtime,
     &__date-time-value--showtime,
     &__date-time-format--showtime {
         animation: showtime 1s forwards;
     }
 
+    // Animations globales pour le calendrier
     &--hidetime {
-        animation: hidetime 1s forwards;
+        animation: hidetime 1.5s forwards;
     }
 
     &--showtime {
