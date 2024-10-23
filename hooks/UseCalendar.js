@@ -133,6 +133,7 @@ const useCalendar = () => {
     return {
         currentMonth,
         currentYear,
+        currentDay,
         monthNames,
         generateCalendarDays,
         showMonthList,
