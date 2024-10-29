@@ -23,13 +23,3 @@
     0% { transform: translatex(0%); opacity: 1; }
     100% { transform: translatex(-370%); opacity: 1; }
 }
-
-@keyframes restart-animation {
-    from { transform: none; opacity: 1; }
-    to { transform: none; opacity: 1; }
-}
-
-// Utilisation de `restart-animation`
-.reset-animations {
-    animation: restart-animation 0s;
-}

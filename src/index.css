@@ -7,7 +7,7 @@
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_light_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -49,14 +49,14 @@
 
 body.dark {
   /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
-  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  /*--background-body: url('../../static/img/mountain_dark.png') no-repeat center center/cover;*/
   --background-body:
   linear-gradient(
       to right,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_dark_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_dark.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -162,7 +162,7 @@ html h1.text-center, body h1.text-center {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_light_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -204,14 +204,14 @@ html h1.text-center, body h1.text-center {
 
 body.dark {
   /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
-  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  /*--background-body: url('../../static/img/mountain_dark.png') no-repeat center center/cover;*/
   --background-body:
   linear-gradient(
       to right,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_dark_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_dark.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -256,7 +256,7 @@ body.dark {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_light_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -298,14 +298,14 @@ body.dark {
 
 body.dark {
   /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
-  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  /*--background-body: url('../../static/img/mountain_dark.png') no-repeat center center/cover;*/
   --background-body:
   linear-gradient(
       to right,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_dark_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_dark.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -382,7 +382,6 @@ body.dark {
 }
 .btn:not(.active) {
   border-color: var(--btn-bg);
-  /*color: var(--text-dark);*/
 }
 .btn:active {
   background-color: transparent !important;
@@ -443,20 +442,6 @@ body.dark {
     opacity: 1;
   }
 }
-@keyframes restart-animation {
-  from {
-    transform: none;
-    opacity: 1;
-  }
-  to {
-    transform: none;
-    opacity: 1;
-  }
-}
-.reset-animations {
-  animation: restart-animation 0s;
-}
-
 :root {
   /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
   /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
@@ -466,7 +451,7 @@ body.dark {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_light_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -508,14 +493,14 @@ body.dark {
 
 body.dark {
   /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
-  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  /*--background-body: url('../../static/img/mountain_dark.png') no-repeat center center/cover;*/
   --background-body:
   linear-gradient(
       to right,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_dark_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_dark.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -671,7 +656,7 @@ body.dark {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_light_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -713,14 +698,14 @@ body.dark {
 
 body.dark {
   /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
-  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  /*--background-body: url('../../static/img/mountain_dark.png') no-repeat center center/cover;*/
   --background-body:
   linear-gradient(
       to right,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_dark_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_dark.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -761,7 +746,6 @@ body.dark {
   clip-path: inset(0 0 0 0);
   padding: 20px 50px 0px 50px;
   border: 2px solid rgba(255, 255, 255, 0.18);
-  /*@include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));*/
 }
 .calendar {
   border-radius: 25px;
@@ -775,7 +759,6 @@ body.dark {
   color: var(--text-light);
   padding: 10px;
   border: 0.2rem solid var(--tertiary-color);
-  /*@include box-shadow(0px 0px 30px 0 rgba(227, 228, 237, 0.37));*/
 }
 .calendar__header {
   border-radius: 15px;
@@ -902,20 +885,6 @@ body.dark {
     opacity: 1;
   }
 }
-@keyframes restart-animation {
-  from {
-    transform: none;
-    opacity: 1;
-  }
-  to {
-    transform: none;
-    opacity: 1;
-  }
-}
-.reset-animations {
-  animation: restart-animation 0s;
-}
-
 :root {
   /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
   /*--background-body: url('../../static/img/mountain_light.png') no-repeat center center/cover;*/
@@ -925,7 +894,7 @@ body.dark {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_light_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -967,14 +936,14 @@ body.dark {
 
 body.dark {
   /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
-  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  /*--background-body: url('../../static/img/mountain_dark.png') no-repeat center center/cover;*/
   --background-body:
   linear-gradient(
       to right,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_dark_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_dark.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -1019,7 +988,6 @@ body.dark {
   justify-content: center;
   padding: 30px 60px 30px 50px;
   margin-bottom: -80px;
-  /*backdrop-filter: blur(30px);*/
 }
 .calendar__date-time-format {
   border-radius: 15px;
@@ -1050,7 +1018,6 @@ body.dark {
   border: 0.2rem solid var(--quaternary-color);
   font-family: var(--font-family-secondary-black);
   font-size: 1rem;
-  /*font-weight: bold;*/
   display: block;
   height: max-content;
   position: relative;
@@ -1058,7 +1025,6 @@ body.dark {
   top: -3px;
   text-align: center;
   padding: 10px 10px;
-  /*backdrop-filter: blur(30px);*/
   color: var(--quaternary-color);
 }
 .calendar__date-time-value {
@@ -1101,7 +1067,7 @@ body.dark {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_light_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -1143,14 +1109,14 @@ body.dark {
 
 body.dark {
   /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
-  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  /*--background-body: url('../../static/img/mountain_dark.png') no-repeat center center/cover;*/
   --background-body:
   linear-gradient(
       to right,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_dark_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_dark.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -1236,24 +1202,9 @@ body.dark {
     opacity: 1;
   }
 }
-@keyframes restart-animation {
-  from {
-    transform: none;
-    opacity: 1;
-  }
-  to {
-    transform: none;
-    opacity: 1;
-  }
-}
-.reset-animations {
-  animation: restart-animation 0s;
-}
-
 .theme__wrapper {
   padding: 10px 20px;
   backdrop-filter: blur(30px);
-  /*border: 2px solid rgba(255, 255, 255, 0.18);*/
   border: 0.2rem solid var(--tertiary-color);
   display: flex;
   align-items: center;
@@ -1354,7 +1305,7 @@ body.dark {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_light_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -1396,14 +1347,14 @@ body.dark {
 
 body.dark {
   /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
-  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  /*--background-body: url('../../static/img/mountain_dark.png') no-repeat center center/cover;*/
   --background-body:
   linear-gradient(
       to right,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_dark_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_dark.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -1467,8 +1418,6 @@ body.dark {
   color: var(--primary-color);
 }
 .todo__container .list-group-item:hover {
-  /*color: var(--text-light);*/
-  /*background-color: #5b7fb5;*/
   background-color: var(--background-todo-item-hover);
 }
 .todo__container .form-check-input:checked {
@@ -1514,7 +1463,7 @@ body.dark {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_light_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -1556,14 +1505,14 @@ body.dark {
 
 body.dark {
   /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
-  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  /*--background-body: url('../../static/img/mountain_dark.png') no-repeat center center/cover;*/
   --background-body:
   linear-gradient(
       to right,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_dark_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_dark.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -1601,10 +1550,6 @@ body.dark {
 
 .logo__container {
   border: 0.2rem solid var(--tertiary-color);
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: baseline;*/
-  /*flex: 1;*/
   text-align: center;
   padding: 40px;
   font-size: 2.2rem;
@@ -1612,7 +1557,6 @@ body.dark {
   margin: 50px 20px 50px 6px;
   height: 10px;
   backdrop-filter: blur(30px);
-  /*border: 2px solid var(--primary-color);*/
   font-family: var(--font-family-secondary-black);
 }
 @media screen and (max-width: 900px) {
@@ -1637,7 +1581,7 @@ body.dark {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_light_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_light.png") no-repeat center center/cover;
   --primary-color: #395886;
   --secondary-color: #8AAEE0;
   --tertiary-color: #9796f0;
@@ -1679,14 +1623,14 @@ body.dark {
 
 body.dark {
   /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
-  /*--background-body: url('../../static/img/mountain_dark_2.png') no-repeat center center/cover;*/
+  /*--background-body: url('../../static/img/mountain_dark.png') no-repeat center center/cover;*/
   --background-body:
   linear-gradient(
       to right,
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0)
   ),
-  url("../../static/img/mountain_dark_resize.png") no-repeat center center/cover;
+  url("../../static/img/mountain_dark.png") no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -1728,7 +1672,6 @@ body.dark {
   justify-content: space-between;
   border: 0.2rem solid var(--tertiary-color);
   padding: 20px;
-  /*backdrop-filter: blur(30px);*/
   border: 0.2rem solid var(--tertiary-color);
 }
 @media screen and (max-width: 900px) {
@@ -1794,20 +1737,6 @@ body.dark {
     opacity: 1;
   }
 }
-@keyframes restart-animation {
-  from {
-    transform: none;
-    opacity: 1;
-  }
-  to {
-    transform: none;
-    opacity: 1;
-  }
-}
-.reset-animations {
-  animation: restart-animation 0s;
-}
-
 .reveal__loaded .reveal [class*=reveal-] {
   opacity: 0 !important;
   transform: translateY(-30px);
