@@ -5,10 +5,6 @@
 
 .logo__container {
     border: .2rem solid var(--tertiary-color);
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: baseline;*/
-    /*flex: 1;*/
     text-align: center;
     padding: 40px;
     font-size: 2.2rem;
@@ -16,7 +12,6 @@
     margin: 50px 20px 50px 6px;
     height: 10px;
     backdrop-filter: blur(30px);
-    /*border: 2px solid var(--primary-color);*/
     font-family: var(--font-family-secondary-black);
 
     @include responsive-max(tablet) {
