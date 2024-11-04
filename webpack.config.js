@@ -10,12 +10,26 @@ export default {
     entry: path.join(__dirname, 'src', 'main'),
     output: {
         path: path.join(__dirname, 'dist'),
-        publicPath: '/dist/',
-        filename: "bundle.js",
+        publicPath: '', // Chemin public racine pour les ressources
+        filename: 'bundle.js',
         chunkFilename: '[name].js'
     },
     module: {
         rules: [
+            {
+                test: /\.(png|jpe?g|gif|svg)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'static/img/[name][ext][query]'
+                }
+            },
+            {
+                test: /\.(ttf|eot|woff|woff2)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'static/fonts/[name][ext][query]'
+                }
+            },
             {
                 test: /\.jsx?$/,
                 include: [
@@ -51,13 +65,14 @@ export default {
         ]
     },
     resolve: {
-        extensions: ['.json', '.js', '.jsx', '.scss']
+        extensions: ['.json', '.js', '.jsx', '.scss'],
     },
     devtool: 'source-map',
     devServer: {
-        static: path.join(__dirname, '/dist/'),
+        static: path.join(__dirname, 'dist'),
         inline: true,
         host: 'localhost',
         port: 8080,
+        historyApiFallback: true,
     }
 };
