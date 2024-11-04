@@ -518,6 +518,71 @@ const ScrollAnimation = () => {
 
 /***/ }),
 
+/***/ "./components/ThemeSwitcher.jsx":
+/*!**************************************!*\
+  !*** ./components/ThemeSwitcher.jsx ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hooks_useTheme_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../hooks/useTheme.js */ "./hooks/useTheme.js");
+// components/ThemeSwitcher.jsx
+
+
+
+/**
+ * Composant ThemeSwitcher permettant de basculer entre les thèmes clair et sombre.
+ *
+ * @param {Object} props - Les propriétés du composant.
+ * @param {boolean} [props.invertedIconLogic=false] - Si vrai, l'icône est inversée par rapport à l'état du thème.
+ * @param {Function} [props.onChange] - Fonction appelée lorsque le thème change.
+ * @returns {JSX.Element} Le composant ThemeSwitcher.
+ */
+const ThemeSwitcher = ({
+  invertedIconLogic = false,
+  onChange
+}) => {
+  // Récupération du thème actuel et de la fonction pour basculer le thème
+  const {
+    theme,
+    toggleTheme
+  } = (0,_hooks_useTheme_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
+
+  // Détermine si le thème actuel est sombre
+  const isDark = theme === "dark";
+
+  /**
+   * Fonction appelée lorsque l'état de la case à cocher change.
+   * Bascule le thème et appele la fonction onChange si elle est définie.
+   */
+  const handleChange = () => {
+    // Bascule le thème
+    toggleTheme();
+
+    // Appele la fonction onChange passée en prop, si elle existe
+    if (onChange) onChange();
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+    className: `theme__container ${isDark ? "IsDark" : "IsLight"}`
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", {
+    type: "checkbox"
+    // La case est cochée en fonction de l'état du thème et de la logique inversée des icônes
+    ,
+    defaultChecked: invertedIconLogic ? !isDark : isDark
+    // Fonction appelée lorsque l'état de la case change
+    ,
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ThemeSwitcher);
+
+/***/ }),
+
 /***/ "./components/TodoItem.jsx":
 /*!*********************************!*\
   !*** ./components/TodoItem.jsx ***!
@@ -773,21 +838,50 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TodoList_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/TodoList.jsx */ "./components/TodoList.jsx");
 /* harmony import */ var _components_Calendar_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Calendar.jsx */ "./components/Calendar.jsx");
 /* harmony import */ var _components_ScrollAnimation_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ScrollAnimation.jsx */ "./components/ScrollAnimation.jsx");
-/* harmony import */ var _components_DateHoverContext_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/DateHoverContext.jsx */ "./components/DateHoverContext.jsx");
+/* harmony import */ var _components_ThemeSwitcher_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/ThemeSwitcher.jsx */ "./components/ThemeSwitcher.jsx");
+/* harmony import */ var _components_DateHoverContext_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/DateHoverContext.jsx */ "./components/DateHoverContext.jsx");
 // src/App.jsx
 
 
 
 
 
+
+
+/**
+ * Composant principal de l'application.
+ * Gère le changement de thème et force la réinitialisation des animations en modifiant la clé du composant principal.
+ *
+ * @returns {JSX.Element} Le composant App.
+ */
 const App = () => {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_DateHoverContext_jsx__WEBPACK_IMPORTED_MODULE_4__.DateHoverProvider, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "app__container reveal"
+  // État pour gérer la clé unique du composant principal
+  const [themeKey, setThemeKey] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
+
+  /**
+   * Fonction appelée lors du changement de thème.
+   * Incrémente la clé du composant principal pour forcer le re-render,
+   * ce qui réinitialise les animations.
+   */
+  const handleThemeChange = () => {
+    setThemeKey(prevKey => prevKey + 1);
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_DateHoverContext_jsx__WEBPACK_IMPORTED_MODULE_5__.DateHoverProvider, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "app__container reveal",
+    key: themeKey
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ScrollAnimation_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "logo__container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
     className: "text-center mb-5 reveal-4"
   }, "To-Do List application")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "theme__wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "theme__container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ThemeSwitcher_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    onChange: handleThemeChange
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "todo__container"
@@ -813,12 +907,85 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2__);
 // Imports
 
 
+
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../static/img/mountain_light.png */ "./static/img/mountain_light.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../static/img/mountain_dark.png */ "./static/img/mountain_dark.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../static/fonts/Manrope-Regular.ttf */ "./static/fonts/Manrope-Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../static/fonts/Manrope-ExtraBold.ttf */ "./static/fonts/Manrope-ExtraBold.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../static/fonts/Outfit-Regular.ttf */ "./static/fonts/Outfit-Regular.ttf"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_5___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../static/fonts/Outfit-Black.ttf */ "./static/fonts/Outfit-Black.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_4___);
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_5___);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `:root {
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center/cover;
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --quaternary-color: #e0e0ee;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #fff;
+  --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
+}
+
+body.dark {
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('/static/img/mountain_dark.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_1___}) no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -847,33 +1014,133 @@ ___CSS_LOADER_EXPORT___.push([module.id, `:root {
   --btn-hover-color: var(--text-light);
   --btn-active-bg: var(--primary-color);
   --btn-active-border-color: var(--primary-color);
-  --custom-border: 1px solid rgb(234, 234, 234);
+  --custom-border: 1px solid var(--tertiary-color);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
+  --color-toggle-light: #eee;
+  --color-toggle-dark: #000;
 }
 
+@font-face {
+  font-family: "Manrope";
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_3___}) format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_4___}) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_5___}) format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
 html, body {
   place-items: center;
-  font-family: var(--font-family);
-  background: linear-gradient(90deg, rgb(26, 29, 41) 0%, rgb(61, 63, 74) 25%, rgb(125, 132, 145) 75%, rgb(177, 178, 181) 100%);
+  font-family: var(--font-family-primary);
+  background: var(--background-body);
   height: 100%;
+  overflow-x: hidden;
 }
 html h1.text-center, body h1.text-center {
+  font-family: var(--font-family-secondary-bold);
   color: var(--primary-color);
-  margin-top: 20px;
-}
-html *, body * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-html hr, body hr {
-  border: 0.1rem solid var(--tertiary-color);
-  margin-top: 40px;
+  margin-top: -25px;
 }
 
+@font-face {
+  font-family: "Manrope";
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_2___}) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_3___}) format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_4___}) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url(${___CSS_LOADER_URL_REPLACEMENT_5___}) format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
 :root {
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center/cover;
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --quaternary-color: #e0e0ee;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #fff;
+  --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
+}
+
+body.dark {
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('/static/img/mountain_dark.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_1___}) no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -902,13 +1169,72 @@ html hr, body hr {
   --btn-hover-color: var(--text-light);
   --btn-active-bg: var(--primary-color);
   --btn-active-border-color: var(--primary-color);
-  --custom-border: 1px solid rgb(234, 234, 234);
+  --custom-border: 1px solid var(--tertiary-color);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
+  --color-toggle-light: #eee;
+  --color-toggle-dark: #000;
 }
 
 :root {
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center/cover;
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --quaternary-color: #e0e0ee;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #fff;
+  --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
+}
+
+body.dark {
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('/static/img/mountain_dark.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_1___}) no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -937,15 +1263,18 @@ html hr, body hr {
   --btn-hover-color: var(--text-light);
   --btn-active-bg: var(--primary-color);
   --btn-active-border-color: var(--primary-color);
-  --custom-border: 1px solid rgb(234, 234, 234);
+  --custom-border: 1px solid var(--tertiary-color);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
+  --color-toggle-light: #eee;
+  --color-toggle-dark: #000;
 }
 
 .btn {
   border-color: var(--btn-bg);
   color: var(--text-light);
+}
+.btn {
   border-radius: var(--border-radius);
 }
 .btn-danger {
@@ -982,12 +1311,14 @@ html hr, body hr {
 }
 .btn:not(.active) {
   border-color: var(--btn-bg);
-  color: var(--text-light);
 }
 .btn:active {
   background-color: transparent !important;
   border-color: inherit !important;
   color: inherit !important;
+}
+.btn:hover {
+  color: var(--text-light);
 }
 
 @keyframes to-top {
@@ -1041,6 +1372,64 @@ html hr, body hr {
   }
 }
 :root {
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center/cover;
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --quaternary-color: #e0e0ee;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #fff;
+  --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
+}
+
+body.dark {
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('/static/img/mountain_dark.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_1___}) no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -1069,81 +1458,106 @@ html hr, body hr {
   --btn-hover-color: var(--text-light);
   --btn-active-bg: var(--primary-color);
   --btn-active-border-color: var(--primary-color);
-  --custom-border: 1px solid rgb(234, 234, 234);
+  --custom-border: 1px solid var(--tertiary-color);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
+  --color-toggle-light: #eee;
+  --color-toggle-dark: #000;
 }
 
 .calendar__week-days div:hover {
-  color: var(--text-dark);
+  color: var(--text-light);
   transform: scale(1.2);
+}
+.calendar__week-days div:hover {
   transition: all 0.2s ease-in-out;
 }
 .calendar__days div {
   animation: to-top 1s forwards;
 }
 .calendar__days div.calendar__day--todo-hover-created {
-  color: var(--text-light) !important;
+  color: var(--text-dark) !important;
   background-color: var(--background-calendar-days-hover) !important;
+  border: 1px solid var(--primary-color) !important;
   box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37) !important;
-  border: 2px solid var(--quaternary-color) !important;
+}
+.calendar__days div.calendar__day--todo-hover-created {
   border-radius: 20%;
+}
+.calendar__days div.calendar__day--todo-hover-created {
   transition: background-color 0.3s ease-in-out;
+}
+.calendar__days div.calendar__day--todo-hover-created {
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
 }
 .calendar__days div:hover {
   color: var(--text-dark);
   background-color: var(--background-calendar-days-hover);
+  border: 1px solid var(--primary-color);
+}
+.calendar__days div:hover {
   border-radius: 20%;
+}
+.calendar__days div:hover {
   transition: width 0.2s ease-in-out;
+}
+.calendar__days div:hover {
   transition: height 0.2s ease-in-out;
 }
 .calendar__days div.calendar__day--current-date {
   color: var(--text-light);
   background-color: var(--primary-color);
+  border: 1px solid var(--secondary-color);
+}
+.calendar__days div.calendar__day--current-date {
   border-radius: 20%;
 }
-.calendar__month-picker:hover {
-  background-color: var(--tertiary-color);
-  color: var(--text-light);
+.calendar__days div.calendar__day--current-date {
+  transition: background-color 0.3s ease-in-out;
 }
-.calendar__year-change:hover {
-  background-color: var(--tertiary-color);
-  transform: scale(1.12);
-  transition: background-color 0.2s ease-in-out;
+.calendar__days div.calendar__day--current-date {
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+}
+.calendar__month-list {
+  position: relative;
+  top: -20px;
+  background-color: var(--light-btn);
+  color: var(--tertiary-color);
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  border-radius: 20px;
+  border: 2px solid var(--primary-color);
+}
+.calendar__month-list {
+  box-shadow: var(--shadow);
+}
+.calendar__month-list div {
+  display: grid;
+  place-items: center;
+  margin: 5px;
+  font-family: var(--font-family-secondary-black);
+  cursor: pointer;
+}
+.calendar__month-list div {
+  border-radius: 12px;
 }
 .calendar__month-list.calendar__month-list--show {
   display: grid;
   animation: showtime 1s forwards;
   backdrop-filter: blur(30px);
-  /*box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);*/
   border: 2px solid rgba(255, 255, 255, 0.18);
+  padding: 10px;
+  top: -30px;
+  font-family: var(--font-family-primary);
+}
+.calendar__month-list.calendar__month-list--show {
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+}
+.calendar__month-list:hover {
+  border: 2px solid var(--tertiary-color);
 }
 .calendar__month-list:hover {
   box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
-  border: 2px solid var(--primary-color);
-  /*border: 2px solid rgba(255, 255, 255, 0.18);*/
-}
-.calendar__time-format {
-  font-size: 1.5rem;
-}
-.calendar__time-format--hideTime {
-  animation: hidetime 1.5s forwards;
-}
-.calendar__time-format--showtime {
-  animation: showtime 2s forwards;
-}
-.calendar__day-text-format--hidetime, .calendar__date-format--hideTime, .calendar__date-time-value--hideTime, .calendar__date-time-format--hideTime {
-  animation: hidetime 1.5s forwards;
-}
-.calendar__day-text-format--showtime, .calendar__date-format--showtime, .calendar__date-time-value--showtime, .calendar__date-time-format--showtime {
-  animation: showtime 1s forwards;
-}
-.calendar--hidetime {
-  animation: hidetime 1s forwards;
-}
-.calendar--showtime {
-  animation: showtime 3s forwards;
 }
 .calendar__month-list--hideonce {
   visibility: hidden;
@@ -1154,7 +1568,6 @@ html hr, body hr {
   pointer-events: none;
 }
 .calendar__month-item--active {
-  font-weight: bold;
   background-color: var(--primary-color);
   color: var(--text-muted);
 }
@@ -1164,6 +1577,64 @@ html hr, body hr {
 }
 
 :root {
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center/cover;
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --quaternary-color: #e0e0ee;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #fff;
+  --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
+}
+
+body.dark {
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('/static/img/mountain_dark.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_1___}) no-repeat center center/cover;
   --primary-color: #1A1D29;
   --secondary-color: #3D3F4A;
   --tertiary-color: #7D8491;
@@ -1192,18 +1663,20 @@ html hr, body hr {
   --btn-hover-color: var(--text-light);
   --btn-active-bg: var(--primary-color);
   --btn-active-border-color: var(--primary-color);
-  --custom-border: 1px solid rgb(234, 234, 234);
+  --custom-border: 1px solid var(--tertiary-color);
   --border-radius: 4px;
   --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
+  --color-toggle-light: #eee;
+  --color-toggle-dark: #000;
 }
 
 .calendar {
   width: 400px;
-  overflow: hidden;
+  clip-path: inset(0 0 0 0);
   padding: 20px 50px 0px 50px;
-  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
   border: 2px solid rgba(255, 255, 255, 0.18);
+}
+.calendar {
   border-radius: 25px;
 }
 .calendar__header {
@@ -1214,6 +1687,9 @@ html hr, body hr {
   font-weight: 700;
   color: var(--text-light);
   padding: 10px;
+  border: 0.2rem solid var(--tertiary-color);
+}
+.calendar__header {
   border-radius: 15px;
 }
 .calendar__week-days {
@@ -1222,22 +1698,26 @@ html hr, body hr {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--background-calendar-weekdays);
+  font-family: var(--font-family-secondary);
   cursor: pointer;
 }
 .calendar__week-days div {
   display: grid;
   place-items: center;
   height: 50px;
+  color: var(--text-dark);
 }
 .calendar__days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 2px;
-  color: var(--text-dark);
+  color: var(--text-light);
+  font-family: var(--font-family-secondary-black);
 }
 .calendar__days div {
-  width: 37px;
-  height: 33px;
+  margin: 1px;
+  width: auto;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1246,11 +1726,17 @@ html hr, body hr {
   cursor: pointer;
 }
 .calendar__month-picker {
-  font-family: Microsoft JhengHei UI;
+  font-family: var(--font-family-primary);
   font-size: 1.4rem;
   padding: 5px 10px;
   cursor: pointer;
+}
+.calendar__month-picker {
   border-radius: 10px;
+}
+.calendar__month-picker:hover {
+  background-color: var(--tertiary-color);
+  color: var(--text-light);
 }
 .calendar__year-picker {
   display: flex;
@@ -1263,75 +1749,923 @@ html hr, body hr {
   place-items: center;
   margin: 0px 10px;
   cursor: pointer;
+}
+.calendar__year-change {
   border-radius: 50%;
 }
-.calendar__footer {
-  padding: 10px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.calendar__year-change:hover {
+  background-color: var(--tertiary-color);
+  transform: scale(1.12);
 }
-.calendar__month-list {
-  position: relative;
-  top: -20px;
-  background-color: var(--light-btn);
-  color: var(--text-dark);
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-  border: 2px solid var(--primary-color);
+.calendar__year-change:hover {
+  transition: background-color 0.2s ease-in-out;
 }
-.calendar__month-list div {
-  display: grid;
-  place-items: center;
-  margin: 5px;
-  cursor: pointer;
-  border-radius: 12px;
+.calendar span {
+  font-size: 1rem;
 }
+
+@keyframes to-top {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+@keyframes to-left {
+  0% {
+    transform: translatex(230%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+}
+@keyframes to-right {
+  10% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(-150%);
+    opacity: 1;
+  }
+}
+@keyframes showtime {
+  0% {
+    transform: translatex(250%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+}
+@keyframes hidetime {
+  0% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(-370%);
+    opacity: 1;
+  }
+}
+:root {
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center/cover;
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --quaternary-color: #e0e0ee;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #fff;
+  --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
+}
+
+body.dark {
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('/static/img/mountain_dark.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_1___}) no-repeat center center/cover;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #eee;
+  --color-toggle-dark: #000;
+}
+
 .calendar__date-time-format {
-  border-radius: 15px;
   border: 0.2rem solid var(--tertiary-color);
   height: max-content;
-  font-family: Dubai Light, Century Gothic;
+  font-family: var(--font-family-primary-extra-bold);
   position: relative;
-  top: 45px;
+  top: 40px;
   justify-content: center;
   padding: 30px 60px 30px 50px;
   margin-bottom: -80px;
-  backdrop-filter: blur(30px);
+}
+.calendar__date-time-format {
+  border-radius: 15px;
+}
+.calendar__date-time-format {
   box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
 }
 .calendar__day-text-format {
   display: block;
   padding: 25px 25px;
-  font-family: Microsoft JhengHei UI;
-  font-size: 1.4rem;
-  padding-right: 5%;
-  border-right: 4px solid #d7d6e9;
+  font-family: var(--font-family-primary);
+  /*font-weight: bold;*/
+  font-size: 1.5rem;
+  padding-right: 3%;
+  border-right: 4px solid var(--secondary-color);
   position: absolute;
   left: -1rem;
+  top: 2.5rem;
+  color: var(--text-light);
 }
 .calendar__day-text-format--hideTime {
   animation: hidetime 1.5s forwards;
 }
 .calendar__day-text-format--showtime {
-  animation: showtime 2s forwards;
+  animation: showtime 3s forwards;
 }
 .calendar__date-time-value {
-  border-radius: 15px;
   border: 0.2rem solid var(--quaternary-color);
+  font-family: var(--font-family-secondary-black);
+  font-size: 1rem;
   display: block;
   height: max-content;
   position: relative;
   left: 27%;
   top: -3px;
   text-align: center;
+  padding: 10px 10px;
+  color: var(--quaternary-color);
 }
-.calendar span {
-  font-size: 1rem;
+.calendar__date-time-value {
+  border-radius: 15px;
+}
+.calendar__date-time-value {
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+}
+.calendar__time-format {
+  font-size: 1.5rem;
+}
+.calendar__time-format--hideTime {
+  animation: hidetime 1.5s forwards;
+}
+.calendar__time-format--showtime {
+  animation: showtime 3s forwards;
+}
+.calendar__day-text-format--hidetime, .calendar__date-format--hideTime, .calendar__date-time-value--hideTime, .calendar__date-time-format--hideTime {
+  animation: hidetime 1.5s forwards;
+}
+.calendar__date-time-format--showtime {
+  animation: showtime 2.5s forwards;
+}
+.calendar__date-format--showtime, .calendar__date-time-value--showtime, .calendar__date-time-format--showtime {
+  animation: showtime 1s forwards;
+}
+.calendar--hidetime {
+  animation: hidetime 1.5s forwards;
+}
+.calendar--showtime {
+  animation: showtime 3s forwards;
 }
 
+:root {
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center/cover;
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --quaternary-color: #e0e0ee;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #fff;
+  --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
+}
+
+body.dark {
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('/static/img/mountain_dark.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_1___}) no-repeat center center/cover;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #eee;
+  --color-toggle-dark: #000;
+}
+
+@keyframes to-top {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+@keyframes to-left {
+  0% {
+    transform: translatex(230%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+}
+@keyframes to-right {
+  10% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(-150%);
+    opacity: 1;
+  }
+}
+@keyframes showtime {
+  0% {
+    transform: translatex(250%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+}
+@keyframes hidetime {
+  0% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(-370%);
+    opacity: 1;
+  }
+}
+.theme__wrapper {
+  padding: 10px 20px;
+  backdrop-filter: blur(30px);
+  border: 0.2rem solid var(--tertiary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  height: 80px;
+}
+.theme__wrapper {
+  border-radius: 25px;
+}
+.theme__wrapper {
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+}
+
+.theme__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  padding: 2px 2px;
+  background-color: var(--color-toggle-light);
+  animation: showtime 1s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+}
+.theme__container {
+  border-radius: 35px;
+}
+.theme__container.IsDark {
+  background-color: var(--color-toggle-dark);
+}
+.theme__container input {
+  display: none;
+}
+.theme__container div {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transform: scale(1) rotate(-2deg);
+  transition: box-shadow 0.5s ease, transform 0.4s ease 0.1s;
+}
+.theme__container div {
+  border-radius: 50%;
+}
+.theme__container div {
+  box-shadow: inset 8px -8px 0 0 var(--color-toggle-dark);
+}
+.theme__container div::before {
+  content: "";
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: background 0.3s ease;
+}
+.theme__container div::after {
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0);
+  transition: all 0.3s ease;
+  content: "";
+}
+.theme__container div::after {
+  border-radius: 50%;
+}
+.theme__container div::after {
+  box-shadow: 0 -13px 0 var(--color-toggle-light), 0 13px 0 var(--color-toggle-light), 13px 0 0 var(--color-toggle-light), -13px 0 0 var(--color-toggle-light), 9px 9px 0 var(--color-toggle-light), -9px 9px 0 var(--color-toggle-light), 9px -9px 0 var(--color-toggle-light), -9px -9px 0 var(--color-toggle-light);
+}
+.theme__container input:checked + div {
+  transform: scale(0.5) rotate(0deg);
+  transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease;
+}
+.theme__container input:checked + div {
+  box-shadow: inset 32px -32px 0 0 var(--color-toggle-light);
+}
+.theme__container input:checked + div::before {
+  background: var(--color-toggle-light);
+  transition: background 0.3s ease 0.1s;
+}
+.theme__container input:checked + div::after {
+  transform: scale(1.5);
+  transition: transform 0.5s ease 0.15s;
+}
+
+:root {
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center/cover;
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --quaternary-color: #e0e0ee;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #fff;
+  --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
+}
+
+body.dark {
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('/static/img/mountain_dark.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_1___}) no-repeat center center/cover;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #eee;
+  --color-toggle-dark: #000;
+}
+
+.todo__container {
+  flex: 3;
+  margin-right: 20px;
+}
+.todo__container .list-group-custom {
+  border: 2px solid var(--btn-border-color);
+  color: var(--text-light);
+  font-family: var(--font-family-secondary);
+  --bs-list-group-bg: var(--tertiary-color);
+}
+.todo__container .hover-info {
+  margin: 5px;
+  position: absolute;
+  background-color: transparent;
+  border: var(--custom-border);
+  padding: 10px;
+  z-index: 10;
+  color: var(--text-light);
+  font-weight: bold;
+  font-family: var(--font-family-primary-extra-bold);
+}
+.todo__container .hover-info {
+  border-radius: 10px;
+}
+.todo__container .list-group-item {
+  color: var(--primary-color);
+}
+.todo__container .list-group-item:hover {
+  background-color: var(--background-todo-item-hover);
+}
+.todo__container .form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.todo__container .form-control:focus {
+  border-color: var(--quaternary-color);
+}
+.todo__container .form-control:focus {
+  box-shadow: 0 0 0 0.15rem var(--quaternary-color);
+}
+
+.app__container {
+  padding: 50px;
+}
+.app__container .todo__container {
+  flex: 3;
+  margin-right: 20px;
+}
+.app__container .calendar__container {
+  flex: 1;
+}
+@media screen and (max-width: 900px) {
+  .app__container .calendar__container {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.app__container .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:root {
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center/cover;
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --quaternary-color: #e0e0ee;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #fff;
+  --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
+}
+
+body.dark {
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('/static/img/mountain_dark.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_1___}) no-repeat center center/cover;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #eee;
+  --color-toggle-dark: #000;
+}
+
+.logo__container {
+  border: 0.2rem solid var(--tertiary-color);
+  text-align: center;
+  padding: 40px;
+  font-size: 2.2rem;
+  max-width: 50%;
+  margin: 50px 20px 50px 6px;
+  height: 10px;
+  backdrop-filter: blur(30px);
+  font-family: var(--font-family-secondary-black);
+}
+@media screen and (max-width: 900px) {
+  .logo__container {
+    padding: 0px;
+    height: 120px;
+  }
+}
+.logo__container {
+  border-radius: 25px;
+}
+.logo__container {
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+}
+
+:root {
+  /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
+  /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_0___}) no-repeat center center/cover;
+  --primary-color: #395886;
+  --secondary-color: #8AAEE0;
+  --tertiary-color: #9796f0;
+  --quaternary-color: #e0e0ee;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #fff;
+  --color-toggle-dark: #000;
+  --font-family-primary: "Manrope", sans-serif;
+  --font-family-primary-extra-bold: "Manrope", sans-serif;
+  --font-family-secondary: "Outfit", sans-serif;
+  --font-family-secondary-black: "Outfit", sans-serif;
+}
+
+body.dark {
+  /*--background-body: linear-gradient(90deg, rgba(26,29,41,1) 0%, rgba(61,63,74,1) 25%, rgba(125,132,145,1) 75%, rgba(177,178,181,1) 100%);*/
+  /*--background-body: url('/static/img/mountain_dark.png') no-repeat center center/cover;*/
+  --background-body:
+  linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0)
+  ),
+  url(${___CSS_LOADER_URL_REPLACEMENT_1___}) no-repeat center center/cover;
+  --primary-color: #1A1D29;
+  --secondary-color: #3D3F4A;
+  --tertiary-color: #7D8491;
+  --quaternary-color: #B1B2B5;
+  --danger-color: #bb2d3b;
+  --danger-border-color: #b02a37;
+  --text-light: #f8fbff;
+  --text-dark: #151426;
+  --text-secondary: #c3c2c8;
+  --text-muted: #f0f0f0;
+  --text-hover: #f3f8fe;
+  --background-body-start: rgba(3, 32, 48, 1);
+  --background-body-middle: rgba(2, 43, 66, 1);
+  --background-body-end: rgba(0, 53, 84, 1);
+  --background-calendar-header: var(--primary-color);
+  --background-calendar-weekdays: var(--quaternary-color);
+  --background-calendar-days-hover: var(--quaternary-color);
+  --background-month-list: var(--tertiary-color);
+  --background-month-list-hover: var(--primary-color);
+  --background-todo-item-hover: var(--quaternary-color);
+  --btn-bg: var(--primary-color);
+  --btn-hover-bg: var(--primary-color);
+  --btn-border-color: var(--secondary-color);
+  --btn-hover-border-color: var(--primary-color);
+  --btn-color: var(--secondary-color);
+  --btn-hover-color: var(--text-light);
+  --btn-active-bg: var(--primary-color);
+  --btn-active-border-color: var(--primary-color);
+  --custom-border: 1px solid var(--tertiary-color);
+  --border-radius: 4px;
+  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
+  --color-toggle-light: #eee;
+  --color-toggle-dark: #000;
+}
+
+.container {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  border: 0.2rem solid var(--tertiary-color);
+  padding: 20px;
+  border: 0.2rem solid var(--tertiary-color);
+}
+@media screen and (max-width: 900px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.container {
+  border-radius: 25px;
+}
+.container {
+  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
+}
+
+@keyframes to-top {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+@keyframes to-left {
+  0% {
+    transform: translatex(230%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+}
+@keyframes to-right {
+  10% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(-150%);
+    opacity: 1;
+  }
+}
+@keyframes showtime {
+  0% {
+    transform: translatex(250%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+}
+@keyframes hidetime {
+  0% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(-370%);
+    opacity: 1;
+  }
+}
 .reveal__loaded .reveal [class*=reveal-] {
   opacity: 0 !important;
   transform: translateY(-30px);
@@ -1360,256 +2694,7 @@ html hr, body hr {
     transition-duration: 0s !important;
     transition-delay: 0s !important;
   }
-}
-:root {
-  --primary-color: #1A1D29;
-  --secondary-color: #3D3F4A;
-  --tertiary-color: #7D8491;
-  --quaternary-color: #B1B2B5;
-  --danger-color: #bb2d3b;
-  --danger-border-color: #b02a37;
-  --text-light: #f8fbff;
-  --text-dark: #151426;
-  --text-secondary: #c3c2c8;
-  --text-muted: #f0f0f0;
-  --text-hover: #f3f8fe;
-  --background-body-start: rgba(3, 32, 48, 1);
-  --background-body-middle: rgba(2, 43, 66, 1);
-  --background-body-end: rgba(0, 53, 84, 1);
-  --background-calendar-header: var(--primary-color);
-  --background-calendar-weekdays: var(--quaternary-color);
-  --background-calendar-days-hover: var(--quaternary-color);
-  --background-month-list: var(--tertiary-color);
-  --background-month-list-hover: var(--primary-color);
-  --background-todo-item-hover: var(--quaternary-color);
-  --btn-bg: var(--primary-color);
-  --btn-hover-bg: var(--primary-color);
-  --btn-border-color: var(--secondary-color);
-  --btn-hover-border-color: var(--primary-color);
-  --btn-color: var(--secondary-color);
-  --btn-hover-color: var(--text-light);
-  --btn-active-bg: var(--primary-color);
-  --btn-active-border-color: var(--primary-color);
-  --custom-border: 1px solid rgb(234, 234, 234);
-  --border-radius: 4px;
-  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
-}
-
-.todo__container {
-  flex: 3;
-  margin-right: 20px;
-}
-.todo__container .list-group-custom {
-  border: 2px solid var(--btn-border-color);
-  color: var(--text-light);
-  --bs-list-group-bg: var(--tertiary-color);
-}
-.todo__container .hover-info {
-  margin: 5px;
-  position: absolute;
-  background-color: transparent;
-  border: var(--custom-border);
-  padding: 10px;
-  z-index: 10;
-  color: var(--text-light);
-  border-radius: 5px;
-}
-.todo__container .list-group-item {
-  color: var(--primary-color);
-}
-.todo__container .list-group-item:hover {
-  /*color: var(--text-light);*/
-  /*background-color: #5b7fb5;*/
-  background-color: var(--background-todo-item-hover);
-}
-.todo__container .form-check-input:checked {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-.todo__container .form-control:focus {
-  border-color: var(--quaternary-color);
-  box-shadow: 0 0 0 0.15rem var(--quaternary-color);
-}
-
-.app__container {
-  padding: 20px;
-}
-.app__container .todo__container {
-  flex: 3;
-  margin-right: 20px;
-}
-.app__container .calendar__container {
-  flex: 1;
-}
-@media screen and (max-width: 900px) {
-  .app__container .calendar__container {
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-:root {
-  --primary-color: #1A1D29;
-  --secondary-color: #3D3F4A;
-  --tertiary-color: #7D8491;
-  --quaternary-color: #B1B2B5;
-  --danger-color: #bb2d3b;
-  --danger-border-color: #b02a37;
-  --text-light: #f8fbff;
-  --text-dark: #151426;
-  --text-secondary: #c3c2c8;
-  --text-muted: #f0f0f0;
-  --text-hover: #f3f8fe;
-  --background-body-start: rgba(3, 32, 48, 1);
-  --background-body-middle: rgba(2, 43, 66, 1);
-  --background-body-end: rgba(0, 53, 84, 1);
-  --background-calendar-header: var(--primary-color);
-  --background-calendar-weekdays: var(--quaternary-color);
-  --background-calendar-days-hover: var(--quaternary-color);
-  --background-month-list: var(--tertiary-color);
-  --background-month-list-hover: var(--primary-color);
-  --background-todo-item-hover: var(--quaternary-color);
-  --btn-bg: var(--primary-color);
-  --btn-hover-bg: var(--primary-color);
-  --btn-border-color: var(--secondary-color);
-  --btn-hover-border-color: var(--primary-color);
-  --btn-color: var(--secondary-color);
-  --btn-hover-color: var(--text-light);
-  --btn-active-bg: var(--primary-color);
-  --btn-active-border-color: var(--primary-color);
-  --custom-border: 1px solid rgb(234, 234, 234);
-  --border-radius: 4px;
-  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
-}
-
-.container {
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  border: 0.2rem solid var(--tertiary-color);
-  padding: 20px;
-  backdrop-filter: blur(30px);
-  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  border-radius: 25px;
-}
-@media screen and (max-width: 900px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-:root {
-  --primary-color: #1A1D29;
-  --secondary-color: #3D3F4A;
-  --tertiary-color: #7D8491;
-  --quaternary-color: #B1B2B5;
-  --danger-color: #bb2d3b;
-  --danger-border-color: #b02a37;
-  --text-light: #f8fbff;
-  --text-dark: #151426;
-  --text-secondary: #c3c2c8;
-  --text-muted: #f0f0f0;
-  --text-hover: #f3f8fe;
-  --background-body-start: rgba(3, 32, 48, 1);
-  --background-body-middle: rgba(2, 43, 66, 1);
-  --background-body-end: rgba(0, 53, 84, 1);
-  --background-calendar-header: var(--primary-color);
-  --background-calendar-weekdays: var(--quaternary-color);
-  --background-calendar-days-hover: var(--quaternary-color);
-  --background-month-list: var(--tertiary-color);
-  --background-month-list-hover: var(--primary-color);
-  --background-todo-item-hover: var(--quaternary-color);
-  --btn-bg: var(--primary-color);
-  --btn-hover-bg: var(--primary-color);
-  --btn-border-color: var(--secondary-color);
-  --btn-hover-border-color: var(--primary-color);
-  --btn-color: var(--secondary-color);
-  --btn-hover-color: var(--text-light);
-  --btn-active-bg: var(--primary-color);
-  --btn-active-border-color: var(--primary-color);
-  --custom-border: 1px solid rgb(234, 234, 234);
-  --border-radius: 4px;
-  --shadow: rgba(100, 100, 111, 0.2) 5px 1px 20px 5px;
-  --font-family: consolas;
-}
-
-.logo__container {
-  border: 0.2rem solid var(--tertiary-color);
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  padding: 10px;
-  font-size: 2.2rem;
-  max-width: 50%;
-  margin: 25px auto 20px;
-  height: 110px;
-  backdrop-filter: blur(30px);
-  box-shadow: 0px 0px 30px 0 rgba(227, 228, 237, 0.37);
-  border: 2px solid rgba(255, 255, 255, 0.18);
-  border-radius: 25px;
-}
-@media screen and (max-width: 900px) {
-  .logo__container {
-    padding: 0px;
-    height: 120px;
-  }
-}
-
-@keyframes to-top {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(100%);
-    opacity: 1;
-  }
-}
-@keyframes to-left {
-  0% {
-    transform: translatex(230%);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(0);
-    opacity: 1;
-  }
-}
-@keyframes to-right {
-  10% {
-    transform: translatex(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(-150%);
-    opacity: 1;
-  }
-}
-@keyframes showtime {
-  0% {
-    transform: translatex(250%);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(0%);
-    opacity: 1;
-  }
-}
-@keyframes hidetime {
-  0% {
-    transform: translatex(0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(-370%);
-    opacity: 1;
-  }
-}`, "",{"version":3,"sources":["webpack://./sass/base/_variables.scss","webpack://./sass/main.scss","webpack://./sass/base/_base.scss","webpack://./sass/components/_buttons.scss","webpack://./sass/utils/_mixins.scss","webpack://./sass/utils/_animations.scss","webpack://./sass/components/_calendar-interactions.scss","webpack://./sass/components/_calendar-structure.scss","webpack://./sass/components/_reveal.scss","webpack://./sass/components/_todo.scss","webpack://./sass/layout/_app.scss","webpack://./sass/layout/_container.scss","webpack://./sass/layout/_logo.scss"],"names":[],"mappings":"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","sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./sass/base/_variables.scss","webpack://./sass/main.scss","webpack://./sass/base/_fonts.scss","webpack://./sass/base/_base.scss","webpack://./sass/components/_buttons.scss","webpack://./sass/utils/_mixins.scss","webpack://./sass/utils/_animations.scss","webpack://./sass/components/_calendar-month-body.scss","webpack://./sass/components/_calendar-month-header.scss","webpack://./sass/components/_calendar-time-date.scss","webpack://./sass/components/_theme-switcher.scss","webpack://./sass/components/_todo-list-group.scss","webpack://./sass/layout/_app-container.scss","webpack://./sass/layout/_logo-container.scss","webpack://./sass/layout/_todo-calendar-container.scss","webpack://./sass/utils/_reveal.scss"],"names":[],"mappings":"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","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1706,6 +2791,41 @@ module.exports = function (cssWithMappingToString) {
     }
   };
   return list;
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
+/*!********************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    options = {};
+  }
+  if (!url) {
+    return url;
+  }
+  url = String(url.__esModule ? url.default : url);
+
+  // If url is already wrapped in quotes, remove them
+  if (/^['"].*['"]$/.test(url)) {
+    url = url.slice(1, -1);
+  }
+  if (options.hash) {
+    url += options.hash;
+  }
+
+  // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+  if (/["'() \t\n]|(%20)/.test(url) || options.needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, "\\n"), "\"");
+  }
+  return url;
 };
 
 /***/ }),
@@ -35482,6 +36602,66 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./static/fonts/Manrope-ExtraBold.ttf":
+/*!********************************************!*\
+  !*** ./static/fonts/Manrope-ExtraBold.ttf ***!
+  \********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "static/fonts/Manrope-ExtraBold.ttf";
+
+/***/ }),
+
+/***/ "./static/fonts/Manrope-Regular.ttf":
+/*!******************************************!*\
+  !*** ./static/fonts/Manrope-Regular.ttf ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "static/fonts/Manrope-Regular.ttf";
+
+/***/ }),
+
+/***/ "./static/fonts/Outfit-Black.ttf":
+/*!***************************************!*\
+  !*** ./static/fonts/Outfit-Black.ttf ***!
+  \***************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "static/fonts/Outfit-Black.ttf";
+
+/***/ }),
+
+/***/ "./static/fonts/Outfit-Regular.ttf":
+/*!*****************************************!*\
+  !*** ./static/fonts/Outfit-Regular.ttf ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "static/fonts/Outfit-Regular.ttf";
+
+/***/ }),
+
+/***/ "./static/img/mountain_dark.png":
+/*!**************************************!*\
+  !*** ./static/img/mountain_dark.png ***!
+  \**************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "static/img/mountain_dark.png";
+
+/***/ }),
+
+/***/ "./static/img/mountain_light.png":
+/*!***************************************!*\
+  !*** ./static/img/mountain_light.png ***!
+  \***************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "static/img/mountain_light.png";
+
+/***/ }),
+
 /***/ "./hooks/useCalendar.js":
 /*!******************************!*\
   !*** ./hooks/useCalendar.js ***!
@@ -35573,6 +36753,10 @@ const useCalendar = () => {
         const firstDay = new Date(year, month).getDay()
         const days = []
 
+        days.forEach(day => {
+            day.ariaLabel = new Date(year, month, day.day).toLocaleDateString()
+        })
+
         // Remplit les jours du mois avec les informations nécessaires
         for (let i = 0; i < daysOfMonth[month] + firstDay; i++) {
             if (i >= firstDay) {
@@ -35580,9 +36764,9 @@ const useCalendar = () => {
                 days.push({
                     day: dayNumber,
                     isCurrentDate: (
-                        dayNumber === currentDay &&
-                        year === currentYear &&
-                        month === currentMonth
+                        dayNumber === new Date().getDate() &&
+                        year === new Date().getFullYear() &&
+                        month === new Date().getMonth()
                     ),
                     isHighlighted: (
                         highlightedDateState &&
@@ -35624,6 +36808,7 @@ const useCalendar = () => {
     return {
         currentMonth,
         currentYear,
+        currentDay,
         monthNames,
         generateCalendarDays,
         showMonthList,
@@ -35702,7 +36887,7 @@ const useDateTime = () => {
         updateDateTime()
 
         // Mise à jour chaque seconde
-        const intervalId = setInterval(updateDateTime, 1000)
+        const intervalId = setInterval(updateDateTime, 5000)
 
         // Nettoyage : suppression de l'intervalle lorsque le composant est démonté
         return () => clearInterval(intervalId)
@@ -35895,6 +37080,84 @@ const useSyncTodoWithCalendar = (hoverDate) => {
 
 /***/ }),
 
+/***/ "./hooks/useTheme.js":
+/*!***************************!*\
+  !*** ./hooks/useTheme.js ***!
+  \***************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+// hooks/useTheme.js
+
+
+
+/**
+ * Hook personnalisé pour gérer le thème de l'application.
+ *
+ * @returns {Object} - Un objet contenant la valeur actuelle du thème et une fonction pour le changer.
+ * @property {string} theme - Le thème actuel ('light' ou 'dark').
+ * @property {Function} toggleTheme - Fonction pour basculer entre les thèmes clair et sombre.
+ */
+const useTheme = () => {
+    /**
+     * Fonction pour obtenir le thème préféré de l'utilisateur en fonction de ses paramètres système.
+     * @returns {string} - Le thème préféré ('dark' ou 'light').
+     */
+    const getPreferredTheme = () => {
+        if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+            return "dark"
+        }
+        return "light"
+    }
+
+    /**
+     * Fonction pour initialiser le thème. Vérifie s'il y a un thème sauvegardé dans le stockage local,
+     * sinon utilise le thème préféré de l'utilisateur et le sauvegarde.
+     * @returns {string} - Le thème initial ('light' ou 'dark').
+     */
+    const initializeTheme = () => {
+        const savedTheme = localStorage.getItem("theme")
+        if (savedTheme) {
+            return savedTheme
+        }
+        const preferredTheme = getPreferredTheme()
+        localStorage.setItem("theme", preferredTheme)
+        return preferredTheme
+    }
+
+    // État du thème actuel
+    const [theme, setTheme] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(initializeTheme)
+
+    /**
+     * Fonction pour basculer entre les thèmes clair et sombre.
+     */
+    const toggleTheme = () => {
+        const newTheme = theme === "light" ? "dark" : "light"
+        setTheme(newTheme)
+        localStorage.setItem("theme", newTheme)
+    }
+
+    // Met à jour la classe du corps du document pour refléter le thème actuel
+    ;(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        document.body.className = theme
+    }, [theme])
+
+    // Retourne le thème actuel et la fonction pour le changer
+    return { theme, toggleTheme }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useTheme);
+
+
+/***/ }),
+
 /***/ "./hooks/useTodos.js":
 /*!***************************!*\
   !*** ./hooks/useTodos.js ***!
@@ -36034,6 +37297,9 @@ const useTodos = () => {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -36082,6 +37348,37 @@ const useTodos = () => {
 /******/ 			if (!module.children) module.children = [];
 /******/ 			return module;
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "";
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"main": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// no jsonp function
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */

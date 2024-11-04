@@ -1,28 +1,28 @@
 // sass/base/_fonts.scss
 @font-face {
     font-family: 'Manrope';
-    src: url('../../static/fonts/Manrope/Manrope-Regular.ttf') format('truetype');
+    src: url('/static/fonts//Manrope-Regular.ttf') format('truetype');
     font-weight: 400;  // Regular
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Manrope';
-    src: url('../../static/fonts/Manrope/Manrope-ExtraBold.ttf') format('truetype');
+    src: url('/static/fonts//Manrope-ExtraBold.ttf') format('truetype');
     font-weight: 800;  // ExtraBold
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Outfit';
-    src: url('../../static/fonts/Outfit/Outfit-Regular.ttf') format('truetype');
+    src: url('/static/fonts/Outfit-Regular.ttf') format('truetype');
     font-weight: 400;  // Regular
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Outfit';
-    src: url('../../static/fonts/Outfit/Outfit-Black.ttf') format('truetype');
+    src: url('/static/fonts/Outfit-Black.ttf') format('truetype');
     font-weight: 800;  // Black
     font-style: normal;
 }
