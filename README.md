@@ -15,7 +15,7 @@
 <div id="auteur-contact"></div>
 <a href="#top" style="float: right;">Retour en haut 🡅</a>
 
-### Auteurs et contact   
+### Auteur et contact   
 
 Pour toute information supplémentaire, vous pouvez me contacter.   
 **Bubhux:** bubhuxpaindepice@gmail.com   

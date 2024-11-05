@@ -1,7 +1,7 @@
 // sass/components/_theme-switcher.scss
-@import '../base/variables';
-@import '../utils/mixins';
-@import '../utils/animations';
+@import '../utils/_mixins.scss';
+@import '../base/_variables.scss';
+@import '../utils/_animations.scss';
 
 
 .theme__wrapper {

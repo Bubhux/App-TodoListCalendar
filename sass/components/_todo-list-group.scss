@@ -1,6 +1,6 @@
 // sass/components/_todo-list-group.scss
-@import '../base/variables';
-@import '../utils/mixins';
+@import '../utils/_mixins.scss';
+@import '../base/_variables.scss';
 
 
 .todo__container {
