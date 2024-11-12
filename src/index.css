@@ -117,7 +117,7 @@ body.dark {
   font-style: normal;
 }
 html, body {
-  place-items: center;
+  /*place-items: center;*/
   font-family: var(--font-family-primary);
   background: var(--background-body);
   height: 100%;
@@ -392,56 +392,6 @@ body.dark {
   color: var(--text-light);
 }
 
-@keyframes to-top {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(100%);
-    opacity: 1;
-  }
-}
-@keyframes to-left {
-  0% {
-    transform: translatex(230%);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(0);
-    opacity: 1;
-  }
-}
-@keyframes to-right {
-  10% {
-    transform: translatex(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(-150%);
-    opacity: 1;
-  }
-}
-@keyframes showtime {
-  0% {
-    transform: translatex(250%);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(0%);
-    opacity: 1;
-  }
-}
-@keyframes hidetime {
-  0% {
-    transform: translatex(0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(-370%);
-    opacity: 1;
-  }
-}
 :root {
   /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
   /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
@@ -536,6 +486,56 @@ body.dark {
   --color-toggle-dark: #000;
 }
 
+@keyframes to-top {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+@keyframes to-left {
+  0% {
+    transform: translatex(230%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+}
+@keyframes to-right {
+  10% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(-150%);
+    opacity: 1;
+  }
+}
+@keyframes showtime {
+  0% {
+    transform: translatex(250%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+}
+@keyframes hidetime {
+  0% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(-370%);
+    opacity: 1;
+  }
+}
 .calendar__week-days div:hover {
   color: var(--text-light);
   transform: scale(1.2);
@@ -835,56 +835,6 @@ body.dark {
   font-size: 1rem;
 }
 
-@keyframes to-top {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(100%);
-    opacity: 1;
-  }
-}
-@keyframes to-left {
-  0% {
-    transform: translatex(230%);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(0);
-    opacity: 1;
-  }
-}
-@keyframes to-right {
-  10% {
-    transform: translatex(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(-150%);
-    opacity: 1;
-  }
-}
-@keyframes showtime {
-  0% {
-    transform: translatex(250%);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(0%);
-    opacity: 1;
-  }
-}
-@keyframes hidetime {
-  0% {
-    transform: translatex(0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translatex(-370%);
-    opacity: 1;
-  }
-}
 :root {
   /*--background-body: linear-gradient(to right, #9796f0, #fbc7d4);*/
   /*--background-body: url('/static/img/mountain_light.png') no-repeat center center/cover;*/
@@ -979,6 +929,56 @@ body.dark {
   --color-toggle-dark: #000;
 }
 
+@keyframes to-top {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+@keyframes to-left {
+  0% {
+    transform: translatex(230%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+}
+@keyframes to-right {
+  10% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(-150%);
+    opacity: 1;
+  }
+}
+@keyframes showtime {
+  0% {
+    transform: translatex(250%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+}
+@keyframes hidetime {
+  0% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translatex(-370%);
+    opacity: 1;
+  }
+}
 .calendar__date-time-format {
   border: 0.2rem solid var(--tertiary-color);
   height: max-content;
@@ -1401,8 +1401,8 @@ body.dark {
   --bs-list-group-bg: var(--tertiary-color);
 }
 .todo__container .hover-info {
-  margin: 5px;
-  position: absolute;
+  margin: 10px;
+  position: relative;
   background-color: transparent;
   border: var(--custom-border);
   padding: 10px;
@@ -1410,6 +1410,8 @@ body.dark {
   color: var(--text-light);
   font-weight: bold;
   font-family: var(--font-family-primary-extra-bold);
+  transition: opacity 0.5s ease;
+  opacity: 1;
 }
 .todo__container .hover-info {
   border-radius: 10px;
