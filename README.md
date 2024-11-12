@@ -16,7 +16,7 @@
 3. **[Lancement de l'application](#lancement-application)**   
 4. **[Interface de l'application](#interface-application)**   
 5. **[Vidéo de démonstration de l'application](#vidéo-application)**   
-6. **[Accéder à la démonstration en ligne](#lien-application)**   
+6. **[Accès à la démonstration en ligne](#lien-application)**   
 7. **[Modification front-end et back-end](#modification-application)**   
 8. **[Informations importantes sur les différents fichiers et dossiers](#informations-importantes)**   
 9. **[Auteur et contact](#auteur-contact)**   
