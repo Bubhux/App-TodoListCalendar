@@ -101,7 +101,7 @@
 <div id="lien-application"></div>
 <a href="#top" style="float: right;">Retour en haut 🡅</a>
 
-### Accéder à la démonstration en ligne   
+### Accès à la démonstration en ligne   
 
 - Vous pouvez accéder à une démonstration de l'application via **GitHub Pages**.   
 - En utilisant le lien suivant ➔ [Lien de l'application en ligne](https://bubhux.github.io/App-TodoListCalendar/)   
